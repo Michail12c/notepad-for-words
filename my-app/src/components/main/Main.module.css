@@ -1,0 +1,9 @@
+.main{
+   background: url('../images/market.jpg') no-repeat center top/cover;
+   height: 100vh;
+}
+.mainMenu{
+   display: flex;
+   justify-content: center; 
+   margin-top: 8%;
+}
