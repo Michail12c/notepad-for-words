@@ -1,12 +1,13 @@
 import React from 'react';
 import style from './Menu.module.css';
+import {NavLink} from 'react-router-dom';
 
 const Menu = (props) => {
   return (
     <div className = {style.menu}>
       <nav>
         <ul>
-          <li><a href="">Почати урок</a></li>
+          <li><NavLink to = '/Lesson'>Почати урок</NavLink></li>
         </ul>
         <ul>
           <li><a href="">Додати нову фразу</a></li>

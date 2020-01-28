@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunkMiddleWare from 'redux-thunk';
 import mainReducer from "./main-reducers";
 import headerReducer from "./header-reducer";
 
@@ -10,7 +11,7 @@ let reducers = combineReducers({
 
 
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunkMiddleWare));
 
 window.store = store;
 

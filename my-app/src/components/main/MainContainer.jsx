@@ -9,11 +9,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-
-const MainContainer = connect(mapStateToProps, mapDispatchToProps )(Main);
+const MainContainer = connect(mapStateToProps,  {} )(Main);
 export default MainContainer;
