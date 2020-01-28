@@ -2,22 +2,17 @@ export class InteractionWithLocalStorage {
   constructor(name){
       this.name = name;
   }
-  createList(name3){
-     console.log(this.name, name3)
+  createList(){
+     return this._getQuestionsFromLS(this.name);
   }
 
   _getQuestionsFromLS(){
     return JSON.parse(localStorage.getItem(this.name) || '[]');
   }
 
-  addLocalStorage(elem1, elem2){
-    let setWord = {
-      word: elem1,
-      transfer: elem2,
-      status: false
-    }
+  addLocalStorage(elem){
       let all = this._getQuestionsFromLS(this.name);
-      all.push(setWord);
+      all.push(elem);
       localStorage.setItem(this.name, JSON.stringify(all));
   }
 

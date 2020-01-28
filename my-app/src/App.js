@@ -3,7 +3,7 @@ import './App.css';
 import MainContainer from './components/main/MainContainer';
 import { Route, Switch } from 'react-router-dom';
 import LessonContainer from './components/lessons/LessonContainer';
-import { connect } from 'react-redux';
+import AddWordsForm from './components/main/form/Form';
 
 
 const App = (props) => {
@@ -13,6 +13,7 @@ const App = (props) => {
         <Switch>
          <Route exact path = "/" render = { () => <MainContainer/>} />
          <Route path = "/Lesson" render = { () => <LessonContainer/> } />
+         <Route path = "/AddWordsForm" render = { () => <AddWordsForm/> } />
         </Switch>
         
         
