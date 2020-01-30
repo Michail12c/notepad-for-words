@@ -4,10 +4,11 @@ import MainContainer from './components/main/MainContainer';
 import { Route, Switch } from 'react-router-dom';
 import LessonContainer from './components/lessons/LessonContainer';
 import AddWordsForm from './components/main/form/Form';
+import { connect } from 'react-redux';
+import { initializeMain } from './components/redux/main-reducers';
 
 
 const App = (props) => {
-
   return (
       <div className="App">
         <Switch>
@@ -21,7 +22,6 @@ const App = (props) => {
       </div>
   );
 }
-
 
 
 export default App;

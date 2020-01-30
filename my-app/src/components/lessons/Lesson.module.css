@@ -1,0 +1,16 @@
+.lesson{
+  background: url('./../images/sunset.jpg') no-repeat center top / cover;
+  height: 100vh;
+}
+.wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.leftSide{
+  
+}
+.topSection{
+  display: flex;
+  justify-content: space-around;
+  height: 70px;
+}

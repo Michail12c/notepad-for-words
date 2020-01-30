@@ -2,7 +2,6 @@ import React from 'react';
 import style from './Header.module.css';
 
 const Header = (props) => {
-  console.log(props)
   return (
    <div className = {style.header}>
      <div className = {style.logo}>

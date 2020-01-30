@@ -4,6 +4,7 @@ import Menu from '../menu/Menu';
 import HeaderContainer from '../header/HeaderContainer';
 
 const Main = ({status}) => {
+
   return (
     <div className={style.main}>
       <HeaderContainer/>
