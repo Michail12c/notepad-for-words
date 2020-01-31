@@ -1,0 +1,32 @@
+.card{
+  text-align: center;
+  padding: 40px 30px 50px 30px;
+  background-color:rgba(16, 62, 80, 0.3);
+  font-weight: bold;
+}
+.content{
+  margin-bottom: 30px;
+}
+.innerContent button{
+  padding: 5px 10px;
+  background-color: rgb(90, 139, 179);
+  color: white;
+  border: none;
+  margin-top: 50px;
+}
+.innerContent button:hover{
+  cursor: pointer;
+  background-color: rgb(61, 85, 104);
+}
+.choiceMenu button{
+   margin-right: 5px;
+   margin-left: 5px;
+   border: none;
+   background-color: rgb(37, 68, 93);
+   padding: 5px 10px;
+   color: white;
+}
+.choiceMenu button:hover{
+  cursor: pointer;
+  background-color: rgb(61, 85, 104);
+}

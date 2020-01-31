@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 const Menu = (props) => {
   return (
     <div className = {style.menu}>
-      <nav>
+       <nav>
         <ul>
           <li><NavLink to = '/Lesson'>Почати урок</NavLink></li>
         </ul>
@@ -18,7 +18,7 @@ const Menu = (props) => {
         <ul>
           <li><a href="">Налаштування</a></li>
         </ul>
-      </nav>
+      </nav> 
     </div>
   )
 }

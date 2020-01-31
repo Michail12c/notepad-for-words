@@ -99,7 +99,7 @@ const Content = ({content, flag, updateFlag}) => {
     updateFlag(false)
   }
   return(
-    <div>
+    <div className = {style.innerContent}>
       <div>{ !flag ? content.word : content.transfer}</div>
       { !flag 
         ? <button onClick = {openTranslate}>Показати переклад</button> 
