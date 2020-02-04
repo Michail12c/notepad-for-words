@@ -9,5 +9,49 @@
 }
 .error{
    border: 1px solid red;
+}
+.sectionForm{
+   background: url('../images/evening.jpg') no-repeat center top/cover;
+   height: 100vh;
+   overflow: auto;
 
+ }
+ .remember{
+    width: 410px;
+    height: 40px;
+    border:none;
+    background-color:rgb(90, 139, 179);
+ }
+ .remember:hover{
+    cursor: pointer;
+    background-color: rgb(61, 85, 104);
+ }
+ .cardForm{
+    display: flex;
+    justify-content: space-around;
+ }
+ .menuForm button{
+    width: 250px;
+    height: 40px;
+    margin-bottom: 10px;
+    border:none;
+    color:white;
+    background-color:rgb(37, 68, 93);
+ }
+ .menuForm button:hover{
+    cursor: pointer;
+    background-color:rgb(90, 139, 179);
+ }
+ .menuForm{
+    margin-left: -100px;
+ }
+.listWords{
+   margin-bottom: 10px;
+   background: rgba(177, 189, 195, 0.3);
+}
+.listWords div{
+   padding: 5px 10px;
+   width: 450px;
+   text-align: start;
+   font-weight: bold;
 }

@@ -9,6 +9,10 @@ import { initializeMain } from './components/redux/main-reducers';
 
 
 const App = (props) => {
+  if(props.listWords == ''){
+    props.initializeMain('word');
+    props.initializeMain('word2');
+  }
   return (
       <div className="App">
         <Switch>
@@ -16,12 +20,13 @@ const App = (props) => {
          <Route path = "/Lesson" render = { () => <LessonContainer/> } />
          <Route path = "/AddWordsForm" render = { () => <AddWordsForm/> } />
         </Switch>
-        
-        
-
       </div>
   );
 }
 
-
-export default App;
+const mapStateToProps = (state) => {
+  return{
+    listWords:state.mainPage.listWords
+  }
+}
+export default connect(mapStateToProps, {initializeMain})(App);
