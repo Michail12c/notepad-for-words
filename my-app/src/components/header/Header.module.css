@@ -4,8 +4,8 @@
   width: 100vw;
   background: rgba(177, 189, 195, 0.3);
   font-weight: bold;
-  padding-top: 25px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 25px;
   font-size: 14px;
 }
 .header:hover{
@@ -27,4 +27,17 @@
   display: inline;
   margin-right: 20px;
   color:white;
+}
+.logo img{
+  width: 25px;
+  height: 25px;
+  margin-left: 40px;
+  margin-right: 10px;
+}
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+.logo span{
+  color:rgb(49, 161, 92);
+  font-size: 30px;
+  font-weight: normal;
+  font-family: 'Lobster', cursive;
 }

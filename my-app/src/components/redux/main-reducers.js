@@ -4,7 +4,7 @@ const ADD_WORD = 'ADD-WORD';
 const ADD_WORD_TWO = 'ADD-WORD-TWO';
 
 let initialState = {
-  listWords: '',
+  listWords: [],
   listWordsTwo: ''
 }
 

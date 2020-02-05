@@ -1,10 +1,10 @@
 .menu{
-  position: absolute;
   text-align: center;
   margin: 0 auto;
   padding: 30px 45px 40px 20px;
   background:rgba(16, 62, 80, 0.3);
   font-weight: bold;
+  margin-bottom: 100px;
 }
 .menu a:hover{
   color:rgb(93, 73, 73);

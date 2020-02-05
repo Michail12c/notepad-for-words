@@ -61,8 +61,6 @@ const AddWordsForm = ({listWords, ...props}) => {
         ? <AddWords  onSubmit = {onSubmit}/> 
         : <div>{myList}</div>
         }
-       
-     
         <div>
            Статистика
         </div>

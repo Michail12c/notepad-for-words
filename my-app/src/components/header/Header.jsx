@@ -1,11 +1,12 @@
 import React from 'react';
 import style from './Header.module.css';
+import logo from './../images/notepad.png'
 
 const Header = (props) => {
   return (
    <div className = {style.header}>
      <div className = {style.logo}>
-      logo and slogan
+       <img src= {logo} alt="logo"/> <span>Notepad</span> 
      </div>
      <div   className = {style.menu}>
         <div className = {style.list}>

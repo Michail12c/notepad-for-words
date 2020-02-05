@@ -5,7 +5,7 @@
 .mainMenu{
    display: flex;
    justify-content: center; 
-   margin-top: 8%;
+   margin-top: 10%;
 }
 .error{
    border: 1px solid red;
@@ -54,4 +54,48 @@
    width: 450px;
    text-align: start;
    font-weight: bold;
+}
+.title{
+   display: flex;
+   justify-content: space-around;
+   font-size: 45px;
+   font-weight: bold;
+}
+.title img{
+   width: 120px;
+   height: 120px;
+}
+.title img:hover{
+   cursor: pointer;
+}
+.arrow{
+   transform: rotate(-90deg);
+   -webkit-transform: rotate(-90deg);
+   -moz-transform: rotate(-90deg);
+   -ms-transform: rotate(-90deg);
+   -o-transform: rotate(-90deg);
+}
+.arrow2{
+   transform: rotate(90deg);
+   -webkit-transform: rotate(90deg);
+   -moz-transform: rotate(90deg);
+   -ms-transform: rotate(90deg);
+   -o-transform: rotate(90deg);
+}
+.content img {
+   width: 150px;
+   height: 150px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+@import url('https://fonts.googleapis.com/css?family=Caveat:400,700&display=swap&subset=cyrillic');
+.content {
+  margin-top: -50px;
+  font-family: 'Caveat', cursive;
+  font-weight: bold;
+}
+.content span {
+   font-size: 28px;
+ }
+.arrImages{
+   width: 500px;
 }
