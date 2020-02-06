@@ -10,10 +10,10 @@ const Menu = (props) => {
           <li><NavLink to = '/Lesson'>Почати урок</NavLink></li>
         </ul>
         <ul>
-          <li><NavLink to = '/AddWordsForm'>Додати нову фразу</NavLink></li>
+          <li><NavLink to = '/AddWordsForm'>Поповнити сховище слів</NavLink></li>
         </ul>
         <ul>
-          <li><a href="">Вивести свій список</a></li>
+          <li><NavLink  to = '/AddWordsForm'>Показати сховища</NavLink></li>
         </ul>
         <ul>
           <li><a href="">Налаштування</a></li>

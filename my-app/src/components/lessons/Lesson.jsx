@@ -13,7 +13,7 @@ const Lesson = ({ content, addWordsThunkTwoList, initializeMain, listWordsTwo })
      <TopSection logo = {'logo'} calculate = {'calculate'}/>
     <div className = {style.wrapper}>
      <div className = {style.leftSide}>
-      Lesson
+      {/* Lesson */}
       </div>
       <div className = {style.card}>
         <Card content={content}
@@ -23,7 +23,7 @@ const Lesson = ({ content, addWordsThunkTwoList, initializeMain, listWordsTwo })
         />
       </div>
       <div className = {style.rightSide}>
-       Settings
+       {/* Settings */}
       </div>
       </div> 
     </div>

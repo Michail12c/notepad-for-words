@@ -13,10 +13,11 @@ const App = (props) => {
     props.initializeMain('word');
     props.initializeMain('word2');
   }
+
   return (
       <div className="App">
         <Switch>
-         <Route exact path = "/" render = { () => <MainContainer/>} />
+         <Route exact path = "/" render = { () => <MainContainer statusUpdate = {props.statusUpdate}/>} />
          <Route path = "/Lesson" render = { () => <LessonContainer/> } />
          <Route path = "/AddWordsForm" render = { () => <AddWordsForm/> } />
         </Switch>

@@ -4,22 +4,25 @@
   width: 100vw;
   background: rgba(177, 189, 195, 0.3);
   font-weight: bold;
-  padding-top: 20px;
-  padding-bottom: 25px;
-  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 18px;
   position: fixed;
 }
 .header:hover{
   cursor: pointer;
   padding-top: 35px;
-  padding-bottom: 45px;
+  padding-bottom: 35px;
   background: rgba(66, 73, 77, 0.3);
   transition-duration: 0.3s;
-  font-size: 16px;
+  font-size: 22px;
 }
 .menu a{
   text-decoration: none;
   color:white;
+}
+.menu a:hover{
+  color:black;
 }
 .list{
  margin-right: 50px;

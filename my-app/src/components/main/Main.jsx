@@ -8,7 +8,7 @@ import Contacts from './contacts/Contacts';
 import Footer from './footer/Footer';
 
 
-const Main = ({ status, statusDeactivate }) => {
+const Main = ({ status, statusDeactivate}) => {
   const newStatus = () => {
     statusDeactivate();
   }
@@ -19,7 +19,7 @@ const Main = ({ status, statusDeactivate }) => {
       <div className={style.fieldActive} onClick={newStatus} >
       <a name="menu"></a>
         <div className={style.mainMenu} >
-          {!status ? <Title/> : <Menu />}
+          {!status ? <Title/> : <Menu/>}
         </div>
       </div>
     </div>
