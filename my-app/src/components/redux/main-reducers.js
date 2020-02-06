@@ -1,4 +1,5 @@
 import { InteractionWithLocalStorage } from "../common/handlers";
+import firstList from '../common/data.json';
 
 const ADD_WORD = 'ADD-WORD'; 
 const ADD_WORD_TWO = 'ADD-WORD-TWO';
@@ -31,15 +32,20 @@ export const addWord = (word) => {
 export const addWordTwoList = (wordTwo) => {
   return {type: ADD_WORD_TWO, wordTwo}
 }
+export const startList = () => {
+
+}
+startList()
+
 export const initializeMain = (elem) => {
   return (dispatch) =>{
-    let addLocale = new InteractionWithLocalStorage(elem);
-    let content = addLocale.createList();
+/*     let addLocale = new InteractionWithLocalStorage(elem);
+    let content = addLocale.createList(); */
     if(elem === 'word'){
-     return dispatch(addWord(content)); 
+     return dispatch(addWord(firstList)); 
     }
    if(elem === 'word2'){
-     return dispatch (addWordTwoList(content))
+     return dispatch (addWordTwoList(firstList))
    }
   }
 }
@@ -60,5 +66,7 @@ export const addWordsThunkTwoList = (wordTwo) => {
    dispatch(addWordTwoList(a));
   }
 }
+
+
 
 export default mainReducer;

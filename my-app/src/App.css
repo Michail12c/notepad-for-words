@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700&display=swap&subset=cyrillic');
 .App {
   box-sizing: border-box;
   text-align: center;
+}
+
+body{
+  font-family: 'Rubik', sans-serif;
 }
 

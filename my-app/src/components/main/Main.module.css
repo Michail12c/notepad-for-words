@@ -1,14 +1,14 @@
 .main{
-   background: url('../images/market.jpg') no-repeat center top/cover;
+   background: url('../images/market.jpg') no-repeat center center/cover;
    height: 100vh;
 }
 .mainMenu{
    display: flex;
    justify-content: center; 
-   margin-top: 10%;
+   padding-top: 16%;
 }
 .error{
-   border: 1px solid red;
+   border: 1px solid rgb(43, 104, 112);
 }
 .sectionForm{
    background: url('../images/evening.jpg') no-repeat center top/cover;
@@ -61,37 +61,14 @@
    font-size: 45px;
    font-weight: bold;
 }
-.title img{
-   width: 120px;
-   height: 120px;
-}
-.title img:hover{
-   cursor: pointer;
-}
-.arrow{
-   transform: rotate(-90deg);
-   -webkit-transform: rotate(-90deg);
-   -moz-transform: rotate(-90deg);
-   -ms-transform: rotate(-90deg);
-   -o-transform: rotate(-90deg);
-}
-.arrow2{
-   transform: rotate(90deg);
-   -webkit-transform: rotate(90deg);
-   -moz-transform: rotate(90deg);
-   -ms-transform: rotate(90deg);
-   -o-transform: rotate(90deg);
-}
-.content img {
-   width: 150px;
-   height: 150px;
-   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
+
 @import url('https://fonts.googleapis.com/css?family=Caveat:400,700&display=swap&subset=cyrillic');
 .content {
   margin-top: -50px;
   font-family: 'Caveat', cursive;
   font-weight: bold;
+  margin-right: 150px;
+  margin-left: 150px;
 }
 .content span {
    font-size: 28px;
@@ -99,3 +76,158 @@
 .arrImages{
    width: 500px;
 }
+.road{
+   margin-top: 150px;
+   font-size: 28px;
+  
+}
+.arrow{
+   width: 70px;
+   height: 70px;
+   border:3px solid rgb(182, 201, 216);
+   border-top: none;
+   border-right: none;
+   transform: rotate(45deg);
+   -webkit-transform: rotate(45deg);
+   -moz-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+   -o-transform: rotate(45deg);
+}
+.arrow:hover{
+   cursor: pointer;
+}
+.arrow1{
+   width: 70px;
+   height: 70px;
+   border:3px solid rgb(182, 201, 216);
+   border-top: none;
+   border-right: none;
+   transform: rotate(-135deg);
+   -webkit-transform: rotate(-135deg);
+   -moz-transform: rotate(-135deg);
+   -ms-transform: rotate(-135deg);
+   -o-transform: rotate(-135deg);
+}
+.arrow1:hover{
+   cursor: pointer;
+}
+.aboutUs{
+   padding-top: 70px;
+   padding-bottom: 70px;
+   background-color: rgb(235, 233, 233);
+}
+.aboutUs h2{
+   margin-bottom: 70px;
+   color:rgb(63, 53, 51);
+}
+.test img{
+   height: 175px;
+   width: 175px;
+   margin-right: 20px;
+   margin-top: 20px;
+   border-radius: 100px;
+   border: 5px solid rgb(148, 155, 172);
+   box-shadow: 0 0 7px rgb(141, 126, 126);
+   -webkit-border-radius: 100px;
+   -moz-border-radius: 100px;
+   -ms-border-radius: 100px;
+   -o-border-radius: 100px;
+   margin-left: 30px;
+   margin-right: 30px;
+ 
+}
+.test{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+.test p{
+   width: 300px;
+   font-size: 15px;
+   color:rgb(63, 53, 51);
+}
+.test2{
+   width: 300px;
+}
+.innerTest{
+  text-align: right;
+}
+.innerTest h3{
+   color:rgb(63, 53, 51);
+}
+.innerTest2 h3{
+   color:rgb(63, 53, 51);
+}
+.innerTest2{
+   text-align: left;
+ }
+ .contacts{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-image: url('./../images/Layer.png');
+    color:white;
+ }
+ .contacts h3{
+   margin-bottom: 30px;
+ }
+ .subscribe{
+    width: 410px;
+    text-align: center;
+    margin: 0 auto;
+ }
+ .sendLetter{
+    width: 100%;
+    height: 45px;
+    border:none;
+    background-color: rgb(39, 170, 163);
+    color:white;
+ }
+ .sendLetter:hover{
+    cursor: pointer;
+    background-color: rgb(57, 226, 218);
+ }
+ .lineStart{
+   color:rgb(63, 53, 51);
+   background-color: rgb(235, 233, 233);
+   padding-bottom: 20px;
+ }
+ .footer{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+ }
+ .socialNetwork{
+    display: flex;
+    margin-top: 10px;
+ }
+ .myData{
+    font-size: 14px;
+ }
+ .myData img{
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin-right: 20px;
+    margin-bottom: 5px;
+ }
+ .myData span {
+    display: block;
+ }
+ .myData div{
+    display: flex;
+ }
+
+ .socialNetwork img{
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+ }
+ .endLine{
+    font-size: 12px;
+    color:black;
+    font-weight: bold;
+ }
+ 
