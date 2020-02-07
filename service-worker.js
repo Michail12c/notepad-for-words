@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/notepad-for-words/precache-manifest.6ffff7cdaf4db4acd1f546809adb9ff2.js"
+  "/notepad-for-words/precache-manifest.3c82f86779f091ae0863e3703fdc6de2.js"
 );
 
 self.addEventListener('message', (event) => {
