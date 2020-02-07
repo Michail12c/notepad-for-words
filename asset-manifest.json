@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/notepad-for-words/static/css/main.2ac99b58.chunk.css",
+    "main.js": "/notepad-for-words/static/js/main.280af08d.chunk.js",
+    "main.js.map": "/notepad-for-words/static/js/main.280af08d.chunk.js.map",
+    "runtime-main.js": "/notepad-for-words/static/js/runtime-main.640b44fc.js",
+    "runtime-main.js.map": "/notepad-for-words/static/js/runtime-main.640b44fc.js.map",
+    "static/js/2.6f48810c.chunk.js": "/notepad-for-words/static/js/2.6f48810c.chunk.js",
+    "static/js/2.6f48810c.chunk.js.map": "/notepad-for-words/static/js/2.6f48810c.chunk.js.map",
+    "index.html": "/notepad-for-words/index.html",
+    "precache-manifest.c699f09d4003a30275d5440a45c1b854.js": "/notepad-for-words/precache-manifest.c699f09d4003a30275d5440a45c1b854.js",
+    "service-worker.js": "/notepad-for-words/service-worker.js",
+    "static/css/main.2ac99b58.chunk.css.map": "/notepad-for-words/static/css/main.2ac99b58.chunk.css.map",
+    "static/js/2.6f48810c.chunk.js.LICENSE": "/notepad-for-words/static/js/2.6f48810c.chunk.js.LICENSE",
+    "static/media/Main.module.css": "/notepad-for-words/static/media/market.56ea7c95.jpg",
+    "static/media/Linkedin.png": "/notepad-for-words/static/media/Linkedin.f856d3e2.png",
+    "static/media/ajax-loader.gif": "/notepad-for-words/static/media/ajax-loader.aee4facb.gif",
+    "static/media/games.jpg": "/notepad-for-words/static/media/games.1e73d566.jpg",
+    "static/media/git.png": "/notepad-for-words/static/media/git.8df07bef.png",
+    "static/media/notepad.png": "/notepad-for-words/static/media/notepad.93bda932.png",
+    "static/media/skype.png": "/notepad-for-words/static/media/skype.37d1a7af.png",
+    "static/media/sukses.jpg": "/notepad-for-words/static/media/sukses.bcbb393b.jpg",
+    "static/media/sunset.jpg": "/notepad-for-words/static/media/sunset.d7ea3628.jpg",
+    "static/media/telegram.png": "/notepad-for-words/static/media/telegram.f16c3c2b.png",
+    "static/media/training.jpg": "/notepad-for-words/static/media/training.c312eacd.jpg",
+    "static/media/viber.png": "/notepad-for-words/static/media/viber.a1cfec9b.png",
+    "static/media/word2.jpg": "/notepad-for-words/static/media/word2.fcfe5371.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.640b44fc.js",
+    "static/js/2.6f48810c.chunk.js",
+    "static/css/main.2ac99b58.chunk.css",
+    "static/js/main.280af08d.chunk.js"
+  ]
+}
