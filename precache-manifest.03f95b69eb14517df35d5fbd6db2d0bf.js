@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "88fb6e61bbda869c25a4e0eeefc5d0cd",
+    "revision": "8be15754908855965564f51dd26b83e5",
     "url": "/notepad-for-words/index.html"
   },
   {
-    "revision": "d3aa64cb0342c35c2db0",
+    "revision": "d6ff988f9859ca22d132",
     "url": "/notepad-for-words/static/css/main.c7b3150a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/notepad-for-words/static/js/2.db1b3983.chunk.js.LICENSE"
   },
   {
-    "revision": "d3aa64cb0342c35c2db0",
-    "url": "/notepad-for-words/static/js/main.0dc1016f.chunk.js"
+    "revision": "d6ff988f9859ca22d132",
+    "url": "/notepad-for-words/static/js/main.0b3445b8.chunk.js"
   },
   {
     "revision": "897dc2ea07cf1ae231c1",
