@@ -17,7 +17,6 @@ const Main = ({ status, statusDeactivate}) => {
     <div className={style.main} >
       <HeaderContainer />
       <div className={style.fieldActive} onClick={newStatus} >
-      <a name="menu"></a>
         <div className={style.mainMenu} >
           {!status ? <Title/> : <Menu/>}
         </div>

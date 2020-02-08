@@ -7,10 +7,8 @@ import games from './../../images/games.jpg';
 
 const AboutUs = (props) => {
   return (
-    <div className={style.aboutUs}>
-      <a name = {'aboutUs'}></a>
+    <div className={style.aboutUs} id = {'aboutUs'}>
       <h2>Про нас</h2>
-
       <div className={style.test}>
         <div className={style.innerTest}>
           <h3> Мета</h3>

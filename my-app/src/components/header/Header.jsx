@@ -7,13 +7,11 @@ const Header = (props) => {
   return (
    <div className = {style.header}>
      <div className = {style.logo}>
-       <img src= {logo} alt="logo"/> <span>Notepad</span> 
+       <img src= {logo} alt="logo"/><span> Notepad</span> 
      </div>
      <div   className = {style.menu}>
         <div className = {style.list}>
-          <div onClick = {props.setStatus}><a href ={'#menu'}>Меню</a></div>
-          <div><a href = '#aboutUs'>Про нас</a></div>
-          <div><a href="#contact">Контакти</a></div>
+          <div onClick = {props.setStatus}> Меню </div>
         </div>
      </div>
    </div>

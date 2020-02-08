@@ -230,4 +230,56 @@
     color:black;
     font-weight: bold;
  }
- 
+
+ @media (max-width: 1199.98px) {
+   .content{
+      margin-right: 100px;
+      margin-left: 100px;
+   }
+ }
+ @media screen and (max-width: 992px){
+    .mainMenu{
+       padding-top: 25%;
+    }
+    .arrImages{
+       width: auto;
+    }
+    .content{
+      margin-right: 20px;
+      margin-left: 20px;
+   }
+   .test2{
+      width: 0;
+   }
+
+ }
+
+ @media screen and (max-width: 768px){
+   .mainMenu{
+      padding-top: 35%;
+   }
+   .arrow, .arrow1 {
+     width: 50px;
+     height: 50px;
+   }
+   .content{
+      margin-right: 0 auto;
+      margin-left: 0 auto;
+   }
+   .title{
+     
+   }
+
+}
+@media (max-width: 575.98px) {
+   .mainMenu{
+      padding-top: 50%;
+   }
+   .arrow, .arrow1 {
+      width: 30px;
+      height: 30px;
+    }
+    .test{
+   
+    }
+}
