@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/notepad-for-words/static/css/main.559fd2ef.chunk.css",
+    "main.css": "/notepad-for-words/static/css/main.efaeb48d.chunk.css",
     "main.js": "/notepad-for-words/static/js/main.90ff767a.chunk.js",
     "main.js.map": "/notepad-for-words/static/js/main.90ff767a.chunk.js.map",
     "runtime-main.js": "/notepad-for-words/static/js/runtime-main.640b44fc.js",
@@ -8,9 +8,9 @@
     "static/js/2.db1b3983.chunk.js": "/notepad-for-words/static/js/2.db1b3983.chunk.js",
     "static/js/2.db1b3983.chunk.js.map": "/notepad-for-words/static/js/2.db1b3983.chunk.js.map",
     "index.html": "/notepad-for-words/index.html",
-    "precache-manifest.cbf440020be7eb1ac4274a59eec1720d.js": "/notepad-for-words/precache-manifest.cbf440020be7eb1ac4274a59eec1720d.js",
+    "precache-manifest.da2bcca1a79423b0403c40ac0edc8ce7.js": "/notepad-for-words/precache-manifest.da2bcca1a79423b0403c40ac0edc8ce7.js",
     "service-worker.js": "/notepad-for-words/service-worker.js",
-    "static/css/main.559fd2ef.chunk.css.map": "/notepad-for-words/static/css/main.559fd2ef.chunk.css.map",
+    "static/css/main.efaeb48d.chunk.css.map": "/notepad-for-words/static/css/main.efaeb48d.chunk.css.map",
     "static/js/2.db1b3983.chunk.js.LICENSE": "/notepad-for-words/static/js/2.db1b3983.chunk.js.LICENSE",
     "static/media/Main.module.css": "/notepad-for-words/static/media/market.0f7ef8d6.jpg",
     "static/media/Linkedin.png": "/notepad-for-words/static/media/Linkedin.f856d3e2.png",
@@ -29,7 +29,7 @@
   "entrypoints": [
     "static/js/runtime-main.640b44fc.js",
     "static/js/2.db1b3983.chunk.js",
-    "static/css/main.559fd2ef.chunk.css",
+    "static/css/main.efaeb48d.chunk.css",
     "static/js/main.90ff767a.chunk.js"
   ]
 }
