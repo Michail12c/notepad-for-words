@@ -4,13 +4,16 @@ import logo from './../images/notepad.png'
 import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
+  const setScroll = () => {
+   window.scrollTo(0, 0);
+  }
   return (
    <div className = {style.header}>
      <div className = {style.logo}>
        <img src= {logo} alt="logo"/><span> Notepad</span> 
      </div>
      <div   className = {style.menu}>
-        <div className = {style.list}>
+        <div className = {style.list} onClick = {setScroll}>
           <div onClick = {props.setStatus}> Меню </div>
         </div>
      </div>

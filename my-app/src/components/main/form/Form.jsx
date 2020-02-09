@@ -10,7 +10,8 @@ import TopSection from '../../top_section/TopSection';
 let minLength = minLengthCreator(1);
 const formForWords = (props) => {
   return (
-   <form onSubmit = {props.handleSubmit}>
+   <form onSubmit = {props.handleSubmit} className = {style.topForm}>
+     <div className = {style.formTitle}>Додайте нову фразу до свого  списку</div> 
      <div>
        <Field component = {Textarea} name= {'word'} placeholder = {'Введіть іноземну фразу чи слово'} validate = {[required, minLength]} />
      </div>
@@ -61,7 +62,7 @@ const AddWordsForm = ({listWords, ...props}) => {
         ? <AddWords  onSubmit = {onSubmit}/> 
         : <div>{myList}</div>
         }
-        <div>
+        <div className = {style.statistic}>
            Статистика
         </div>
        </div>  

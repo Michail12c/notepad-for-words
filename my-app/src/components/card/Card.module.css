@@ -34,3 +34,13 @@
   cursor: pointer;
   background-color: rgb(61, 85, 104);
 }
+
+@media (max-width: 575.98px) {
+  .card{
+    padding: 30px 40px 30px 40px;
+    margin-top: 15%;
+  }
+  .innerContent{
+    font-size: 16px;
+  }
+}

@@ -14,7 +14,6 @@
    background: url('../images/evening.jpg') no-repeat center top/cover;
    height: 100vh;
    overflow: auto;
-
  }
  .remember{
     width: 410px;
@@ -45,6 +44,10 @@
  .menuForm{
     margin-left: -100px;
  }
+ .formTitle{
+   margin-bottom: 20px;
+   font-weight: bold;
+ }
 .listWords{
    margin-bottom: 10px;
    background: rgba(177, 189, 195, 0.3);
@@ -60,7 +63,9 @@
    justify-content: space-around;
    font-size: 45px;
    font-weight: bold;
+   text-shadow: 1px 1px 2px black, 0 0 1em rgb(102, 138, 143);
 }
+
 
 @import url('https://fonts.googleapis.com/css?family=Caveat:400,700&display=swap&subset=cyrillic');
 .content {
@@ -236,6 +241,9 @@
       margin-right: 100px;
       margin-left: 100px;
    }
+   .menuForm{
+      margin-left: 10px;
+   }
  }
  @media screen and (max-width: 992px){
     .mainMenu{
@@ -245,11 +253,18 @@
        width: auto;
     }
     .content{
-      margin-right: 20px;
-      margin-left: 20px;
+      margin: 0 auto
    }
    .test2{
       width: 0;
+   }
+   .menuForm button{
+      width: 200px;
+      height: 35px;
+   }
+   .remember{
+      width: 360px;
+      height: 35px;
    }
 
  }
@@ -262,13 +277,40 @@
      width: 50px;
      height: 50px;
    }
-   .content{
-      margin-right: 0 auto;
-      margin-left: 0 auto;
-   }
+
    .title{
-     
+     justify-content: center;
+     font-size: 30px;
    }
+   .content span {
+      font-size: 24px;
+    }
+    .arrImages{
+       margin: 0 auto;
+    }
+   .test img{
+      height: 150px;
+      width: 150px;
+      margin-left: 20px;
+      margin-right: 20px;
+   }
+   .test p{
+      width: 200px;
+      font-size: 12px;
+    }
+    .subscribe{
+       width: 310px;
+    }
+    .menuForm button{
+      width: 150px;
+      height: 30px;
+   }
+   .remember{
+      width: 310px;
+      height: 30px;
+   }
+
+
 
 }
 @media (max-width: 575.98px) {
@@ -278,8 +320,61 @@
    .arrow, .arrow1 {
       width: 30px;
       height: 30px;
+      margin-top: 40px;
     }
-    .test{
-   
+    .test img{
+      height: 130px;
+      width: 130px;
+      margin-left: 10px;
+      margin-right: 10px;
+   }
+   .test p{
+      width: 150px;
+      font-size: 12px;
     }
+    .subscribe{
+      width: 260px;
+   }  
+   .footer{
+      padding-left: 5px;
+      padding-right: 5px;
+   } 
+   .road{
+      font-size: 18px;
+   }
+   .test img{
+      margin-top: 50px;
+      border: 3px solid rgb(148, 155, 172);
+   }
+   .myData img{
+      margin-right: 5px;
+   }
+   .cardForm{
+      display: flex;
+      flex-flow: column-reverse;
+   }
+   .menuForm button{
+      width: 310px;
+      height: 30px;
+   }
+   .menuForm{
+     order: 1;
+     margin-top: 20px;
+   }
+   .topForm{
+    order:0;
+    margin-top: 30px;
+   }
+   .statistic{
+      order: 2;
+   }
+   .listWords div{
+      padding: 5px 10px;
+      width:80%;
+   }
+   .listWords{
+      margin-left: 10px;
+      margin-right: 10px;
+   }
+
 }

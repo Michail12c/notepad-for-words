@@ -45,3 +45,20 @@
   font-weight: normal;
   font-family: 'Lobster', cursive;
 }
+
+@media screen and (max-width: 768px){
+  .logo img {
+    width: 15px;
+    height: 15px;
+    margin-left: 20px;
+  }
+  .logo span{
+    font-size: 20px;
+  }
+  .list div{
+    margin-right: 10px;
+  }
+}
+@media (max-width: 575.98px) {
+
+}

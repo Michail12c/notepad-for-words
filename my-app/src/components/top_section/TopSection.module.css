@@ -24,3 +24,15 @@
 .topSection a:hover{
   color:white;
 }
+
+
+@media (max-width: 575.98px) {
+  .topSection{
+    font-size: 10px;
+    margin-bottom: 15%;
+  }
+  .topSection:hover{
+    font-size: 10px;
+  }
+
+}
