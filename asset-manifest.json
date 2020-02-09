@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/notepad-for-words/static/css/main.d2c98d0a.chunk.css",
-    "main.js": "/notepad-for-words/static/js/main.d1b4d065.chunk.js",
-    "main.js.map": "/notepad-for-words/static/js/main.d1b4d065.chunk.js.map",
+    "main.js": "/notepad-for-words/static/js/main.606dad2d.chunk.js",
+    "main.js.map": "/notepad-for-words/static/js/main.606dad2d.chunk.js.map",
     "runtime-main.js": "/notepad-for-words/static/js/runtime-main.640b44fc.js",
     "runtime-main.js.map": "/notepad-for-words/static/js/runtime-main.640b44fc.js.map",
-    "static/js/2.db1b3983.chunk.js": "/notepad-for-words/static/js/2.db1b3983.chunk.js",
-    "static/js/2.db1b3983.chunk.js.map": "/notepad-for-words/static/js/2.db1b3983.chunk.js.map",
+    "static/js/2.330ea011.chunk.js": "/notepad-for-words/static/js/2.330ea011.chunk.js",
+    "static/js/2.330ea011.chunk.js.map": "/notepad-for-words/static/js/2.330ea011.chunk.js.map",
     "index.html": "/notepad-for-words/index.html",
-    "precache-manifest.824685da6b390db7fd6d7cb925048097.js": "/notepad-for-words/precache-manifest.824685da6b390db7fd6d7cb925048097.js",
+    "precache-manifest.59797464400594c89cf8b46b6d46a25e.js": "/notepad-for-words/precache-manifest.59797464400594c89cf8b46b6d46a25e.js",
     "service-worker.js": "/notepad-for-words/service-worker.js",
     "static/css/main.d2c98d0a.chunk.css.map": "/notepad-for-words/static/css/main.d2c98d0a.chunk.css.map",
-    "static/js/2.db1b3983.chunk.js.LICENSE": "/notepad-for-words/static/js/2.db1b3983.chunk.js.LICENSE",
+    "static/js/2.330ea011.chunk.js.LICENSE": "/notepad-for-words/static/js/2.330ea011.chunk.js.LICENSE",
     "static/media/Main.module.css": "/notepad-for-words/static/media/market.0f7ef8d6.jpg",
     "static/media/Linkedin.png": "/notepad-for-words/static/media/Linkedin.f856d3e2.png",
     "static/media/ajax-loader.gif": "/notepad-for-words/static/media/ajax-loader.aee4facb.gif",
@@ -28,8 +28,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.640b44fc.js",
-    "static/js/2.db1b3983.chunk.js",
+    "static/js/2.330ea011.chunk.js",
     "static/css/main.d2c98d0a.chunk.css",
-    "static/js/main.d1b4d065.chunk.js"
+    "static/js/main.606dad2d.chunk.js"
   ]
 }
