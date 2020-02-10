@@ -43,3 +43,17 @@ export const Input= ({input, meta, ...props}) => {
     </div>
   )
 }
+
+export const Input2 = ({input, meta, ...props}) => {
+  let hasError = meta.touched && meta.error;
+  return (
+    <div className = {style.formsControls + ' ' + (hasError ?  style.error : '')}>
+      <div >
+      <input className = {style.input2} {...input} {...props}></input>
+      </div>
+      <div className = {style.text}>
+        {hasError ? <span>{'some error'}</span> : ''}
+      </div>
+    </div>
+  )
+}

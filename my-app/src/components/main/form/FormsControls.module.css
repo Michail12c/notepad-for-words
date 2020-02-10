@@ -35,6 +35,15 @@ input{
   padding: 5px;
   color:white;
 }
+.input2{
+  width: 300px;
+  height: 20px;
+  border:none;
+  background-color: rgb(185, 209, 205);
+  margin-bottom: 20px; 
+  padding: 5px;
+  color:black;
+}
 
 @media screen and (max-width: 992px){
   textarea{
@@ -47,6 +56,9 @@ input{
   input{
     width: 300px;
     height: 30px;
+  }
+  .input2{
+    width: 200px;
   }
 
   .textarea2{

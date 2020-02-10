@@ -1,8 +1,16 @@
 [{"word": "Can you help me?" , "transfer": "Не могли б ви мені допомогти?"},
  {"word": "I`m looking for..."  , "transfer": "Я шукаю..."},
  {"word": "How much is this?"  , "transfer": "Скільки це коштує?"},
- {"word": "Please speak more slowly."  , "transfer": " Не розумію"},
- {"word": "I do not understand."  , "transfer": "Не могли б ви мені допомогти?"},
+ {"word": "I do not understand." , "transfer": " Не розумію"},
+ {"word": "Please speak more slowly." , "transfer": "Будь ласка, говоріть повільніше."},
  {"word": "Could you repeat that? "  , "transfer": "Не могли б ви повторити?"},
- {"word": " My name is... "  , "transfer": "Мене звати..."}
+ {"word": "Nice to meet you!"  , "transfer": "Радий познайомитися"},
+ {"word": "I am hungry."  , "transfer": "Я зголоднів."},
+ {"word": "How are you doing?"  , "transfer": "Як справи?"},
+ {"word": "Can I ask you a question?"  , "transfer": "Можу я задати питання?"},
+ {"word": "I am thirsty."  , "transfer": "Мене мучить спрага."},
+ {"word": "I am feeling sick."  , "transfer": "Я погано себе почуваю."},
+ {"word": "I need help."  , "transfer": "Мені потрібна допомога."},
+ {"word": "Where can I buy...?"  , "transfer": "Де я можу купити...?"},
+ {"word": "I like this."  , "transfer": "Мені сподобалося ось це"}
 ]

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import style from './../Main.module.css';
 import {  reduxForm,  Field, reset } from 'redux-form';
 import { connect } from 'react-redux';
@@ -6,6 +6,8 @@ import {  addWordsThunk, initializeMain } from '../../redux/main-reducers';
 import { minLengthCreator, required } from '../../common/validator';
 import { Textarea } from './FormsControls';
 import TopSection from '../../top_section/TopSection';
+import { setFlagAC } from '../../redux/storage-reducer';
+import CreateList from './createList/CreateList';
 
 let minLength = minLengthCreator(1);
 const formForWords = (props) => {
@@ -32,35 +34,42 @@ const AddWords = reduxForm({
   form: 'addWords'
 })(formForWords);
 
-const AddWordsForm = ({listWords, ...props}) => {
-  let [status, setStatus] = useState(false);
+const AddWordsForm = ({listWords, flag, ...props}) => {
+
  const onSubmit = (formData) => {
    props.addWordsThunk(formData);
    props.reset('addWords');
  }
 
- let myList =  listWords[0].map( (el, index) => <ListWords id = {index + 1} word = {el.word} transfer = {el.transfer}/>); 
+ let myList =  listWords[0].map( (el, index) => <ListWords key = {index + 1} id = {index + 1} word = {el.word} transfer = {el.transfer}/>); 
 
 
- const updateStatus = () => {
-   setStatus(!status);
+ const updateFlag = (num) => {
+   flag === num ?  props.setFlagAC(0) : props.setFlagAC(num);
  }
+
   return (
     <div className = {style.sectionForm}>
       <TopSection calculate = {'show'}/>
        <div className = {style.cardForm}>
        <div className = {style.menuForm}>
-          <div>
-            <button onClick = {updateStatus}>{!status ? 'Показати загальний список' : 'Сховати список'}</button>
+          <div  >
+            <button id = {flag === 1 ? style.activeForm : '' } onClick = {() => {updateFlag(1)}}>{ flag === 1 ?'Сховати список' 
+            : 'Показати загальний список'  }</button>
           </div>
           <div>
-            <button onClick = {updateStatus}>{!status ? 'Показати свій список' : 'Сховати свій  список'}</button>
+            <button id = {flag === 2 ? style.activeForm : ''} onClick = {() => {updateFlag(2)}}>{ flag === 2 ? 'Сховати свій  список'
+             : 'Показати свій список' }</button>
+          </div>
+          <div>
+            <button id = {flag === 3 ?  style.activeForm : '' } onClick = {() => {updateFlag(3)}}>{
+            'Створити новий список'}</button>
           </div>
         </div>
         {
-        !status 
+        flag == 0 
         ? <AddWords  onSubmit = {onSubmit}/> 
-        : <div>{myList}</div>
+        : <CentralComponent updateFlag = {updateFlag} flag = {flag} elements = {myList}/>
         }
         <div className = {style.statistic}>
            Статистика
@@ -78,11 +87,25 @@ const ListWords = (props) => {
     </div>
   )
 }
+const CentralComponent = ({elements, flag, updateFlag}) => {
+  let newElement;
+  if(flag == 2){
+    return newElement = 'Hello';
+  }
+ if(flag === 3){
+   return newElement =  <CreateList updateFlag = {updateFlag}/>;
+ }
+  newElement = elements;
+  return (
+  <div>{newElement}</div>
+  )
+}
 
 const mapStateToProps = (state) => {
   return {
-   listWords: state.mainPage.listWords
+   listWords: state.mainPage.listWords,
+   flag: state.storagePage.flag
   }
 }
 
-export default connect (mapStateToProps, {addWordsThunk, reset, initializeMain})(AddWordsForm);
+export default connect (mapStateToProps, {addWordsThunk, reset, initializeMain, setFlagAC})(AddWordsForm);

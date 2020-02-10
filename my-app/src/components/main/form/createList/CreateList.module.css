@@ -1,41 +1,40 @@
 .card{
   text-align: center;
-  padding: 50px 60px 50px 60px;
+  padding: 30px 60px 20px 60px;
   background-color:rgba(16, 62, 80, 0.3);
   font-weight: bold;
 }
 .content{
   margin-bottom: 30px;
 }
-.innerContent{
-  font-size: 24px;
-  color:rgb(29, 24, 24);
-}
-.innerContent button{
-  padding: 5px 10px;
-  background-color: rgb(90, 139, 179);
-  color: white;
-  border: none;
-  margin-top: 50px;
-}
-.innerContent button:hover{
-  cursor: pointer;
-  background-color: rgb(61, 85, 104);
-}
+
 .choiceMenu button{
    margin-right: 5px;
    margin-left: 5px;
+   width: 150px;
    border: none;
    background-color: rgb(37, 68, 93);
    padding: 5px 10px;
    color: white;
 }
-
+.title{
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px){
+  .card{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .choiceMenu button{
+    width: 100px;
+    margin-top: 10px;
+  }
+}
 
 @media (max-width: 575.98px) {
   .card{
-    padding: 30px 40px 30px 40px;
-    margin-top: 15%;
+    margin: 0 auto;
+    text-align: center;
   }
   .innerContent{
     font-size: 16px;

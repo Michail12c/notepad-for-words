@@ -2,6 +2,7 @@
    background: url('../images/market.jpg') no-repeat center center/cover;
    height: 100vh;
 }
+
 .mainMenu{
    display: flex;
    justify-content: center; 
@@ -37,9 +38,14 @@
     color:white;
     background-color:rgb(37, 68, 93);
  }
+
+ #activeForm{
+   background-color:rgb(68, 128, 177);
+ }
+
  .menuForm button:hover{
     cursor: pointer;
-    background-color:rgb(90, 139, 179);
+    background-color:rgb(44, 88, 124);
  }
  .menuForm{
     margin-left: -100px;
@@ -236,6 +242,7 @@
     font-weight: bold;
  }
 
+
  @media (max-width: 1199.98px) {
    .content{
       margin-right: 100px;
@@ -321,6 +328,12 @@
       width: 30px;
       height: 30px;
       margin-top: 40px;
+    }
+    .arrow{
+       margin-left: 10px;
+    }
+    .arrow1{
+       margin-right: 30px;
     }
     .test img{
       height: 130px;
