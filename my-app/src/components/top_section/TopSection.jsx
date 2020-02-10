@@ -12,7 +12,7 @@ const TopSection = (props) => {
         <NavLink to = '/Lesson'>Урок</NavLink>
      </div>
       <div>
-      <NavLink to = '/'>Налаштування</NavLink>
+      <NavLink to = '/Settings'>Налаштування</NavLink>
      </div>
     </div>
   )

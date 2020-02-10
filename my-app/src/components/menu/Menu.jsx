@@ -16,7 +16,7 @@ const Menu = (props) => {
           <li><NavLink  to = '/AddWordsForm'>Показати сховища</NavLink></li>
         </ul>
         <ul>
-          <li><a href="">Налаштування</a></li>
+          <li><NavLink to = '/Settings'>Налаштування</NavLink></li>
         </ul>
       </nav> 
     </div>

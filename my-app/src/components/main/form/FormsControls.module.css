@@ -11,7 +11,8 @@ textarea{
   width: 400px;
   height: 40px;
   border:none;
-  background-color: rgba(176, 211, 228, 0.3);
+  /* background-color: rgba(176, 211, 228, 0.3); */
+  background-color: rgb(185, 209, 205);
   margin-bottom: 5px; 
   padding: 5px;
 }
@@ -22,6 +23,7 @@ textarea{
   background-color: rgba(176, 211, 228, 0.3);
   margin-bottom: 5px; 
   padding: 5px;
+  color:white;
 }
 
 input{
@@ -31,6 +33,7 @@ input{
   background-color: rgba(176, 211, 228, 0.3);
   margin-bottom: 5px; 
   padding: 5px;
+  color:white;
 }
 
 @media screen and (max-width: 992px){

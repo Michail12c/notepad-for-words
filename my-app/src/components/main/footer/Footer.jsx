@@ -26,9 +26,9 @@ const Footer = (props) => {
     <div className = {style.rightBlock}>
        Ми у соцмережах
        <div className = {style.socialNetwork}>
-         <div>
+{/*          <div>
           <a href="https://www.facebook.com/profile.php?id=100017700070396" target = '_blank'><img src= {facebook} alt="icon"/></a> 
-        </div>
+        </div> */}
          <div>
            <a href="https://www.linkedin.com/feed/" target = '_blank'><img src= {linkedin} alt="icon"/></a>
           </div>

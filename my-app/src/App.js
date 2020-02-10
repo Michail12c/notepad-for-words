@@ -6,6 +6,7 @@ import LessonContainer from './components/lessons/LessonContainer';
 import AddWordsForm from './components/main/form/Form';
 import { connect } from 'react-redux';
 import { initializeMain } from './components/redux/main-reducers';
+import Settings from './components/settings/Settings';
 
 
 const App = (props) => {
@@ -20,6 +21,7 @@ const App = (props) => {
          <Route exact path = "/" render = { () => <MainContainer statusUpdate = {props.statusUpdate}/>} />
          <Route path = "/Lesson" render = { () => <LessonContainer/> } />
          <Route path = "/AddWordsForm" render = { () => <AddWordsForm/> } />
+         <Route path = "/Settings" render = { () => <Settings/> } />
         </Switch>
       </div>
   );
