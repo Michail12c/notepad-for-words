@@ -3,10 +3,12 @@ import firstList from '../common/data.json';
 
 const ADD_WORD = 'ADD-WORD'; 
 const ADD_WORD_TWO = 'ADD-WORD-TWO';
+const CREATE_LIST = 'CREATE-LIST';
 
 let initialState = {
   listWords: [],
-  listWordsTwo: ''
+  listWordsTwo: '',
+  newList: false
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -19,8 +21,13 @@ const mainReducer = (state = initialState, action) => {
       case ADD_WORD_TWO:
         return{
           ...state,
-          listWordsTwo: [...state.listWordsTwo, action.wordTwo]
+          listWordsTwo: action.wordTwo
         }
+        case CREATE_LIST:
+          return{
+            ...state,
+            newList: action.data
+          }
     default:
       return state;
   }
@@ -32,20 +39,20 @@ export const addWord = (word) => {
 export const addWordTwoList = (wordTwo) => {
   return {type: ADD_WORD_TWO, wordTwo}
 }
-export const startList = () => {
-
+export const createList = (data) => {
+  return {type: CREATE_LIST, data }
 }
-startList()
+
 
 export const initializeMain = (elem) => {
   return (dispatch) =>{
-/*     let addLocale = new InteractionWithLocalStorage(elem);
-    let content = addLocale.createList(); */
+    let addLocale = new InteractionWithLocalStorage(elem);
+    let content = addLocale.createList();
     if(elem === 'word'){
      return dispatch(addWord(firstList)); 
     }
    if(elem === 'word2'){
-     return dispatch (addWordTwoList(firstList))
+     return dispatch (addWordTwoList(content))
    }
   }
 }
@@ -63,6 +70,7 @@ export const addWordsThunkTwoList = (wordTwo) => {
    let addLocale =  new InteractionWithLocalStorage('word2');
    addLocale.addLocalStorage(wordTwo);
    let a = addLocale.createList();
+    console.log(a)
    dispatch(addWordTwoList(a));
   }
 }
