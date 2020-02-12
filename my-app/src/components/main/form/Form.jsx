@@ -1,19 +1,19 @@
-import React, { useState, Fragment } from 'react';
+import React from 'react';
 import style from './../Main.module.css';
 import {  reduxForm,  Field, reset } from 'redux-form';
 import { connect } from 'react-redux';
-import {  addWordsThunk, initializeMain, addWordsThunkTwoList } from '../../redux/main-reducers';
+import {  addWordsThunk, initializeMain, addWordsThunkTwoList, addWordThunkListUser } from '../../redux/main-reducers';
 import { minLengthCreator, required } from '../../common/validator';
 import { Textarea } from './FormsControls';
 import TopSection from '../../top_section/TopSection';
 import { setFlagAC } from '../../redux/storage-reducer';
-import CreateList from './createList/CreateList';
+import CentralComponent from './createList/CentralComponent';
 
 let minLength = minLengthCreator(1);
 const formForWords = (props) => {
   return (
    <form onSubmit = {props.handleSubmit} className = {style.topForm}>
-     <div className = {style.formTitle}>Додайте нову фразу до  списку для повторення</div> 
+     <div className = {style.formTitle}>Додайте нову фразу до свого списку </div> 
      <div>
        <Field component = {Textarea} name= {'word'} placeholder = {'Введіть іноземну фразу чи слово'} validate = {[required, minLength]} />
      </div>
@@ -30,21 +30,20 @@ const formForWords = (props) => {
   )
 }
 
-const AddWords = reduxForm({
+export const AddWords = reduxForm({
   form: 'addWords'
 })(formForWords);
 
-const AddWordsForm = ({listWords, listWordsTwo, flag, newList, ...props}) => {
- 
+
+const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser,
+  ...props}) => {
+
  const onSubmit = (formData) => {
-   props.addWordsThunkTwoList(formData)
+   props.addWordThunkListUser(formData);
    props.reset('addWords');
  }
 
  let myList =  listWords[0].map( (el, index) => <ListWords key = {index + 1} id = {index + 1} word = {el.word} transfer = {el.transfer}/>); 
-
- let yourList = listWordsTwo.map( (el, index) => <ListWords key = {index + 1} id = {index + 1} word = {el.word} transfer = {el.transfer}/>);
- 
 
  const updateFlag = (num) => {
    flag === num ?  props.setFlagAC(0) : props.setFlagAC(num);
@@ -64,18 +63,31 @@ const AddWordsForm = ({listWords, listWordsTwo, flag, newList, ...props}) => {
              : 'Показати список для повторення' }</button>
           </div>
           <div>
-           {newList ? <button>{'Показати ' + newList}</button>  
+           {newList ? <button id = {flag === 4 ? style.activeForm : '' } onClick = {() => {updateFlag(4)}}>{'Показати список ' + newList}</button>  
              : '' } 
-           </div>   
+           </div>  
+           <div>
+            {
+              newList ? <button id = {flag === 5 ? style.activeForm : '' } onClick = {() => {updateFlag(5)}}>{'Поповнити ' + newList}</button> : ''
+            }
+          </div> 
           <div>
-            <button id = {flag === 3 ?  style.activeForm : '' } onClick = {() => {updateFlag(3)}}>{
-            'Створити свій список'}</button>
+            {
+             !newList ?   <button id = {flag === 3 ?  style.activeForm : '' } onClick = {() => {updateFlag(3)}}>{
+                'Створити свій список'}</button> 
+                :   <button>{'Редагувати ' + newList}</button>
+            } 
           </div>
         </div>
         {
-        flag == 0 
-        ? <AddWords  onSubmit = {onSubmit}/> 
-        : <CentralComponent updateFlag = {updateFlag} yourList = {yourList} flag = {flag} elements = {myList}/>
+        flag == 5 
+         ? <AddWords  onSubmit = {onSubmit}/> 
+         : <CentralComponent updateFlag = {updateFlag} 
+           listWordsTwo = {listWordsTwo} 
+           flag = {flag} 
+           elements = {myList}
+           listUser = {listUser}
+           />
         }
         <div className = {style.statistic}>
            Статистика
@@ -85,7 +97,7 @@ const AddWordsForm = ({listWords, listWordsTwo, flag, newList, ...props}) => {
   )
 }
 
-const ListWords = (props) => {
+export const ListWords = (props) => {
   return(
     <div className = {style.listWords}>
       <div>{props.id + ') ' + props.word}</div>
@@ -93,29 +105,15 @@ const ListWords = (props) => {
     </div>
   )
 }
-const CentralComponent = ({elements, flag, updateFlag, yourList}) => {
-  let newElement;
-  if(flag == 1){
-    newElement = elements;
-  }
-  if(flag == 2){
-  newElement =  yourList;
-  }
- if(flag === 3){
-   return newElement =  <CreateList updateFlag = {updateFlag}/>;
- }
-  return (
-  <div>{newElement}</div>
-  )
-}
 
 const mapStateToProps = (state) => {
   return {
    listWords: state.mainPage.listWords,
    listWordsTwo: state.mainPage.listWordsTwo,
+   listUser: state.mainPage.listUser,
    newList: state.mainPage.newList,
    flag: state.storagePage.flag
   }
 }
 
-export default connect (mapStateToProps, {addWordsThunk, addWordsThunkTwoList, reset, initializeMain, setFlagAC})(AddWordsForm);
+export default connect (mapStateToProps, {addWordsThunk, addWordsThunkTwoList,addWordThunkListUser, reset, initializeMain, setFlagAC})(AddWordsForm);

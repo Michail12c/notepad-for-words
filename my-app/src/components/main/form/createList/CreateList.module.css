@@ -20,6 +20,18 @@
 .title{
   margin-bottom: 20px;
 }
+.explainList span{
+  font-weight: bold;
+}
+.explainList span:hover{
+  cursor: pointer;
+  color:white;
+}
+.titleComponent{
+  width: 300px;
+}
+
+
 @media screen and (max-width: 768px){
   .card{
     padding-left: 10px;

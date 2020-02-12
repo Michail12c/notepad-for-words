@@ -40,6 +40,7 @@ class Card extends React.Component {
 
   addNewList(wordTwo){
     this.props.addWordsThunkTwoList(wordTwo)
+    console.log(wordTwo);
   }
   restart = () =>{
     this.setState({
@@ -64,7 +65,7 @@ class Card extends React.Component {
 
   render(){
     if(this.state.redirect) return <Redirect to = '/'/>
-    if(this.props.listWordsTwo == '') return <Preloader/>
+    if(this.props.content == '') return <Preloader/>
    return( 
    <div className = {style.card}>
     <div className = {style.content}>
@@ -78,8 +79,8 @@ class Card extends React.Component {
     </div>
     <div className = {style.choiceMenu}>
       {!this.state.status 
-      ?  <button onClick= {() => { this.showWords() 
-        this.addNewList( this.props.content[this.state.index]) }} >Повторити</button>
+      ?  <button onClick= {() => { this.showWords()
+        this.addNewList( this.props.content[0][this.state.index]) }} >Повторити</button>
       : <button onClick = {this.redirect}>Ні</button>}
 
       {!this.state.status 

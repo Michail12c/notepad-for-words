@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Input2 } from '../FormsControls';
 import { minLengthCreator, required } from '../../../common/validator';
 import { connect } from 'react-redux';
-import { createList } from '../../../redux/main-reducers';
+import { createList, createListThunk } from '../../../redux/main-reducers';
 import { setFlagAC } from '../../../redux/storage-reducer';
 
 let minLength = minLengthCreator(1);
@@ -32,10 +32,8 @@ const AddList = reduxForm({
 
 const CreateList = (props) => {
   const onSubmit = (formData) => {
-    props.createList(formData.list);
+    props.createListThunk(formData.list)
     props.setFlagAC(0);
-
-    console.log(formData.list);
   }
   const updateFlagList = () => {
     props.updateFlag(0);
@@ -50,4 +48,4 @@ const CreateList = (props) => {
   )
 } 
 
-export default connect(null, {createList, setFlagAC})(CreateList);
+export default connect(null, {createList, setFlagAC, createListThunk})(CreateList);

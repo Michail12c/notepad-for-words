@@ -13,6 +13,7 @@ const App = (props) => {
   if(props.listWords == ''){
     props.initializeMain('word');
     props.initializeMain('word2');
+    props.initializeMain('listUser');
   }
 
   return (

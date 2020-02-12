@@ -15,7 +15,18 @@ export class InteractionWithLocalStorage {
       all.push(elem);
       localStorage.setItem(this.name, JSON.stringify(all));
   }
-
+  keySearch(name){
+    let mas = [];
+    let keys = Object.keys(localStorage);
+     for( let key of keys){
+        mas.push(key)
+     }
+     if (!mas.includes(name)){
+      return false
+     }
+     return true
+  }
+  
   changeStatusElements(elem1){
     let myElem = this._getQuestionsFromLS(this.name);
     myElem[elem1].status = true;
