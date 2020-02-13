@@ -7,8 +7,9 @@ const ExplainList = ({updateFlag}) => {
   } 
   return(
     <div className = {style.explainList}>
-       Ваш список поки що пустий.<br/> Почніть його заповнення прямо зараз натиснувши <span onClick = {startUpdateFlag}>сюди</span>.
-    </div>
+     Ваш список поки що пустий.<br/> Почніть його заповнення прямо зараз натиснувши <span onClick = {startUpdateFlag}>сюди</span>.
+    </div>  
+
   )
 }
 export default ExplainList;

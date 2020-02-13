@@ -1,5 +1,4 @@
 const UPDATE_STATUS = 'UPDATE-STATUS';
-const NOW_STATUS = 'NOW-STATUS'; 
 
 let initialState = {
   status: false
@@ -10,23 +9,15 @@ const headerReducer = (state = initialState, action) => {
     case UPDATE_STATUS:
       return {
        ...state, 
-       status: true
+       status: action.value
       }
-    case NOW_STATUS:
-      return {
-        ...state,
-        status: false
-      }  
     default:
       return state;
   }
 }
 
-export const statusActive = () => {
-  return {type: UPDATE_STATUS}
+export const statusActive = (value) => {
+  return {type: UPDATE_STATUS, value}
 }
-export const statusDeactivate = () => {
-  return {type: NOW_STATUS}
-} 
 
 export default headerReducer;

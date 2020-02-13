@@ -25,10 +25,12 @@
 }
 .explainList span:hover{
   cursor: pointer;
-  color:white;
+  color:rgb(77, 62, 62);
 }
 .titleComponent{
   width: 300px;
+  margin: 0 auto;
+  padding-top: 20px;
 }
 
 

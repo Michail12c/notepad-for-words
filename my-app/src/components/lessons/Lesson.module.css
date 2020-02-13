@@ -1,6 +1,7 @@
 .lesson{
-  background: url('./../images/sunset.jpg') no-repeat center top / cover;
+  /* background: url('./../images/sunset.jpg') no-repeat center top / cover; */
   height: 100vh;
+  background-color: rgb(81, 129, 42);
 }
 
 .wrapper{

@@ -8,9 +8,9 @@ import Contacts from './contacts/Contacts';
 import Footer from './footer/Footer';
 
 
-const Main = ({ status, statusDeactivate}) => {
+const Main = ({ status, statusActive}) => {
   const newStatus = () => {
-    statusDeactivate();
+    statusActive(false);
   }
   return (
    <div> 

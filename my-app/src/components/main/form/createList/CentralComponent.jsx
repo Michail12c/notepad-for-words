@@ -3,27 +3,40 @@ import UserList from '../userList/UserList';
 import CreateList from './CreateList';
 import ExplainList from './ExplainList';
 import style from './CreateList.module.css';
+import { NavLink } from 'react-router-dom';
 
 const CentralComponent = ({elements, flag, updateFlag,  listWordsTwo, listUser}) => {
- // Переписати на switch
   let newElement;
-   if (flag == 0) newElement = <TitleComponent/>;
-   if(flag == 1) newElement = elements;
-   if(flag == 2) newElement = <UserList listWordsTwo = {listWordsTwo}/>
-   if(flag === 3) return newElement = <CreateList updateFlag = {updateFlag}/>;
-   if (flag === 4){
-   listUser.length === 0 ? (newElement = <ExplainList updateFlag = {updateFlag}/>) :  
-   (newElement = <UserList  listWordsTwo = {listUser}/>)
+  switch (flag){
+    case 0: 
+      newElement = <TitleComponent listUser = {listUser}/>
+    break
+    case 1:
+      newElement = elements
+      break
+    case 2:
+      newElement = <UserList listWordsTwo = {listWordsTwo}/> 
+      break
+    case 3:
+      return newElement = <CreateList updateFlag = {updateFlag}/>  
+    case 4:
+      listUser.length === 0 ? (newElement = <ExplainList updateFlag = {updateFlag}/>) :  
+      (newElement = <UserList  listWordsTwo = {listUser}/>)
+      break    
   }
+
   return (
   <div>{newElement}</div>
   )
 }
-const TitleComponent = () => {
+const TitleComponent = ({listUser}) => {
   return (
     <div className = {style.titleComponent}>
-       У нас є базовий список слів ...
-       Почніть навчання зі створення власного списку, куди зможете додавати слова, які бажаєте запа`мятати  
+      { listUser.length === 0 
+      ? <div> Почніть навчання зі створення власного списку, куди зможете додавати слова, які бажаєте запа`мятати </div> 
+       : <div>Тепер ви можете почати навчання, перейшовши у розділ <NavLink to = '/Lesson'>урок</NavLink>  </div>
+       }
+      
     </div>
   )
 }

@@ -1,5 +1,6 @@
 .main{
-   background: url('../images/market.jpg') no-repeat center center/cover;
+   /* background: url('../images/market.jpg') no-repeat center center/cover; */
+   background: url('../images/evening.jpg') no-repeat center top/cover;
    height: 100vh;
 }
 
@@ -12,7 +13,9 @@
    border: 1px solid rgb(43, 104, 112);
 }
 .sectionForm{
-   background: url('../images/evening.jpg') no-repeat center top/cover;
+/*    background: url('../images/evening.jpg') no-repeat center top/cover; */
+
+   background-color: rgb(89, 128, 116);
    height: 100vh;
    overflow: auto;
  }

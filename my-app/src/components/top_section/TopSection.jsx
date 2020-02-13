@@ -6,13 +6,13 @@ const TopSection = (props) => {
   return (
     <div className={style.topSection}>
       <div>
-        <NavLink to='/'>Головна</NavLink>
+        <NavLink  to='/'>Головна</NavLink>
       </div>
       <div>
-        <NavLink to = '/Lesson'>Урок</NavLink>
+        <NavLink activeClassName = {style.activeUrl} to = '/Lesson'>Урок</NavLink>
      </div>
       <div>
-      <NavLink to = '/Settings'>Налаштування</NavLink>
+      <NavLink activeClassName = {style.activeUrl} to = '/AddWordsForm'>Налаштування списків</NavLink>
      </div>
     </div>
   )

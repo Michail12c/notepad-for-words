@@ -5,8 +5,8 @@ import { statusActive } from '../redux/header-reducer';
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setStatus: () => {
-      dispatch(statusActive());
+    setStatus: (value) => {
+      dispatch(statusActive(value));
     }
   }
 }

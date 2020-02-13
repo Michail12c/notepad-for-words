@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Main from './Main';
-import { statusActive } from '../redux/main-reducers';
-import { statusDeactivate } from '../redux/header-reducer';
+import { statusActive } from '../redux/header-reducer';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,5 +9,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-const MainContainer = connect(mapStateToProps,  {statusDeactivate} )(Main);
+const MainContainer = connect(mapStateToProps,  {statusActive} )(Main);
 export default MainContainer;

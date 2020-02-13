@@ -49,7 +49,7 @@ const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser,
    flag === num ?  props.setFlagAC(0) : props.setFlagAC(num);
  }
 
-  return (
+  return ( 
     <div className = {style.sectionForm}>
       <TopSection calculate = {'show'}/>
        <div className = {style.cardForm}>

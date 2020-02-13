@@ -24,6 +24,9 @@
 .topSection a:hover{
   color:white;
 }
+.topSection a.activeUrl{
+  color:white;
+}
 
 
 @media (max-width: 575.98px) {

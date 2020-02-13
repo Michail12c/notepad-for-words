@@ -14,7 +14,7 @@ const Header = (props) => {
      </div>
      <div   className = {style.menu}>
         <div className = {style.list} onClick = {setScroll}>
-          <div onClick = {props.setStatus}> Меню </div>
+          <div onClick = {() => {props.setStatus(true)}}> Меню </div>
         </div>
      </div>
    </div>
