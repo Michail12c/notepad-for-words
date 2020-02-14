@@ -7,21 +7,41 @@ import Preloader from '../common/Preloader';
 class Card extends React.Component {
 
   constructor(props){
-    
     super(props);
-      this.props.initializeMain('word');
-      this.props.initializeMain('word2');
-
+    this.content = this.props.content[0]
+    this.listWordsTwo = this.props.listWordsTwo
+    this.listUser = this.props.listUser
+    this.centralContentActive = ''
   }
   state = {
     index: 0,
     status: false,
     redirect: false,
-    flag: false
+    flag: false,
+    itemList: 0 
   }
-  
+  componentDidMount(){
+    if(this.listUser.length != 0){
+      this.setState({
+        itemList: 2
+      })
+    }
+  }
    showWords = () => {
-     let a = this.props.content[0].length - 1;
+     let a;
+     switch (this.state.itemList){
+       case 0:
+         a = this.content.length - 1
+         this.centralContentActive = this.content 
+         break
+       case 1:
+         a =  this. listWordsTwo.length - 1
+         this.centralContentActive = this.listWordsTwo
+         break
+       case 2: 
+         a = this.listUser.length - 1
+         this.centralContentActive = this.listUser  
+     }
      let b = this.state.index
      console.log(a, b)
     if( a == b){
@@ -40,7 +60,6 @@ class Card extends React.Component {
 
   addNewList(wordTwo){
     this.props.addWordsThunkTwoList(wordTwo)
-    console.log(wordTwo);
   }
   restart = () =>{
     this.setState({
@@ -71,16 +90,20 @@ class Card extends React.Component {
     <div className = {style.content}>
       { !this.state.status 
       ?  <Content 
-          content ={this.props.content[0][this.state.index]}
+          content = {this.content[this.state.index]}
+          listWordsTwo = {this.listWordsTwo[this.state.index]}
           flag = {this.state.flag}
-          updateFlag = {this.updateFlag}/>
+          updateFlag = {this.updateFlag}
+          itemList  = {this.state.itemList}
+          listUser = {this.props.listUser[this.state.index]}
+          />
        : <div>Cписок закінчився. Бажаєте повторити?</div>
        }
     </div>
     <div className = {style.choiceMenu}>
       {!this.state.status 
       ?  <button onClick= {() => { this.showWords()
-        this.addNewList( this.props.content[0][this.state.index]) }} >Повторити</button>
+        this.addNewList(this.centralContentActive[this.state.index]) }} >Повторити</button>
       : <button onClick = {this.redirect}>Ні</button>}
 
       {!this.state.status 
@@ -92,16 +115,28 @@ class Card extends React.Component {
   }
 }
 
-const Content = ({content, flag, updateFlag}) => {
+const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser}) => {
   const openTranslate = () => {
     updateFlag(true)
   }
   const closeTranslate = () => {
     updateFlag(false)
   }
+  let activeContent;
+  switch (itemList){
+    case 0:
+     activeContent = content
+     break
+    case 1:
+     activeContent = listWordsTwo  
+     break
+    case 2:
+    activeContent = listUser
+    break 
+  }
   return(
     <div className = {style.innerContent}>
-      <div>{ !flag ? content.word : content.transfer}</div>
+      <div>{ !flag ? activeContent.word : activeContent.transfer}</div>
       { !flag 
         ? <button onClick = {openTranslate}>Показати переклад</button> 
         : <button onClick = {closeTranslate}>Сховати переклад</button> 

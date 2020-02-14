@@ -6,8 +6,7 @@ import photo from './../images/sunset.jpg';
 import { NavLink } from 'react-router-dom';
 import TopSection from '../top_section/TopSection';
 
-const Lesson = ({ content, addWordsThunkTwoList, initializeMain, listWordsTwo }) => {
-
+const Lesson = ({ content, addWordsThunkTwoList, initializeMain, listWordsTwo, listUser }) => {
   return (
   <div className={style.lesson}>
      <TopSection logo = {'logo'} calculate = {'calculate'}/>
@@ -20,6 +19,7 @@ const Lesson = ({ content, addWordsThunkTwoList, initializeMain, listWordsTwo })
           addWordsThunkTwoList={addWordsThunkTwoList}
           initializeMain={initializeMain}
           listWordsTwo={listWordsTwo}
+          listUser = {listUser}
         />
       </div>
       <div className = {style.rightSide}>

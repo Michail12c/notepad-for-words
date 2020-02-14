@@ -30,7 +30,7 @@ const Footer = (props) => {
           <a href="https://www.facebook.com/profile.php?id=100017700070396" target = '_blank'><img src= {facebook} alt="icon"/></a> 
         </div> */}
          <div>
-           <a href="https://www.linkedin.com/feed/" target = '_blank'><img src= {linkedin} alt="icon"/></a>
+           <a href="https://www.linkedin.com/in/michail-tsoma-098643116/" target = '_blank'><img src= {linkedin} alt="icon"/></a>
           </div>
          <div>
            <a href="https://github.com/Michail12c" target = '_blank'><img src= {git} alt="icon"/></a>

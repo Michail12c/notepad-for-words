@@ -6,7 +6,8 @@ import { addWordsThunkTwoList, initializeMain } from '../redux/main-reducers';
 const mapStateToProps = (state) => {
   return {
     content: state.mainPage.listWords,
-    listWordsTwo: state.mainPage.listWordsTwo
+    listWordsTwo: state.mainPage.listWordsTwo,
+    listUser: state.mainPage.listUser
   }
 }
 
