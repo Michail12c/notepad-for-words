@@ -30,14 +30,25 @@
    padding: 5px 10px;
    color: white;
 }
-
-
-@media (max-width: 575.98px) {
+@media screen and (max-width: 992px){
+  .card{
+    padding: 50px 30px 50px 30px;
+  }
+}
+@media screen and (max-width: 768px){
   .card{
     padding: 30px 40px 30px 40px;
-    margin-top: 15%;
+    width: 200px;
+    margin: 0 auto;
   }
   .innerContent{
     font-size: 16px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .card{
+    padding: 30px 20px 30px 20px;
+    width: 190px;
   }
 }

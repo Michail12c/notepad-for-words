@@ -1,18 +1,25 @@
 import React from 'react';
 import style from './Lesson.module.css';
-import { InteractionWithLocalStorage } from '../common/handlers';
 import Card from '../card/Card';
-import photo from './../images/sunset.jpg';
-import { NavLink } from 'react-router-dom';
 import TopSection from '../top_section/TopSection';
+import TopElement from './TopElement';
 
-const Lesson = ({ content, addWordsThunkTwoList, initializeMain, listWordsTwo, listUser }) => {
+const Lesson = ({ content, addWordsThunkTwoList, initializeMain, 
+  listWordsTwo, listUser, newList, itemList, updateItemList, updateIndex, indexCard, setIndexCard}) => {
   return (
   <div className={style.lesson}>
      <TopSection logo = {'logo'} calculate = {'calculate'}/>
     <div className = {style.wrapper}>
      <div className = {style.leftSide}>
-      {/* Lesson */}
+        Обрати список для повторення
+          <TopElement listWordsTwo = {listWordsTwo} 
+          listUser = {listUser}
+          newList = {newList} 
+          updateItemList = {updateItemList}
+          itemList = {itemList}
+          updateIndex = {updateIndex}
+          setIndexCard = {setIndexCard}
+          />
       </div>
       <div className = {style.card}>
         <Card content={content}
@@ -20,10 +27,14 @@ const Lesson = ({ content, addWordsThunkTwoList, initializeMain, listWordsTwo, l
           initializeMain={initializeMain}
           listWordsTwo={listWordsTwo}
           listUser = {listUser}
+          itemList = {itemList}
+          updateItemList = {updateItemList}
+          indexCard = {indexCard}
+          setIndexCard = {setIndexCard}
         />
       </div>
       <div className = {style.rightSide}>
-       {/* Settings */}
+        Статистика
       </div>
       </div> 
     </div>

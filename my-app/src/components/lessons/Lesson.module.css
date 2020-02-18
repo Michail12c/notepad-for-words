@@ -6,12 +6,65 @@
 
 .wrapper{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .leftSide{
-  
+  width: 300px;
+}
+.rightSide{
+  width: 300px;
+}
+.card{
+ 
+}
+.topElement{
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.topElement button{
+  width: 250px;
+  height: 40px;
+  margin-bottom: 10px;
+  border:none;
+  color:white;
+  background-color:rgb(37, 68, 93);
+}
+.topElement button:hover{
+  cursor: pointer;
+  background-color:rgb(44, 88, 124);
+}
+#active{
+  background-color:rgb(68, 128, 177);
+}
+
+@media screen and (max-width: 768px){
+  .wrapper{
+    flex-direction: column-reverse;
+    justify-content: center; 
+  }
+  .leftSide{
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width:auto;
+  }
+  .rightSide{
+    width: auto;
+    padding-bottom: 20px;
+  }
+  .card{
+
+  }
+  .topElement{
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  .topElement button{
+    width: 200px;
+    height: 30px;
+  }
 }
 
 @media (max-width: 575.98px) {
-  
+
 }

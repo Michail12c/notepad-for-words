@@ -7,69 +7,51 @@ import Preloader from '../common/Preloader';
 class Card extends React.Component {
 
   constructor(props){
-    super(props);
+    super(props)
     this.content = this.props.content[0]
     this.listWordsTwo = this.props.listWordsTwo
     this.listUser = this.props.listUser
     this.centralContentActive = ''
   }
   state = {
-    index: 0,
     status: false,
     redirect: false,
-    flag: false,
-    itemList: 0 
+    flag: false
   }
   componentDidMount(){
     if(this.listUser.length != 0){
-      this.setState({
-        itemList: 2
-      })
+      this.props.updateItemList(2);
     }
   }
    showWords = () => {
      let a;
-     switch (this.state.itemList){
+     switch (this.props.itemList){
        case 0:
-         a = this.content.length - 1
-         this.centralContentActive = this.content 
+         a = this.props.content[0].length - 1
+         this.centralContentActive = this.props.content[0] 
          break
        case 1:
-         a =  this. listWordsTwo.length - 1
-         this.centralContentActive = this.listWordsTwo
+         a =  this. props.listWordsTwo.length - 1
+         this.centralContentActive = this.props.listWordsTwo
          break
        case 2: 
-         a = this.listUser.length - 1
-         this.centralContentActive = this.listUser  
+         a = this.props.listUser.length - 1
+         this.centralContentActive = this.props.listUser  
      }
-     let b = this.state.index
+     let b = this.props.indexCard;
+
      console.log(a, b)
     if( a == b){
       this.setState({
-        index: 0
-      })
-      this.setState({
         status: true
       })
-      return
+     this.props.setIndexCard(0);
+       return
      }
-    this.setState({
-      index: this.state.index + 1
-    })
+    this.props.setIndexCard(b + 1); 
   }
-
   addNewList(wordTwo){
     this.props.addWordsThunkTwoList(wordTwo)
-  }
-  restart = () =>{
-    this.setState({
-      status: false
-    })
-  }
-  redirect = () =>{
-    this.setState({
-      redirect: true
-    })
   }
   updateFlag =(key) => {
     if(key){
@@ -90,12 +72,12 @@ class Card extends React.Component {
     <div className = {style.content}>
       { !this.state.status 
       ?  <Content 
-          content = {this.content[this.state.index]}
-          listWordsTwo = {this.listWordsTwo[this.state.index]}
+          content = {this.props.content[0][this.props.indexCard]}
+          listWordsTwo = {this.props.listWordsTwo[this.props.indexCard]}
           flag = {this.state.flag}
           updateFlag = {this.updateFlag}
-          itemList  = {this.state.itemList}
-          listUser = {this.props.listUser[this.state.index]}
+          itemList  = {this.props.itemList}
+          listUser = {this.props.listUser[this.props.indexCard]}
           />
        : <div>Cписок закінчився. Бажаєте повторити?</div>
        }
@@ -103,12 +85,12 @@ class Card extends React.Component {
     <div className = {style.choiceMenu}>
       {!this.state.status 
       ?  <button onClick= {() => { this.showWords()
-        this.addNewList(this.centralContentActive[this.state.index]) }} >Повторити</button>
-      : <button onClick = {this.redirect}>Ні</button>}
+        this.addNewList(this.centralContentActive[this.props.indexCard]) }} >Повторити</button>
+      : <button  onClick = {() => this.setState({redirect: true}) }>Ні</button>}
 
       {!this.state.status 
        ? <button onClick= {this.showWords}>Памятаю</button>
-      : <button onClick = {this.restart}>Так</button>}
+      : <button onClick = {() => {this.setState({status: false})}}>Так</button>}
     </div>
   </div>
     )
@@ -123,12 +105,13 @@ const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser}) 
     updateFlag(false)
   }
   let activeContent;
+
   switch (itemList){
     case 0:
      activeContent = content
      break
     case 1:
-     activeContent = listWordsTwo  
+     activeContent = listWordsTwo 
      break
     case 2:
     activeContent = listUser
