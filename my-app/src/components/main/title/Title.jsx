@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import style from './../Main.module.css';
-
+ 
 const Title = (props) => {
   let [index, setIndex] = useState(0);
 
@@ -22,15 +22,17 @@ const Title = (props) => {
 
   return (
     <div className={style.title}>
-      <div onClick={indexPlus}>
+      <div onClick={indexPlus} className = 'animated bounceInLeft'>
         <div className={style.arrow}></div>
       </div>
       <div className={style.content}>
-        <span>З нами ви точно зможете...</span>
+        <div className = "animated bounceInDown">
+        <span >З нами ви точно зможете...</span>
         <div className={style.arrImages}>{arrImages[index]}</div>
+      </div>
         <div className={style.road}>Дорога в тисячу лі починається з першого лі...</div>
       </div>
-      <div onClick={indexMinus}>
+      <div onClick={indexMinus} className = 'animated bounceInRight'>
         <div className={style.arrow1}></div>
       </div>
     </div>

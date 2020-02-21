@@ -14,8 +14,8 @@
 }
 .sectionForm{
 /*    background: url('../images/evening.jpg') no-repeat center top/cover; */
-
-   background-color: rgb(89, 128, 116);
+   
+   background-color: rgb(103, 128, 89);
    height: 100vh;
    overflow: auto;
  }
@@ -40,6 +40,7 @@
     border:none;
     color:white;
     background-color:rgb(37, 68, 93);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
  }
 
  #activeForm{

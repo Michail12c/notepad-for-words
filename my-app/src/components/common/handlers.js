@@ -15,6 +15,19 @@ export class InteractionWithLocalStorage {
       all.push(elem);
       localStorage.setItem(this.name, JSON.stringify(all));
   }
+
+  updateLocalStorage(setElem){
+    let previousList = this._getQuestionsFromLS(this.name);
+    let newMas = setElem; 
+    let newList = []; 
+    previousList.forEach( (elem, index) => {
+      if(!newMas.includes(index)){
+        newList.push(elem)
+      }
+    })
+    localStorage.setItem(this.name, JSON.stringify(newList)); 
+  }
+  
   keySearch(name){
     let mas = [];
     let keys = Object.keys(localStorage);

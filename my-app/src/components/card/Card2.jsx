@@ -4,72 +4,56 @@ import { Redirect } from 'react-router-dom';
 import Preloader from '../common/Preloader';
 
 
-class Card extends React.Component {
+class Card2 extends React.Component {
 
   constructor(props){
-    super(props) 
+    super(props)
+    this.state = {
+      status: false,
+      redirect: false,
+      flag: false, 
+      index: 0
+    }
     this.centralContentActive = ''
   }
-  state = {
+/*   state = {
     status: false,
     redirect: false,
-    flag: false,
-    masWords: []
-  }
+    flag: false, 
+    index: 0
+  } */
  
 
    showWords = () => {
      let a; 
      switch (this.props.itemList){
        case 0:
-         a = this.props.content[0].length - 1
          this.centralContentActive = this.props.content[0] 
          break
        case 1:
-         a =  this. props.listWordsTwo.length - 1
          this.centralContentActive = this.props.listWordsTwo
          break
        case 2: 
-         a = this.props.listUser.length - 1
          this.centralContentActive = this.props.listUser  
      }
-     let b = this.props.indexCard;
-     console.log(a, b)
-     if( a  > b){
-      this.props.setIndexCard(b + 1); 
-      return
-     }
-     if( a < b){
-      this.props.setIndexCard(0);
-      return     
-    }
-    if( a == b){
-      this.setState({
-        status: true
-      })
-     this.props.setIndexCard(0);
-       return
-     }
+     return this.centralContentActive
+  }
+  componentDidUpdate(){
+   this.showWords();
+
   }
 
   addNewList = (wordTwo) => {
     if (this.props.itemList === 1){
-      this.mas.push(this.props.indexCard)
-       this.masNow = [...new Set(this.mas)] 
+      this.props.removeWordsFromListThunk(wordTwo, 'word2')
+      this.props.setIndexCard(this.props.indexCard); 
+     /*  this.showWords() */
+      return
     }
-   if(this.props.itemList !== 1){
+ 
     this.props.addWordsThunkTwoList(wordTwo)
-   }
+
   }
- componentDidMount(){
-  this.masNow = [];
-  this.mas = [];
- }
- componentWillUnmount(){
-    this.props.removeWordsFromListThunk(this.masNow, 'word2') 
-    this.props.setIndexCard(0);
-    this.props.updateItemList(0);
- }
 
   updateFlag =(key) => {
     if(key){
@@ -81,14 +65,51 @@ class Card extends React.Component {
         flag: false
       })}  
   }
-  
-  repeatList = (val) => {
-    if(val){
-      this.setState({ status: false})
-    }
-    if(!val){
-      this.setState({redirect: true})
-    }
+  test = () => {
+    this.setState({
+      status: false
+    })
+    if(this.props.listWordsTwo.length == 0){
+      this.props.updateItemList(0);
+     }
+  }
+  test2 = (el) => {
+    this.addNewList(this.centralContentActive[el])
+    this.showWords()
+  }
+
+  changeWords = (statusWords) => {
+    let a = this.state.index + 1; 
+    let c = this.props.content[0].length - 1;
+      if(c >  this.state.index){
+        this.setState({
+          index: a
+        })
+        return
+      }
+      if(a > c){
+        this.setState({
+          status: true
+        })
+        this.setState({
+          index: 0
+        })
+        return
+      }
+
+    console.log(this.state.index)
+    console.log(c)
+  }
+
+  changeWordsTwo = () => {
+    let wordList = this.props.content[0];
+    let indexCard = this.state.index;
+     wordList.splice(indexCard, 1);
+    this.changeWords();
+    console.log(indexCard)
+    console.log(wordList)
+    
+
   }
   render(){
     if(this.state.redirect) return <Redirect to = '/'/>
@@ -99,27 +120,24 @@ class Card extends React.Component {
     <div className = {style.content}>
       { !this.state.status 
       ?  <Content 
-          content = {this.props.content[0][this.props.indexCard]}
-          listWordsTwo = {this.props.listWordsTwo[this.props.indexCard]}
+          content = {this.props.content[0][this.state.index]}
+          listWordsTwo = {this.props.listWordsTwo[this.state.index]}
           flag = {this.state.flag}
           updateFlag = {this.updateFlag}
           itemList  = {this.props.itemList}
-          listUser = {this.props.listUser[this.props.indexCard]}
+          listUser = {this.props.listUser[this.state.index]}
           />
        : <div>Cписок закінчився. Бажаєте повторити?</div>
        }
     </div>
     <div className = {style.choiceMenu}>
       {!this.state.status 
-      ?  <button onClick= { () => {
-        this.showWords(); 
-        this.addNewList(this.centralContentActive[this.props.indexCard])}
-      }>{this.props.itemList === 1 ? 'Запам`ятав' :  'Повторити'}</button>
-      : <button  onClick = {() => this.repeatList(false)}>Ні</button>}
+      ?  <button onClick= { () =>  this.changeWordsTwo() }>Повторити</button>
+      : <button  onClick = {() => this.setState({redirect: true}) }>Ні</button>}
 
       {!this.state.status 
-       ? <button onClick= {this.showWords}>{this.props.itemList === 1 ? 'Повторити': 'Пам`ятаю'}</button>
-      : <button onClick = {() => this.repeatList(true)}>Так</button>}
+       ? <button onClick= { () => this.changeWords() }>Памятаю</button>
+      : <button onClick = {this.test}>Так</button>}
     </div>
   </div>
     )
@@ -157,4 +175,4 @@ const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser}) 
   )
 }
 
-export default Card;
+export default Card2;

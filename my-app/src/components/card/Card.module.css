@@ -3,6 +3,7 @@
   padding: 50px 60px 50px 60px;
   background-color:rgba(16, 62, 80, 0.3);
   font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
 .content{
   margin-bottom: 30px;
@@ -17,6 +18,7 @@
   color: white;
   border: none;
   margin-top: 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
 .innerContent button:hover{
   cursor: pointer;
@@ -29,6 +31,11 @@
    background-color: rgb(37, 68, 93);
    padding: 5px 10px;
    color: white;
+   cursor: pointer;
+   box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+}
+.choiceMenu button:hover{
+  background-color: rgb(54, 76, 95);
 }
 @media screen and (max-width: 992px){
   .card{
@@ -48,7 +55,11 @@
 
 @media (max-width: 575.98px) {
   .card{
-    padding: 30px 20px 30px 20px;
-    width: 190px;
+    padding: 30px 10px 30px 10px;
+    width: 200px;
+  }
+  .choiceMenu button{
+
+    font-size: 11px;
   }
 }

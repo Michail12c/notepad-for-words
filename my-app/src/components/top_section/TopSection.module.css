@@ -1,8 +1,10 @@
 .topSection{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-top: 25px;
   padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
   background: rgba(177, 189, 195, 0.3);
   font-weight: bold;
   font-size: 14px;
@@ -27,15 +29,47 @@
 .topSection a.activeUrl{
   color:white;
 }
-
+.rightSection{
+  display: flex;
+}
+.rightSection div{
+  margin-left: 20px;
+}
+  .logo img{
+    width: 25px;
+    height: 25px;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+.logo span{
+  color:rgb(49, 161, 92);
+  font-size: 30px;
+  font-weight: normal;
+  font-family: 'Lobster', cursive;
+}
+@media screen and (max-width: 768px){
+  .logo img {
+    width: 15px;
+    height: 15px;
+    margin-left: 20px;
+  }
+  .logo span{
+    font-size: 20px;
+  }
+}
 
 @media (max-width: 575.98px) {
   .topSection{
+    justify-content: center;
     font-size: 10px;
     margin-bottom: 15%;
   }
   .topSection:hover{
     font-size: 10px;
+  }
+  .leftSection{
+    display: none;
   }
 
 }

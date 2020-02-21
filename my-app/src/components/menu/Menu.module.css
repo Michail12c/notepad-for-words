@@ -5,6 +5,7 @@
   background:rgba(11, 65, 87, 0.3);
   font-weight: bold;
   margin-bottom: 100px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
 .menu a:hover{
   color:black;

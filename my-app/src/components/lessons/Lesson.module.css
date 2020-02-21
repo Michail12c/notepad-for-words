@@ -1,7 +1,7 @@
 .lesson{
   /* background: url('./../images/sunset.jpg') no-repeat center top / cover; */
   height: 100vh;
-  background-color: rgb(81, 129, 42);
+  background-color: rgb(180, 170, 131);
 }
 
 .wrapper{
@@ -28,10 +28,23 @@
   border:none;
   color:white;
   background-color:rgb(37, 68, 93);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
 .topElement button:hover{
   cursor: pointer;
   background-color:rgb(44, 88, 124);
+}
+.explication{
+  text-align: left;
+  color:rgb(59, 53, 53);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.title{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 50px;
 }
 #active{
   background-color:rgb(68, 128, 177);
@@ -66,5 +79,7 @@
 }
 
 @media (max-width: 575.98px) {
-
+  .leftSide{
+    margin-top: 30px;
+  }
 }

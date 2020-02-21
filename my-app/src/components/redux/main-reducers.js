@@ -8,7 +8,7 @@ const ADD_WORD_LIST_USER = 'ADD-WORD-LIST-USER';
 
 let initialState = {
   listWords: [],
-  listWordsTwo: '',
+  listWordsTwo: [],
   newList: Boolean (localStorage.getItem('list')),
   listUser: ''
 }
@@ -75,6 +75,14 @@ const setThunkList  = (value, name, nameDispatch) => {
     addLocale.addLocalStorage(value);
     let newValue = addLocale.createList();
     dispatch(nameDispatch(newValue));
+  }
+}
+export const removeWordsFromListThunk = (wordsArray, name) => {
+  return (dispatch) => {
+    let removeWord = new InteractionWithLocalStorage(name);
+    removeWord.updateLocalStorage(wordsArray);
+    let newList = removeWord.createList();
+    dispatch(addWordTwoList(newList));  
   }
 }
 

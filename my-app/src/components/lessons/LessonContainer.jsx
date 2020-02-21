@@ -1,7 +1,7 @@
 import React from 'react';
 import Lesson from './Lesson';
 import { connect } from 'react-redux';
-import { addWordsThunkTwoList, initializeMain } from '../redux/main-reducers';
+import { addWordsThunkTwoList, initializeMain, removeWordsFromListThunk } from '../redux/main-reducers';
 import { updateItemList, setIndexCard} from '../redux/storage-reducer';
 
 const mapStateToProps = (state) => {
@@ -15,5 +15,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-const LessonContainer = connect(mapStateToProps, {addWordsThunkTwoList, initializeMain,updateItemList,setIndexCard })(Lesson);
+const LessonContainer = connect(mapStateToProps, {addWordsThunkTwoList, initializeMain,updateItemList,setIndexCard, removeWordsFromListThunk })(Lesson);
 export default LessonContainer;

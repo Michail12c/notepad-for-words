@@ -9,6 +9,7 @@ const AboutUs = (props) => {
   return (
     <div className={style.aboutUs} id = {'aboutUs'}>
       <h2>Про нас</h2>
+     <div className = "animated bounceInLeft">
       <div className={style.test}>
         <div className={style.innerTest}>
           <h3> Мета</h3>
@@ -19,6 +20,7 @@ const AboutUs = (props) => {
         </div>
         <div className = {style.test2}>
         </div>
+      </div>
       </div>
 
       <div className={style.test}>
@@ -36,7 +38,7 @@ const AboutUs = (props) => {
       <div className={style.test}>
         <div className={style.innerTest}>
           <h3>Філософія</h3>
-          <p>Основою нашого проекту є інтерактивінсть. Розуміння того очевидного факту, що найкращим середовищем для людини може бути тільки те середовище, яке вона сама для себе налаштувала.</p>
+          <p>Основою нашого проекту є інтерактивність. Розуміння того очевидного факту, що найкращим середовищем для людини може бути тільки те середовище, яке вона сама для себе налаштувала.</p>
         </div>
         <div>
           <img src={training} alt="logo" />
