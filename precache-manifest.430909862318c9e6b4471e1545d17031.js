@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "07d16e0f1051930166dce26ee4d95762",
+    "revision": "7b1cd612f7acf39a83057551444c9a51",
     "url": "/notepad-for-words/index.html"
   },
   {
-    "revision": "d1c80fae79f0c0dee469",
-    "url": "/notepad-for-words/static/css/main.d9c81a81.chunk.css"
+    "revision": "7b027f790bef0cbecf36",
+    "url": "/notepad-for-words/static/css/main.22109b2f.chunk.css"
   },
   {
-    "revision": "6a50b946b3fb395638ef",
-    "url": "/notepad-for-words/static/js/2.c43c7412.chunk.js"
+    "revision": "3de06fa967e33b7e6cd0",
+    "url": "/notepad-for-words/static/js/2.f73e4d17.chunk.js"
   },
   {
     "revision": "e928fe768baa9832b5bc57eae021f30c",
-    "url": "/notepad-for-words/static/js/2.c43c7412.chunk.js.LICENSE"
+    "url": "/notepad-for-words/static/js/2.f73e4d17.chunk.js.LICENSE"
   },
   {
-    "revision": "d1c80fae79f0c0dee469",
-    "url": "/notepad-for-words/static/js/main.59b07009.chunk.js"
+    "revision": "7b027f790bef0cbecf36",
+    "url": "/notepad-for-words/static/js/main.58cc15ec.chunk.js"
   },
   {
     "revision": "897dc2ea07cf1ae231c1",
