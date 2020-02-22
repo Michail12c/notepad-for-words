@@ -25,6 +25,16 @@ textarea{
   padding: 5px;
   color:white;
 }
+.addWords{
+  width: 400px;
+  height: 40px;
+  border:none;
+  /* background-color: rgba(176, 211, 228, 0.3); */
+  background-color: rgb(185, 209, 205);
+  margin-bottom: 5px; 
+  padding: 5px;
+  color:black;
+}
 
 input{
   width: 400px;

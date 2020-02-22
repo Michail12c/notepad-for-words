@@ -4,21 +4,23 @@ import {  reduxForm,  Field, reset } from 'redux-form';
 import { connect } from 'react-redux';
 import {  addWordsThunk, initializeMain, addWordsThunkTwoList, addWordThunkListUser } from '../../redux/main-reducers';
 import { minLengthCreator, required } from '../../common/validator';
-import { Textarea } from './FormsControls';
+import { Textarea, Input, Input3 } from './FormsControls';
 import TopSection from '../../top_section/TopSection';
 import { setFlagAC } from '../../redux/storage-reducer';
 import CentralComponent from './createList/CentralComponent';
+import { useEffect } from 'react';
 
 let minLength = minLengthCreator(1);
 const formForWords = (props) => {
+  
   return (
    <form onSubmit = {props.handleSubmit} className = {style.topForm}>
      <div className = {style.formTitle}>Додайте нову фразу до свого списку </div> 
      <div>
-       <Field component = {Textarea} name= {'word'} placeholder = {'Введіть іноземну фразу чи слово'} validate = {[required, minLength]} />
+       <Field component = {Input3} name= {'word'} placeholder = {'Введіть іноземну фразу чи слово'} validate = {[required, minLength]} />
      </div>
      <div>
-     <Field component = {Textarea} name= {'transfer'} placeholder = {'Введіть переклад вашої фрази чи слова'} validate = {[required, minLength]} />
+     <Field component = {Input3} name= {'transfer'} placeholder = {'Введіть переклад вашої фрази чи слова'} validate = {[required, minLength]} />
      </div>
      {   props.error &&
            <div className = {style.error}> {props.error}</div>
@@ -42,6 +44,7 @@ const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser,
    props.addWordThunkListUser(formData);
    props.reset('addWords');
  }
+
 
  let myList =  listWords[0].map( (el, index) => <ListWords key = {index + 1} id = {index + 1} word = {el.word} transfer = {el.transfer}/>); 
 

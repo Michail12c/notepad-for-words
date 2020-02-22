@@ -9,11 +9,17 @@ export class InteractionWithLocalStorage {
   _getQuestionsFromLS(){
     return JSON.parse(localStorage.getItem(this.name) || '[]');
   }
+  _searchForWordRepetitions(array, elem){
+    return array.find(item => item.word === elem.word)
+  }
 
   addLocalStorage(elem){
       let all = this._getQuestionsFromLS(this.name);
+      let statusSearch = this._searchForWordRepetitions(all, elem);
+      if(!statusSearch){      
       all.push(elem);
-      localStorage.setItem(this.name, JSON.stringify(all));
+      localStorage.setItem(this.name, JSON.stringify(all)); 
+      }
   }
 
   updateLocalStorage(setElem){
