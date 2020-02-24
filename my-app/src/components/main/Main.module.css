@@ -18,6 +18,7 @@
    background-color: rgb(103, 128, 89);
    height: 100vh;
    overflow: auto;
+   padding-bottom: 40px;
  }
  .remember{
     width: 410px;

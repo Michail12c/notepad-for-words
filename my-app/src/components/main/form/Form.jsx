@@ -12,6 +12,7 @@ import { useEffect } from 'react';
 import Statistics from './Statistics';
 
 let minLength = minLengthCreator(1);
+
 const formForWords = (props) => {
   
   return (
@@ -72,19 +73,19 @@ const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser, initia
              : 'Показати список для повторення' }</button>
           </div>
           <div>
-           {newList ? <button id = {flag === 4 ? style.activeForm : '' } onClick = {() => {updateFlag(4)}}>{'Показати список ' + newList}</button>  
+           {newList ? <button id = {flag === 4 ? style.activeForm : '' } onClick = {() => {updateFlag(4)}}>{flag === 4 ?'Сховати список ' + newList : 'Показати список ' + newList}</button>  
              : '' } 
            </div>  
            <div>
             {
-              newList ? <button id = {flag === 5 ? style.activeForm : '' } onClick = {() => {updateFlag(5)}}>{'Поповнити ' + newList}</button> : ''
+              newList ? <button id = {flag === 5 ? style.activeForm : '' } onClick = {() => {updateFlag(5)}}>{ flag === 5 ? 'Сховати форму' : 'Поповнити ' + newList}</button> : ''
             }
           </div> 
           <div>
             {
              !newList ?   <button id = {flag === 3 ?  style.activeForm : '' } onClick = {() => {updateFlag(3)}}>{
                 'Створити свій список'}</button> 
-                :   <button>{'Редагувати ' + newList}</button>
+                :   <button id = {flag === 6 ?  style.activeForm : '' }  onClick = {() => {updateFlag(6)}}>{flag === 6 ? 'Сховати форму' : 'Редагувати ' + newList}</button>
             } 
           </div>
         </div>

@@ -55,9 +55,9 @@ class Card extends React.PureComponent {
 
   addNewList = (wordTwo) => {
     if (this.props.itemList === 1){
+      this.setState({send: true})
       this.mas.push(this.props.listWordsTwo[this.props.indexCard])
        this.masNow = [...new Set(this.mas)] 
-
     }
    if(this.props.itemList !== 1){
     this.props.addWordsThunkTwoList(wordTwo);
@@ -71,7 +71,9 @@ class Card extends React.PureComponent {
     this.props.listUser.reverse(); 
   }
  }
-
+componentDidUpdate(){
+  
+}
  sendMas = () => {
    this.masNow.map( item => this.props.removeWordsFromListThunk(item, 'word2')); 
  }

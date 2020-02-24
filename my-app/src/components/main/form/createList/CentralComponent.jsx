@@ -4,6 +4,7 @@ import CreateList from './CreateList';
 import ExplainList from './ExplainList';
 import style from './CreateList.module.css';
 import { NavLink } from 'react-router-dom';
+import EditingList from './EditingList';
 
 const CentralComponent = ({elements, flag, updateFlag,  listWordsTwo, listUser}) => {
   let newElement;
@@ -22,6 +23,9 @@ const CentralComponent = ({elements, flag, updateFlag,  listWordsTwo, listUser})
     case 4:
       listUser.length === 0 ? (newElement = <ExplainList updateFlag = {updateFlag}/>) :  
       (newElement = <UserList  listWordsTwo = {listUser}/>)
+      break
+    case 6: 
+    return newElement = <EditingList listUser = {listUser}/>;
       break    
   }
 
