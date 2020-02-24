@@ -2,6 +2,7 @@
   /* background: url('./../images/sunset.jpg') no-repeat center top / cover; */
   height: 100vh;
   background-color: rgb(180, 170, 131);
+  padding-bottom: 40px;
 }
 
 .wrapper{
@@ -30,8 +31,25 @@
   background-color:rgb(37, 68, 93);
   box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
+.wrapperButtons{
+  margin-top: 20px;
+}
+.wrapperButtons .buttonTopElement{
+  width: 125px;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border:none;
+  /* color:white; */
+  color:black;
+  background-color:rgb(37, 68, 93);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+}
 .topElement button:hover{
   cursor: pointer;
+  background-color:rgb(44, 88, 124);
+}
+.wrapperButtons .buttonTopElement:hover{
   background-color:rgb(44, 88, 124);
 }
 .explication{
@@ -51,6 +69,9 @@
 }
 
 @media screen and (max-width: 768px){
+  .lesson{
+    height: auto;
+  }
   .wrapper{
     flex-direction: column-reverse;
     justify-content: center; 
@@ -74,6 +95,10 @@
   }
   .topElement button{
     width: 200px;
+    height: 30px;
+  }
+  .wrapperButtons .buttonTopElement{
+    width: 100px;
     height: 30px;
   }
 }

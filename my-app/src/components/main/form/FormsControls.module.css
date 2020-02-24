@@ -60,6 +60,10 @@ input{
     width: 350px;
     height: 35px;
   }
+  .addWords{
+    width: 350px;
+    height: 35px; 
+  }
 }
 
 @media screen and (max-width: 768px){
@@ -79,13 +83,20 @@ input{
     width: 300px;
     height: 30px;
   }
+  .addWords{
+    width: 300px;
+    height: 30px;
+  }
 }
 @media screen and (max-width: 575px){
   input{
     width: 250px;
     height: 25px;
   }
-
+/*   .addWords{
+    width: 250px;
+    height: 25px;
+  } */
   .textarea2{
     width: 250px;
     height: 45px;

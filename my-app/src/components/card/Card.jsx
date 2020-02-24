@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Preloader from '../common/Preloader';
 
 
-class Card extends React.Component {
+class Card extends React.PureComponent {
 
   constructor(props){
     super(props) 
@@ -23,11 +23,11 @@ class Card extends React.Component {
      switch (this.props.itemList){
        case 0:
          a = this.props.content[0].length - 1
-         this.centralContentActive = this.props.content[0] 
+         this.centralContentActive =  this.props.content[0] 
          break
        case 1:
          a =  this. props.listWordsTwo.length - 1
-         this.centralContentActive = this.props.listWordsTwo
+         this.centralContentActive =  this.props.listWordsTwo
          break
        case 2: 
          a = this.props.listUser.length - 1
@@ -50,23 +50,33 @@ class Card extends React.Component {
      this.props.setIndexCard(0);
        return
      }
-  }
+    }
+ 
 
   addNewList = (wordTwo) => {
     if (this.props.itemList === 1){
-      this.mas.push(this.props.indexCard)
+      this.mas.push(this.props.listWordsTwo[this.props.indexCard])
        this.masNow = [...new Set(this.mas)] 
+
     }
    if(this.props.itemList !== 1){
-    this.props.addWordsThunkTwoList(wordTwo)
+    this.props.addWordsThunkTwoList(wordTwo);
    }
   }
  componentDidMount(){
   this.masNow = [];
   this.mas = [];
+  if(!this.props.outputOrder){
+    this.props.listWordsTwo.reverse();
+    this.props.listUser.reverse(); 
+  }
+ }
+
+ sendMas = () => {
+   this.masNow.map( item => this.props.removeWordsFromListThunk(item, 'word2')); 
  }
  componentWillUnmount(){
-    this.props.removeWordsFromListThunk(this.masNow, 'word2') 
+    this.sendMas()  
     this.props.setIndexCard(0);
     this.props.updateItemList(0);
  }

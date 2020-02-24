@@ -2,11 +2,15 @@ import React from 'react';
 import style from './Lesson.module.css';
 import { NavLink } from 'react-router-dom';
 
-const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, setIndexCard}) => {
+const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, setIndexCard, outputOrder, updateOutputOrder}) => {
    const choiceList = (index) => {
      updateItemList(index);
      setIndexCard(0); 
    }
+   const sendOutputOrder = (status) => {
+     updateOutputOrder(status); 
+   }
+
   return(
     <div className = {style.topElement}>
        <div>
@@ -16,7 +20,22 @@ const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, 
 
        { listUser.length != 0 ? <div><button id= {itemList === 2 ? style.active : ''} onClick = {() => choiceList(2)}>{"Список " + newList}</button></div>: ''}
 
-       { listWordsTwo.length === 0 ? <div>Поки що у вас лише один список. Більше списків можна створити натиснувши клавішу повторити, або перейшовши<NavLink to = {'/AddWordsForm'}>сюди</NavLink></div> : '' }
+       { listWordsTwo.length === 0 ? <div>Поки що у вас мало списків. Більше списків можна створити натиснувши клавішу повторити, або перейшовши<NavLink to = {'/AddWordsForm'}>сюди</NavLink></div> : '' }
+        
+        <div className = {style.wrapperButtons}>
+          Порядок виводу слів
+          <div>
+          <button onClick = { () => sendOutputOrder(true) }
+          id = {outputOrder ? style.active : ''} 
+          className = {style.buttonTopElement}>З початку</button>
+          <button  onClick = {() => sendOutputOrder(false) }
+          id = {!outputOrder ? style.active : ''} 
+          className = {style.buttonTopElement}>З кінця</button>
+          </div>
+         
+        </div>
+      
+
     </div>
   )
 }

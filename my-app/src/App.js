@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import LessonContainer from './components/lessons/LessonContainer';
 import AddWordsForm from './components/main/form/Form';
 import { connect } from 'react-redux';
-import { initializeMain } from './components/redux/main-reducers';
+import { initializeMain} from './components/redux/main-reducers';
 import Settings from './components/settings/Settings';
 
 
@@ -15,6 +15,8 @@ const App = (props) => {
     props.initializeMain('word2');
     props.initializeMain('listUser');
   }
+ 
+
 
   return (
       <div className="App">
@@ -33,4 +35,5 @@ const mapStateToProps = (state) => {
     listWords:state.mainPage.listWords
   }
 }
+
 export default connect(mapStateToProps, {initializeMain})(App);

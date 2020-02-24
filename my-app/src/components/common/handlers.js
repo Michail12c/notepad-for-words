@@ -1,13 +1,13 @@
 export class InteractionWithLocalStorage {
-  constructor(name){
-      this.name = name;
+  constructor(name, status){
+      this.name = name
   }
   createList(){
      return this._getQuestionsFromLS(this.name);
   }
 
   _getQuestionsFromLS(){
-    return JSON.parse(localStorage.getItem(this.name) || '[]');
+     return  JSON.parse(localStorage.getItem(this.name) || '[]');
   }
   _searchForWordRepetitions(array, elem){
     return array.find(item => item.word === elem.word)
@@ -24,13 +24,7 @@ export class InteractionWithLocalStorage {
 
   updateLocalStorage(setElem){
     let previousList = this._getQuestionsFromLS(this.name);
-    let newMas = setElem; 
-    let newList = []; 
-    previousList.forEach( (elem, index) => {
-      if(!newMas.includes(index)){
-        newList.push(elem)
-      }
-    })
+    let newList = previousList.filter( item => item.word !== setElem.word);
     localStorage.setItem(this.name, JSON.stringify(newList)); 
   }
   

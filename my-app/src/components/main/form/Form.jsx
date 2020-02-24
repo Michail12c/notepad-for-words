@@ -9,6 +9,7 @@ import TopSection from '../../top_section/TopSection';
 import { setFlagAC } from '../../redux/storage-reducer';
 import CentralComponent from './createList/CentralComponent';
 import { useEffect } from 'react';
+import Statistics from './Statistics';
 
 let minLength = minLengthCreator(1);
 const formForWords = (props) => {
@@ -37,12 +38,17 @@ export const AddWords = reduxForm({
 })(formForWords);
 
 
-const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser,
+const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser, initializeMain,
   ...props}) => {
+    const listWordsLength = listWords[0].length; 
+    const listUserLength = listUser.length; 
+    const listWordsTwoLength = listWordsTwo.length; 
+
 
  const onSubmit = (formData) => {
    props.addWordThunkListUser(formData);
    props.reset('addWords');
+   initializeMain('listUser');
  }
 
 
@@ -93,7 +99,11 @@ const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser,
            />
         }
         <div className = {style.statistic}>
-           Статистика
+           <Statistics newList = {newList} 
+           listWordsLength = {listWordsLength}
+           listUserLength = {listUserLength}
+           listWordsTwoLength = {listWordsTwoLength}
+           />
         </div>
        </div>  
     </div>

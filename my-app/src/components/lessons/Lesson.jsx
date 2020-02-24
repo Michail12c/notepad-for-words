@@ -7,8 +7,7 @@ import TopElement from './TopElement';
 import Explication from './Explication';
 
 const Lesson = ({ content, addWordsThunkTwoList, initializeMain, 
-  listWordsTwo, listUser, newList, itemList, updateItemList, updateIndex, indexCard, setIndexCard, removeWordsFromListThunk}) => {
-    console.log(itemList)
+  listWordsTwo, listUser, newList, itemList, updateItemList, updateIndex, indexCard, setIndexCard, removeWordsFromListThunk, updateOutputOrder, outputOrder}) => {
   return (
   <div className={style.lesson}>
      <TopSection logo = {'logo'} calculate = {'calculate'}/>
@@ -22,6 +21,8 @@ const Lesson = ({ content, addWordsThunkTwoList, initializeMain,
           itemList = {itemList}
           updateIndex = {updateIndex}
           setIndexCard = {setIndexCard}
+          outputOrder = {outputOrder}
+          updateOutputOrder = {updateOutputOrder}
           />
       </div>
       <div className = {style.card}>
@@ -35,6 +36,7 @@ const Lesson = ({ content, addWordsThunkTwoList, initializeMain,
           indexCard = {indexCard}
           setIndexCard = {setIndexCard}
           removeWordsFromListThunk = {removeWordsFromListThunk}
+          outputOrder = {outputOrder}
         />
       </div>
       <div className = {style.rightSide}>

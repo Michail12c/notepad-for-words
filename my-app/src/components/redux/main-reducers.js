@@ -4,13 +4,15 @@ import firstList from '../common/data.json';
 const ADD_WORD = 'ADD-WORD'; 
 const ADD_WORD_TWO = 'ADD-WORD-TWO';
 const CREATE_LIST = 'CREATE-LIST';
-const ADD_WORD_LIST_USER = 'ADD-WORD-LIST-USER'; 
+const ADD_WORD_LIST_USER = 'ADD-WORD-LIST-USER';
+const UPDATE_OUTPUT_ORDER = 'UPDATE-OUTPUT-ORDER'; 
 
 let initialState = {
   listWords: [],
   listWordsTwo: [],
   newList: Boolean (localStorage.getItem('list')),
-  listUser: ''
+  listUser: '',
+  outputOrder: false
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -35,6 +37,11 @@ const mainReducer = (state = initialState, action) => {
           ...state,
           listUser: action.word
     }
+    case UPDATE_OUTPUT_ORDER: 
+        return{
+          ...state,
+          outputOrder: action.status
+        }
     default:
       return state;
   }
@@ -44,6 +51,7 @@ export const addWord = (word) => ({type: ADD_WORD, word});
 export const addWordTwoList = (wordTwo) => ({type: ADD_WORD_TWO, wordTwo});
 export const createList = (data) => ({type: CREATE_LIST, data });
 export const addWordListUser = (word) => ({type: ADD_WORD_LIST_USER, word});
+export const updateOutputOrder = (status) => ({type: UPDATE_OUTPUT_ORDER, status}); 
 
 
 export const initializeMain = (elem) => {
@@ -52,14 +60,15 @@ export const initializeMain = (elem) => {
 
      !addLocale.keySearch('list') ? localStorage.setItem('list', '') // ініціалізаці списку 
      : dispatch(createList(localStorage.getItem('list')));           // користувача 
-
+  
     let content = addLocale.createList();
-
+  
     if(elem === 'word') return dispatch(addWord(firstList)); 
     if(elem === 'word2') return dispatch (addWordTwoList(content));
     if(elem == 'listUser') return dispatch(addWordListUser(content));
   }
 }
+
 
 export const createListThunk = (data) => {
   return (dispatch) => {
