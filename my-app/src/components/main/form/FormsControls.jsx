@@ -30,7 +30,7 @@ export const Textarea2 = ({input, meta, ...props}) => {
   )
 }
 
-export const Input= ({input, meta, ...props}) => {
+export const Input = ({input, meta, ...props}) => {
   let hasError = meta.touched && meta.error;
   return (
     <div className = {style.formsControls + ' ' + (hasError ?  style.error : '')}>
@@ -43,6 +43,7 @@ export const Input= ({input, meta, ...props}) => {
     </div>
   )
 }
+
 
 export const Input2= ({input, meta, ...props}) => {
   let hasError = meta.touched && meta.error;
@@ -70,3 +71,4 @@ export const Input3 = ({input, meta, ...props}) => {
     </div>
   )
 }
+

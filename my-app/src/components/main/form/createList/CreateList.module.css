@@ -32,6 +32,61 @@
   margin: 0 auto;
   padding-top: 20px;
 }
+.listWordsChange{
+  margin-bottom: 10px;
+  background: rgba(177, 189, 195, 0.3);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.listWordsChange div{
+  padding: 5px 10px;
+  width: 450px;
+  text-align: start;
+  font-weight: bold;
+}
+.sendChange button{
+  border: none;
+  background-color: rgb(130, 199, 192);
+  cursor: pointer; 
+  margin-right: 5px;
+  margin-bottom: 5px;
+  color:rgb(44, 44, 44); 
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.sendChange button:hover{
+  background-color: rgb(148, 206, 200);
+}
+.confirmation{
+  font-size: 12px;
+  padding-left: 5px;
+}
+.confirmation button{
+  cursor: pointer;
+  width: 40px;
+  height: 17px;
+}
+ .buttonOne{
+  margin-left: 10px;
+}
+.changeList button{
+  cursor: pointer;
+  width: 510px;
+  height: 30px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: rgb(130, 199, 192);
+  color:rgb(44, 44, 44); 
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.formEditionList div input{
+  width: 500px;
+  height: 30px;
+  border:none;
+  background-color: rgba(176, 211, 228, 0.3);
+  margin-bottom: 5px; 
+  padding: 5px;
+  color:black;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
 
 
 @media screen and (max-width: 768px){
@@ -43,6 +98,25 @@
     width: 100px;
     margin-top: 10px;
   }
+  .listWordsChange div{
+    padding: 5px 10px;
+    width:80%;
+ }
+ .listWordsChange{
+    margin-left: 10px;
+    margin-right: 10px;
+ }
+/*  .changeList button{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 96%;
+ }
+ .formEditionList div input{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 94%; 
+} */
+
 }
 
 @media (max-width: 575.98px) {
@@ -53,4 +127,21 @@
   .innerContent{
     font-size: 16px;
   }
+  .editingList{
+    margin-top: 30px;
+  }
+  .formEditionList div input{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 91%;
+ }
+ .changeList button{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 94%;
+ }
+ .listWordsChange div{
+   width: auto;
+ }
+
 }

@@ -6,7 +6,7 @@ import style from './CreateList.module.css';
 import { NavLink } from 'react-router-dom';
 import EditingList from './EditingList';
 
-const CentralComponent = ({elements, flag, updateFlag,  listWordsTwo, listUser}) => {
+const CentralComponent = ({elements, flag, updateFlag,  listWordsTwo, listUser, editionListUserThunk, removeWordsFromListThunk}) => {
   let newElement;
   switch (flag){
     case 0: 
@@ -25,7 +25,10 @@ const CentralComponent = ({elements, flag, updateFlag,  listWordsTwo, listUser})
       (newElement = <UserList  listWordsTwo = {listUser}/>)
       break
     case 6: 
-    return newElement = <EditingList listUser = {listUser}/>;
+    return newElement = <EditingList listUser = {listUser} 
+    editionListUserThunk = {editionListUserThunk}
+    removeWordsFromListThunk = {removeWordsFromListThunk}
+    />;
       break    
   }
 

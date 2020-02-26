@@ -59,6 +59,7 @@
 .listWords{
    margin-bottom: 10px;
    background: rgba(177, 189, 195, 0.3);
+   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .listWords div{
    padding: 5px 10px;

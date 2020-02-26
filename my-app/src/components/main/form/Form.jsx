@@ -2,7 +2,7 @@ import React from 'react';
 import style from './../Main.module.css';
 import {  reduxForm,  Field, reset } from 'redux-form';
 import { connect } from 'react-redux';
-import {  addWordsThunk, initializeMain, addWordsThunkTwoList, addWordThunkListUser } from '../../redux/main-reducers';
+import {  addWordsThunk, initializeMain, addWordsThunkTwoList, addWordThunkListUser, editionListUserThunk, removeWordsFromListThunk } from '../../redux/main-reducers';
 import { minLengthCreator, required } from '../../common/validator';
 import { Textarea, Input, Input3 } from './FormsControls';
 import TopSection from '../../top_section/TopSection';
@@ -39,7 +39,7 @@ export const AddWords = reduxForm({
 })(formForWords);
 
 
-const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser, initializeMain,
+const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser, initializeMain,editionListUserThunk,removeWordsFromListThunk,
   ...props}) => {
     const listWordsLength = listWords[0].length; 
     const listUserLength = listUser.length; 
@@ -97,6 +97,8 @@ const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser, initia
            flag = {flag} 
            elements = {myList}
            listUser = {listUser}
+           editionListUserThunk = {editionListUserThunk}
+           removeWordsFromListThunk = {removeWordsFromListThunk}
            />
         }
         <div className = {style.statistic}>
@@ -130,4 +132,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect (mapStateToProps, {addWordsThunk, addWordsThunkTwoList,addWordThunkListUser, reset, initializeMain, setFlagAC})(AddWordsForm);
+export default connect (mapStateToProps, {addWordsThunk, addWordsThunkTwoList,addWordThunkListUser, reset, initializeMain, setFlagAC, editionListUserThunk, removeWordsFromListThunk})(AddWordsForm);

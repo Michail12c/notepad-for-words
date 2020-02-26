@@ -70,6 +70,8 @@ export const initializeMain = (elem) => {
 }
 
 
+
+
 export const createListThunk = (data) => {
   return (dispatch) => {
     localStorage.setItem('list', data);
@@ -91,9 +93,21 @@ export const removeWordsFromListThunk = (wordsArray, name) => {
     let removeWord = new InteractionWithLocalStorage(name);
     removeWord.updateLocalStorage(wordsArray);
     let newList = removeWord.createList();
-    dispatch(addWordTwoList(newList));  
+    if(name === "word2") dispatch(addWordTwoList(newList));
+    if(name === "listUser") dispatch(addWordListUser(newList)); 
   }
 }
+
+export const editionListUserThunk = (newElement, id, name) => {
+  return (dispatch) => {
+    let changeList = new InteractionWithLocalStorage(name);
+    changeList.editionList(newElement, id);
+    let newList = changeList.createList();
+    dispatch(addWordListUser(newList)); 
+  }
+}
+
+
 
 export const addWordsThunk = (words) => setThunkList (words, 'word', addWord); 
 export const addWordsThunkTwoList = (wordTwo) => setThunkList(wordTwo ,'word2', addWordTwoList); 

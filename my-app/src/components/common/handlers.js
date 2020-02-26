@@ -1,6 +1,6 @@
 export class InteractionWithLocalStorage {
-  constructor(name, status){
-      this.name = name
+  constructor(name){
+      this.name = name;
   }
   createList(){
      return this._getQuestionsFromLS(this.name);
@@ -27,6 +27,17 @@ export class InteractionWithLocalStorage {
     let newList = previousList.filter( item => item.word !== setElem.word);
     localStorage.setItem(this.name, JSON.stringify(newList)); 
   }
+
+  editionList(newElem, id){
+     let previousList = this._getQuestionsFromLS(this.name);
+     let newList = previousList.map((item, index) => {
+       if(index === id - 1){
+        return  item = newElem; 
+       }
+       return item
+     })
+     localStorage.setItem(this.name, JSON.stringify(newList)); 
+  }
   
   keySearch(name){
     let mas = [];
@@ -38,19 +49,5 @@ export class InteractionWithLocalStorage {
       return false
      }
      return true
-  }
-  
-  changeStatusElements(elem1){
-    let myElem = this._getQuestionsFromLS(this.name);
-    myElem[elem1].status = true;
-    localStorage.setItem(elem1, JSON.stringify(myElem));
-  }
-
-  changeStatusElementsOnStart(){
-    let a =this._getQuestionsFromLS(this.name);
-    a.map(el => {
-      el.status = false;
-    })
-    localStorage.setItem(this.name, JSON.stringify(a));
   }
 }
