@@ -1,8 +1,10 @@
 import React from 'react';
 import style from './Lesson.module.css';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setStatusLesson } from '../redux/storage-reducer';
 
-const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, setIndexCard, outputOrder, updateOutputOrder}) => {
+const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, setIndexCard, outputOrder, updateOutputOrder, statusLesson, setStatusLesson}) => {
    const choiceList = (index) => {
      updateItemList(index);
      setIndexCard(0); 
@@ -13,6 +15,16 @@ const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, 
 
   return(
     <div className = {style.topElement}>
+       <div className = {style.mainChoiceList}>
+          <div className = {style.choiceList}>Вибрати режим урок</div>
+           <div>
+             <button id= {statusLesson === 0 ? style.active : ''} onClick = {() => setStatusLesson(0)}>Легкий режим</button>
+           </div>
+           <div >
+             <button id= {statusLesson === 1 ? style.active : ''} onClick = {() => setStatusLesson(1)}>Строгий режим</button>
+           </div>
+       </div>
+         <div className = {style.choiceList}>Обрати список для повторення</div>
        <div>
           <button id= {itemList === 0 ? style.active : ''} onClick = {() => choiceList(0)}>Базовий список</button>
        </div>
@@ -39,4 +51,10 @@ const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, 
     </div>
   )
 }
-export default TopElement;
+const mapStateToProps = (state) => {
+  return {
+    statusLesson: state.storagePage.statusLesson
+  }
+}
+
+export default connect(mapStateToProps, {setStatusLesson})(TopElement);

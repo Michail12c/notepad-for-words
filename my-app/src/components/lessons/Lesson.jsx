@@ -7,13 +7,12 @@ import TopElement from './TopElement';
 import Explication from './Explication';
 
 const Lesson = ({ content, addWordsThunkTwoList, initializeMain, 
-  listWordsTwo, listUser, newList, itemList, updateItemList, updateIndex, indexCard, setIndexCard, removeWordsFromListThunk, updateOutputOrder, outputOrder}) => {
+  listWordsTwo, listUser, newList, itemList, updateItemList, updateIndex, indexCard, setIndexCard, removeWordsFromListThunk, updateOutputOrder, outputOrder, statusLesson}) => {
   return (
   <div className={style.lesson}>
      <TopSection logo = {'logo'} calculate = {'calculate'}/>
     <div className = {style.wrapper}>
      <div className = {style.leftSide}>
-        Обрати список для повторення
           <TopElement listWordsTwo = {listWordsTwo} 
           listUser = {listUser}
           newList = {newList} 
@@ -37,6 +36,7 @@ const Lesson = ({ content, addWordsThunkTwoList, initializeMain,
           setIndexCard = {setIndexCard}
           removeWordsFromListThunk = {removeWordsFromListThunk}
           outputOrder = {outputOrder}
+          statusLesson = {statusLesson}
         />
       </div>
       <div className = {style.rightSide}>

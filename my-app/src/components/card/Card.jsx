@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import style from './Card.module.css';
 import { Redirect } from 'react-router-dom';
 import Preloader from '../common/Preloader';
+import StrictCheck from './StrictCheck';
 
 
 class Card extends React.PureComponent {
@@ -43,7 +44,7 @@ class Card extends React.PureComponent {
       this.props.setIndexCard(0);
       return     
     }
-    if( a == b){
+    if( a == b ){
       this.setState({
         status: true
       })
@@ -58,18 +59,25 @@ class Card extends React.PureComponent {
       this.setState({send: true})
       this.mas.push(this.props.listWordsTwo[this.props.indexCard])
        this.masNow = [...new Set(this.mas)] 
+       this.sendMas();
+       if(this.props.indexCard === 0){
+        this.props.setIndexCard(0);
+        return
+       }
+       this.props.setIndexCard(this.props.indexCard - 1);
     }
    if(this.props.itemList !== 1){
+      this.showWords(); 
     this.props.addWordsThunkTwoList(wordTwo);
    }
   }
  componentDidMount(){
   this.masNow = [];
   this.mas = [];
-  if(!this.props.outputOrder){
+/*   if(!this.props.outputOrder){
     this.props.listWordsTwo.reverse();
     this.props.listUser.reverse(); 
-  }
+  } */
  }
 componentDidUpdate(){
   
@@ -122,20 +130,44 @@ componentDidUpdate(){
        }
     </div>
     <div className = {style.choiceMenu}>
-      {!this.state.status 
+       {this.props.statusLesson === 0 ? <ControlCard stateStatus = {this.state.status}
+                     centralContent = {this.centralContentActive}
+                     indexCard = {this.props.indexCard}
+                     addNewList = {this.addNewList}
+                     itemList = {this.props.itemList}
+                     repeatList = {this.repeatList}
+                     showWords = {this.showWords}/> 
+                     : <StrictCheck/>}
+{/*       {!this.state.status 
       ?  <button onClick= { () => {
-        this.showWords(); 
         this.addNewList(this.centralContentActive[this.props.indexCard])}
       }>{this.props.itemList === 1 ? 'Запам`ятав' :  'Повторити'}</button>
       : <button  onClick = {() => this.repeatList(false)}>Ні</button>}
 
       {!this.state.status 
        ? <button onClick= {this.showWords}>{this.props.itemList === 1 ? 'Повторити': 'Пам`ятаю'}</button>
-      : <button onClick = {() => this.repeatList(true)}>Так</button>}
+      : <button onClick = {() => this.repeatList(true)}>Так</button>} */}
     </div>
   </div>
     )
   }
+}
+
+const ControlCard = ({stateStatus, centralContent, addNewList, itemList, repeatList, showWords, indexCard}) => {
+  return (
+    <div>
+      {!stateStatus 
+      ?  <button onClick= { () => {
+       /*  this.showWords();  */
+        addNewList(centralContent[indexCard])}
+      }>{itemList === 1 ? 'Запам`ятав' :  'Повторити'}</button>
+      : <button  onClick = {() => repeatList(false)}>Ні</button>}
+
+      {!stateStatus 
+       ? <button onClick= {showWords}>{itemList === 1 ? 'Повторити': 'Пам`ятаю'}</button>
+      : <button onClick = {() => repeatList(true)}>Так</button>}
+    </div>
+  )
 }
 
 const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser}) => {

@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
     newList: state.mainPage.newList,
     itemList: state.storagePage.itemList,
     indexCard: state.storagePage.indexCard,
-    outputOrder: state.mainPage.outputOrder
+    outputOrder: state.mainPage.outputOrder,
+    statusLesson: state.storagePage.statusLesson
   }
 }
 const LessonContainer = connect(mapStateToProps, {addWordsThunkTwoList, initializeMain,updateItemList,setIndexCard, removeWordsFromListThunk, updateOutputOrder })(Lesson);
