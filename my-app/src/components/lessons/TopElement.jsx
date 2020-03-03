@@ -16,7 +16,7 @@ const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, 
   return(
     <div className = {style.topElement}>
        <div className = {style.mainChoiceList}>
-          <div className = {style.choiceList}>Вибрати режим урок</div>
+          <div className = {style.choiceList}>Вибрати режим уроку</div>
            <div>
              <button id= {statusLesson === 0 ? style.active : ''} onClick = {() => setStatusLesson(0)}>Легкий режим</button>
            </div>

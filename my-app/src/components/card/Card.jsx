@@ -3,6 +3,8 @@ import style from './Card.module.css';
 import { Redirect } from 'react-router-dom';
 import Preloader from '../common/Preloader';
 import StrictCheck from './StrictCheck';
+import { connect } from 'react-redux';
+import { choiceElementContent } from '../redux/storage-reducer';
 
 
 class Card extends React.PureComponent {
@@ -125,19 +127,25 @@ componentDidUpdate(){
           updateFlag = {this.updateFlag}
           itemList  = {this.props.itemList}
           listUser = {this.props.listUser[this.props.indexCard]}
+          statusLesson = {this.props.statusLesson}
+          choiceElementContent = {this.props.choiceElementContent}
+          contentElement = {this.props.contentElement}
           />
        : <div>Cписок закінчився. Бажаєте повторити?</div>
        }
     </div>
     <div className = {style.choiceMenu}>
        {this.props.statusLesson === 0 ? <ControlCard stateStatus = {this.state.status}
-                     centralContent = {this.centralContentActive}
-                     indexCard = {this.props.indexCard}
-                     addNewList = {this.addNewList}
-                     itemList = {this.props.itemList}
-                     repeatList = {this.repeatList}
-                     showWords = {this.showWords}/> 
-                     : <StrictCheck/>}
+                                            centralContent = {this.centralContentActive}
+                                            indexCard = {this.props.indexCard}
+                                            addNewList = {this.addNewList}
+                                            itemList = {this.props.itemList}
+                                            repeatList = {this.repeatList}
+                                            showWords = {this.showWords}/> 
+                              : <StrictCheck  contentElement = {this.props.contentElement} 
+                                              showWords = {this.showWords} 
+                                              repeatList = {this.repeatList}
+                                              stateStatus = {this.state.status}/>}
 {/*       {!this.state.status 
       ?  <button onClick= { () => {
         this.addNewList(this.centralContentActive[this.props.indexCard])}
@@ -170,7 +178,7 @@ const ControlCard = ({stateStatus, centralContent, addNewList, itemList, repeatL
   )
 }
 
-const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser}) => {
+const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser, statusLesson, choiceElementContent, contentElement}) => {
   const openTranslate = () => {
     updateFlag(true)
   }
@@ -181,18 +189,22 @@ const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser}) 
 
   switch (itemList){
     case 0:
-     activeContent = content
+    /*  activeContent = content */
+     choiceElementContent(content)
      break
     case 1:
-     activeContent = listWordsTwo 
+     /* activeContent = listWordsTwo  */
+     choiceElementContent(listWordsTwo)
      break
     case 2:
-    activeContent = listUser
+   /*  activeContent = listUser */
+    choiceElementContent(listUser)
     break 
   }
   return(
     <div className = {style.innerContent}>
-      <div>{ !flag ? activeContent.word : activeContent.transfer}</div>
+     { statusLesson === 0 ? <div>{ !flag ? contentElement.word : contentElement.transfer}</div> 
+                    : <div>{ !flag ? contentElement.transfer : contentElement.word}</div> } 
       { !flag 
         ? <button onClick = {openTranslate}>Показати переклад</button> 
         : <button onClick = {closeTranslate}>Сховати переклад</button> 
@@ -201,4 +213,9 @@ const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser}) 
   )
 }
 
-export default Card;
+const mapStateToProps = state => {
+  return {
+    contentElement: state.storagePage.content
+  }
+}
+export default connect(mapStateToProps, {choiceElementContent})(Card);

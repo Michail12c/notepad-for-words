@@ -50,7 +50,7 @@ export const Input2= ({input, meta, ...props}) => {
   return (
     <div className = {style.formsControls + ' ' + (hasError ?  style.error : '')}>
       <div >
-      <input className = {style.input2} {...input} {...props}></input>
+      <input className = {style.input2} {...input} {...props} autoFocus></input>
       </div>
       <div className = {style.text}>
         {hasError ? <span>{'some error'}</span> : ''}

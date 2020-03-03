@@ -1,7 +1,8 @@
 const SET_FLAG = 'SET-FLAG';
 const UPDATE_ITEM_LIST = 'UPDATE-ITEM-LIST';
 const SET_INDEX_CARD = 'SET-INDEX-CARD';
-const SET_STATUS_LESSON = 'SET-STATUS-LESSON'; 
+const SET_STATUS_LESSON = 'SET-STATUS-LESSON';
+const CHOICE_ELEMENT_CONTENT = 'CHOICE-ELEMENT-CONTENT';  
 
 
 let initialState = {
@@ -9,7 +10,8 @@ let initialState = {
   itemList: 0,
   statusCard: false, 
   indexCard: 0,
-  statusLesson: 0 
+  statusLesson: 0,
+  content: '' 
 }
 
 let storageReducer = (state = initialState, action) => {
@@ -33,7 +35,11 @@ let storageReducer = (state = initialState, action) => {
       return {
         ...state,
         statusLesson: action.status
-      }     
+      }
+    case CHOICE_ELEMENT_CONTENT:
+      return{
+        ...state, content: action.element
+      }       
    default: 
    return state;
   }
@@ -43,4 +49,5 @@ export const setFlagAC = value => ({type: SET_FLAG, value})
 export const updateItemList = list => ({type: UPDATE_ITEM_LIST, list})
 export const setIndexCard = index => ({type: SET_INDEX_CARD, index})
 export const setStatusLesson = status => ({type: SET_STATUS_LESSON, status})
+export const choiceElementContent = element => ({type: CHOICE_ELEMENT_CONTENT, element})
 export default storageReducer;
