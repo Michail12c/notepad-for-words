@@ -5,6 +5,7 @@ import Preloader from '../common/Preloader';
 import StrictCheck from './StrictCheck';
 import { connect } from 'react-redux';
 import { choiceElementContent } from '../redux/storage-reducer';
+import CollectorContent from './CollectorContent';
 
 
 class Card extends React.PureComponent {
@@ -138,7 +139,7 @@ componentDidUpdate(){
                                             itemList = {this.props.itemList}
                                             repeatList = {this.repeatList}
                                             showWords = {this.showWords}/> 
-                              : <StrictCheck  contentElement = {this.props.contentElement} 
+                              : <CollectorContent  contentElement = {this.props.contentElement} 
                                               showWords = {this.showWords} 
                                               repeatList = {this.repeatList}
                                               stateStatus = {this.state.status}/>}
@@ -187,7 +188,7 @@ const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser, s
   return(
     <div className = {style.innerContent}>
      { statusLesson === 0 ? <div>{ !flag ? contentElement.word : contentElement.transfer}</div> 
-                    : <div>{ !flag ? contentElement.transfer : contentElement.word}</div> } 
+                          : <div>{ !flag ? contentElement.transfer : contentElement.word}</div> } 
       { !flag 
         ? <button onClick = {openTranslate}>Подивитись переклад</button> 
         : <button onClick = {closeTranslate}>Сховати переклад</button> 

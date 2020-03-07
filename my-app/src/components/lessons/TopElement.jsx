@@ -18,10 +18,13 @@ const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, 
        <div className = {style.mainChoiceList}>
           <div className = {style.choiceList}>Вибрати режим уроку</div>
            <div>
-             <button id= {statusLesson === 0 ? style.active : ''} onClick = {() => setStatusLesson(0)}>Легкий режим</button>
+             <button id= {statusLesson === 0 ? style.active2 : ''} onClick = {() => setStatusLesson(0)}>Легкий режим</button>
            </div>
            <div >
-             <button id= {statusLesson === 1 ? style.active : ''} onClick = {() => setStatusLesson(1)}>Строгий режим</button>
+             <button id= {statusLesson === 1 ? style.active2 : ''} onClick = {() => setStatusLesson(1) }>Строгий режим</button>
+           </div>
+           <div>
+             <button id= {statusLesson === 2 ? style.active2 : ''} onClick = {() => setStatusLesson(2) }>Режим пазлу</button>
            </div>
        </div>
          <div className = {style.choiceList}>Обрати список для повторення</div>
