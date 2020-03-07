@@ -1,6 +1,7 @@
 .card{
   text-align: center;
   padding: 50px 60px 50px 60px;
+  width: 300px;
   background-color:rgba(16, 62, 80, 0.3);
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,0.5); 
@@ -37,6 +38,14 @@
 .choiceMenu button:hover{
   background-color: rgb(54, 76, 95);
 }
+.choiceMenu button.classTrue{
+  background-color: rgb(35, 155, 105);
+}
+.choiceMenu button.classFalse{
+  background-color:rgb(143, 71, 71);
+}
+
+
 @media screen and (max-width: 992px){
   .card{
     padding: 50px 30px 50px 30px;

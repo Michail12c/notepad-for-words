@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import style from './Card.module.css';
 import { Redirect } from 'react-router-dom';
 import Preloader from '../common/Preloader';
@@ -76,10 +76,6 @@ class Card extends React.PureComponent {
  componentDidMount(){
   this.masNow = [];
   this.mas = [];
-/*   if(!this.props.outputOrder){
-    this.props.listWordsTwo.reverse();
-    this.props.listUser.reverse(); 
-  } */
  }
 componentDidUpdate(){
   
@@ -146,15 +142,6 @@ componentDidUpdate(){
                                               showWords = {this.showWords} 
                                               repeatList = {this.repeatList}
                                               stateStatus = {this.state.status}/>}
-{/*       {!this.state.status 
-      ?  <button onClick= { () => {
-        this.addNewList(this.centralContentActive[this.props.indexCard])}
-      }>{this.props.itemList === 1 ? 'Запам`ятав' :  'Повторити'}</button>
-      : <button  onClick = {() => this.repeatList(false)}>Ні</button>}
-
-      {!this.state.status 
-       ? <button onClick= {this.showWords}>{this.props.itemList === 1 ? 'Повторити': 'Пам`ятаю'}</button>
-      : <button onClick = {() => this.repeatList(true)}>Так</button>} */}
     </div>
   </div>
     )
@@ -166,7 +153,6 @@ const ControlCard = ({stateStatus, centralContent, addNewList, itemList, repeatL
     <div>
       {!stateStatus 
       ?  <button onClick= { () => {
-       /*  this.showWords();  */
         addNewList(centralContent[indexCard])}
       }>{itemList === 1 ? 'Запам`ятав' :  'Повторити'}</button>
       : <button  onClick = {() => repeatList(false)}>Ні</button>}
@@ -189,15 +175,12 @@ const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser, s
 
   switch (itemList){
     case 0:
-    /*  activeContent = content */
      choiceElementContent(content)
      break
     case 1:
-     /* activeContent = listWordsTwo  */
      choiceElementContent(listWordsTwo)
      break
     case 2:
-   /*  activeContent = listUser */
     choiceElementContent(listUser)
     break 
   }
@@ -206,7 +189,7 @@ const Content = ({content, flag, updateFlag, listWordsTwo, itemList, listUser, s
      { statusLesson === 0 ? <div>{ !flag ? contentElement.word : contentElement.transfer}</div> 
                     : <div>{ !flag ? contentElement.transfer : contentElement.word}</div> } 
       { !flag 
-        ? <button onClick = {openTranslate}>Показати переклад</button> 
+        ? <button onClick = {openTranslate}>Подивитись переклад</button> 
         : <button onClick = {closeTranslate}>Сховати переклад</button> 
       }
     </div>

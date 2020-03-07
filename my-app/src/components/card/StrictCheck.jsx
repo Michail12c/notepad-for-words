@@ -34,7 +34,9 @@ const StrictCheck = ({contentElement, showWords, stateStatus, repeatList}) => {
 
   const onSubmit = (data) => {
     let word = contentElement.word.toLowerCase();
+    word = word.replace(/[?!\.]/g, ''); 
     let answer = data.checkAnswer.trim().toLowerCase();
+    answer =  answer.replace(/[?!\.]/g, '')
     let result = comparison(word, answer);
     setAnswerStatus(result);  
     setStatusForm(true);  
@@ -74,8 +76,8 @@ const ResultAnswer = ({answerStatus, showWords, setStatusForm, stateStatus, repe
     <div>
      {!stateStatus 
        ? <> {answerStatus 
-                      ? <button onClick = {nextCard}>Правильно</button> 
-                      : <button onClick = {nextCard}>Не правильно</button>} </> 
+                      ? <button onClick = {nextCard} className = {style.classTrue}>Правильно</button> 
+                      : <button onClick = {nextCard} className = {style.classFalse}>Не правильно</button>} </> 
        : <> {<div><button onClick = {() => repeatList(false)}>Ні</button><button onClick = {repeatListHere}>Так</button></div> }</>}
     </div>
   )
