@@ -3,7 +3,9 @@ const UPDATE_ITEM_LIST = 'UPDATE-ITEM-LIST';
 const SET_INDEX_CARD = 'SET-INDEX-CARD';
 const SET_STATUS_LESSON = 'SET-STATUS-LESSON';
 const CHOICE_ELEMENT_CONTENT = 'CHOICE-ELEMENT-CONTENT';  
-const UPDATE_STATUS_COLLECTOR = 'UPDATE-STATUS-COLLECTOR'; 
+const UPDATE_STATUS_COLLECTOR = 'UPDATE-STATUS-COLLECTOR';
+const SET_PUZZLE_WORDS = 'SET-PUZZLE-WORDS'; 
+const SET_PREVIOUS_WORDS = 'SET-PREVIOUS-WORDS'; 
 
 
 let initialState = {
@@ -13,7 +15,9 @@ let initialState = {
   indexCard: 0,
   statusLesson: 0,
   content: '',
-  statusCollector: 0 
+  statusCollector: 0,
+  previousWords: '',
+  puzzleWords: '' 
 }
 
 let storageReducer = (state = initialState, action) => {
@@ -42,6 +46,15 @@ let storageReducer = (state = initialState, action) => {
       return{
         ...state, statusCollector: action.status
       }
+    case SET_PUZZLE_WORDS:
+      return {
+        ...state, puzzleWords: action.newArr
+      }  
+   case SET_PREVIOUS_WORDS:
+     return {
+       ...state, 
+       previousWords: [...state.previousWords, action.words]
+     }
    default: 
    return state;
   }
@@ -53,5 +66,7 @@ export const setIndexCard = index => ({type: SET_INDEX_CARD, index})
 export const setStatusLesson = status => ({type: SET_STATUS_LESSON, status})
 export const choiceElementContent = element => ({type: CHOICE_ELEMENT_CONTENT, element})
 export const updateStatusCollector = status => ({type: UPDATE_STATUS_COLLECTOR, status})
+export const setPuzzleWords = newArr => ({type: SET_PUZZLE_WORDS, newArr})
+export const setPreviousWords = words => ({type: SET_PREVIOUS_WORDS, words})
 
 export default storageReducer;

@@ -5,6 +5,7 @@ import {  Input2 } from '../main/form/FormsControls';
 import { useState } from 'react';
 import { minLengthCreator, required } from '../common/validator';
 import { useEffect } from 'react';
+import { HandlerResponse } from '../common/handlerResponse';
 
 let minLength = minLengthCreator(1);
 
@@ -33,24 +34,18 @@ const StrictCheck = ({contentElement, showWords, stateStatus, repeatList}) => {
   const [answerStatus, setAnswerStatus] = useState(false);
 
   const onSubmit = (data) => {
-    let word = contentElement.word.toLowerCase();
-    word = word.replace(/[?!\.]/g, ''); 
-    let answer = data.checkAnswer.trim().toLowerCase();
-    answer =  answer.replace(/[?!\.]/g, '')
-    let result = comparison(word, answer);
+    let solution = new HandlerResponse(contentElement.word, data.checkAnswer)
+    let result = solution.collationResult() 
     setAnswerStatus(result);  
     setStatusForm(true);  
   }
+  
   useEffect(() => {
     if(stateStatus){
     setStatusForm(true)
   }
   }, [stateStatus]); 
 
-  const comparison = (word1, word2) => {
-    let result = word1 === word2 ? true : false
-    return result; 
-  }
   return (
     <div>
      { !statusForm ? <AddAnswerFromForm onSubmit = {onSubmit}/> 

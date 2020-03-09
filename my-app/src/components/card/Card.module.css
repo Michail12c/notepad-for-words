@@ -44,6 +44,21 @@
 .choiceMenu button.classFalse{
   background-color:rgb(143, 71, 71);
 }
+.choiceWords{
+  margin-right: 5px;
+  cursor: pointer;
+}
+.choiceWords:hover{
+  color: #fff;
+}
+.puzzleModeField{
+   width: 80%;
+   border:2px solid rgb(61, 73, 56); 
+   margin: 0 auto;
+}
+.contentFromState{
+  padding-top: 10px;
+}
 
 
 @media screen and (max-width: 992px){
