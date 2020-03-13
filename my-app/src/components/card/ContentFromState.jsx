@@ -1,10 +1,25 @@
 import React from 'react';
 import style from './Card.module.css';
 import { connect } from 'react-redux';
+import { updateStatusPuzzlePage, activateComparing, deletePreviousWords, setPreviousWords } from '../redux/storage-reducer';
+import { useState } from 'react';
 
-const ContentFromState = ({previousWords}) => {
+
+const ContentFromState = ({previousWords, content, activateComparingValue, activateComparing, deletePreviousWords, statusPuzzlePage, updateStatusPuzzlePage, showWords}) => {
+  console.log(activateComparingValue)
+  
+  if(previousWords.length === content.length){
+    deletePreviousWords()
+    let previous = previousWords.join(' ')
+    content = content.join(' ')
+   let result =  previous === content ? true : false 
+   updateStatusPuzzlePage(result)
+    activateComparing(true) 
+  }
+
+
   const deleteWords = () => {
-    alert('hello'); 
+    console.log('test')
   }
   let contentForPuzzle = ''; 
   if(previousWords.length !== 0){
@@ -12,16 +27,18 @@ const ContentFromState = ({previousWords}) => {
   }
 
   return (
-     <> 
-       {contentForPuzzle}
-     </>
+     <div className = {style.puzzleModeField}>
+       {contentForPuzzle  }
+     </div>
   )
 }
 
 const mapStateToProps = state => {
   return{
-    previousWords: state.storagePage.previousWords
+    previousWords: state.storagePage.previousWords,
+    statusPuzzlePage: state.storagePage.statusPuzzlePage,
+    activateComparingValue: state.storagePage.activateComparingValue
   }
 }
 
-export default connect(mapStateToProps, {})(ContentFromState); 
+export default connect(mapStateToProps, {updateStatusPuzzlePage,  activateComparing, deletePreviousWords})(ContentFromState); 

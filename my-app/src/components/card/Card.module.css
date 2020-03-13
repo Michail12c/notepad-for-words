@@ -59,6 +59,14 @@
 .contentFromState{
   padding-top: 10px;
 }
+.contentFromState button{
+  margin-top: 15px;
+  background-color:  rgb(35, 147, 155);
+  width: 60%;
+}
+.contentFromState button:hover{
+  background-color:  rgb(56, 151, 158);
+}
 
 
 @media screen and (max-width: 992px){
