@@ -7,6 +7,7 @@ const Chart = ({countWordsThunk, countWords}) => {
   return (
     <div className = {style.chart}>
       Hello it is charts
+      <h2>hello</h2>
       <button onClick = {() => countWordsThunk('countWords')}>click</button>
     </div>
   )
