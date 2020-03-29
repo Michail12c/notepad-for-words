@@ -3,7 +3,7 @@ import style from './CreateList.module.css';
 import { connect } from 'react-redux';
 import { countWordsThunk } from '../../../redux/main-reducers';
 
-const Chart = ({countWordsThunk}) => {
+const Chart = ({countWordsThunk, countWords}) => {
   return (
     <div className = {style.chart}>
       Hello it is charts
@@ -14,7 +14,7 @@ const Chart = ({countWordsThunk}) => {
 
 const mapStateToProps = state => {
   return{
-
+  countWords: state.mainPage.countWords
   }
 }
 
