@@ -50,4 +50,45 @@ export class InteractionWithLocalStorage {
      }
      return true
   }
+  _instalDate(){
+    let date = new Date();
+    let month = date.getMonth() < 10 ?  0 +''+ date.getMonth() : date.getMonth(); 
+    let day = date.getDate() < 10 ? 0 +''+ date.getDate() : date.getDate(); 
+    let nowDate = date.getFullYear() + '.' + month + '.' + day; 
+    return nowDate; 
+  }
+   _processingString(string){
+     let masString = string.split('-');
+     return masString; 
+   }
+ 
+  setCountWord(){
+    let prevMas = this._getQuestionsFromLS(); 
+    let date = this._instalDate(); 
+   /*  let date = '2020.03.30'; */
+    let mas = []; 
+    let elem = `${date}-1`; 
+    if(prevMas.length == 0){
+      mas.push(elem); 
+      localStorage.setItem(this.name, JSON.stringify(mas))
+      return
+    }
+    let masWithString = this._processingString(prevMas[prevMas.length - 1]);
+    if(prevMas.length !== 0 && masWithString[0] !== date){
+     prevMas.push(elem); 
+     localStorage.setItem(this.name, JSON.stringify(prevMas))
+     return
+    }
+    let count = + masWithString[1] + 1;
+    let elem2 = `${date}-${count}`;
+    prevMas.pop(); 
+    prevMas.push(elem2); 
+    localStorage.setItem(this.name, JSON.stringify(prevMas));     
+  }
+
+
+
+
+
+
 }

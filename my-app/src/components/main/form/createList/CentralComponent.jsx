@@ -5,6 +5,7 @@ import ExplainList from './ExplainList';
 import style from './CreateList.module.css';
 import { NavLink } from 'react-router-dom';
 import EditingList from './EditingList';
+import Chart from './Charts';
 
 const CentralComponent = ({elements, flag, updateFlag,  listWordsTwo, listUser, editionListUserThunk, removeWordsFromListThunk}) => {
   let newElement;
@@ -30,6 +31,9 @@ const CentralComponent = ({elements, flag, updateFlag,  listWordsTwo, listUser, 
     removeWordsFromListThunk = {removeWordsFromListThunk}
     />;
       break    
+    case 7:
+      return newElement = <Chart/> 
+     break  
   }
 
   return (

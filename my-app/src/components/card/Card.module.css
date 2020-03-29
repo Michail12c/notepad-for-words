@@ -47,6 +47,14 @@
 .choiceWords{
   margin-right: 5px;
   cursor: pointer;
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.choiceWordsActive{
+  border-radius: 25%;
+  background-color: rgb(194, 187, 187);
+  padding: 5px 5px;
 }
 .choiceWords:hover{
   color: #fff;
@@ -55,6 +63,10 @@
    width: 80%;
    border:2px solid rgb(61, 73, 56); 
    margin: 0 auto;
+   margin-bottom: 5px;
+}
+.contentPuzzle{
+  padding: 5px 5px;
 }
 .contentFromState{
   padding-top: 10px;

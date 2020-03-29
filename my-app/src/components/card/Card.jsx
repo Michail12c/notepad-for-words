@@ -142,7 +142,9 @@ componentDidUpdate(){
                               : <CollectorContent  contentElement = {this.props.contentElement} 
                                               showWords = {this.showWords} 
                                               repeatList = {this.repeatList}
-                                              stateStatus = {this.state.status}/>}
+                                              stateStatus = {this.state.status}
+                                              indexCard = {this.props.indexCard}
+                                              addNewList = {this.addNewList}  />}
     </div>
   </div>
     )

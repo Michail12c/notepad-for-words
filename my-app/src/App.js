@@ -14,6 +14,7 @@ const App = (props) => {
     props.initializeMain('word');
     props.initializeMain('word2');
     props.initializeMain('listUser');
+    props.initializeMain('countWords'); 
   }
  
 

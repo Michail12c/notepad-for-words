@@ -43,6 +43,25 @@
     background-color:rgb(37, 68, 93);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
  }
+ .statistic button{
+   width: 250px;
+   height: 40px;
+   margin-bottom: 10px;
+   border:none;
+   color:white;
+   background-color:rgb(108, 144, 29);
+   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+   cursor: pointer;
+   outline: none;
+ }
+ .statistic button:hover{
+   cursor: pointer;
+   background-color:rgb(120, 148, 61);
+}
+#activeStatistic{
+   background-color:rgb(146, 167, 89);
+}
+
 
  #activeForm{
    background-color:rgb(68, 128, 177);

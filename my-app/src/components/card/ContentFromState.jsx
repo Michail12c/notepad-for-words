@@ -22,13 +22,19 @@ const ContentFromState = ({previousWords, content, activateComparingValue, activ
     console.log('test')
   }
   let contentForPuzzle = ''; 
+   let  contentPuzzleFunction = () => {
+    contentForPuzzle = previousWords.map((word, index) => <span className = {style.choiceWords}
+    key = {index} onClick = {deleteWords}>{word}</span>)
+    return <div className = {style.contentPuzzle}>{contentForPuzzle}</div>
+  }  
+
   if(previousWords.length !== 0){
-     contentForPuzzle = previousWords.map((word, index) => <span className = {style.choiceWords} key = {index} onClick = {deleteWords}>{word}</span>)
+    contentForPuzzle = contentPuzzleFunction();  
   }
 
   return (
      <div className = {style.puzzleModeField}>
-       {contentForPuzzle  }
+       {contentForPuzzle}
      </div>
   )
 }

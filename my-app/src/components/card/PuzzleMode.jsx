@@ -21,7 +21,7 @@ const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzz
   }
   let contentFromProps; 
     if(content.length !== 0){
-       contentFromProps = content.map((word, index) => <span className = {style.choiceWords} key = {index} onClick = {choiceWords}>{word}</span>)
+       contentFromProps = content.map((word, index) => <span className = {style.choiceWords + " " + style.choiceWordsActive} key = {index} onClick = {choiceWords}>{word}</span>)
     } 
   const nextCard = () => {
     activateComparing(false)
@@ -36,7 +36,8 @@ const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzz
     { !stateStatus
      ? <> { !activateComparingValue ? <div className = {style.contentFromState}>
                                       <ContentFromState content = {wordForComparing} showWords = {showWords}/>  
-                                      {contentFromProps}</div> 
+                                      {contentFromProps}
+                                      </div> 
                                     : <button className = {statusPuzzlePage ? style.classTrue : style.classFalse} onClick = {nextCard}>{ statusPuzzlePage ? "Правильно" : "Не правильно"}</button>}</>
      :  <> {<div><button onClick = {() => repeatList(false)}>Ні</button><button onClick = {repeatListHere}>Так</button></div> }</>
     }

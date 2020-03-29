@@ -6,13 +6,15 @@ const ADD_WORD_TWO = 'ADD-WORD-TWO';
 const CREATE_LIST = 'CREATE-LIST';
 const ADD_WORD_LIST_USER = 'ADD-WORD-LIST-USER';
 const UPDATE_OUTPUT_ORDER = 'UPDATE-OUTPUT-ORDER'; 
+const UPDATE_COUNT_WORD = 'UPDATE-COUNT-WORD'; 
 
 let initialState = {
   listWords: [],
   listWordsTwo: [],
   newList: Boolean (localStorage.getItem('list')),
   listUser: '',
-  outputOrder: false
+  outputOrder: false,
+  countWords: []
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -42,6 +44,10 @@ const mainReducer = (state = initialState, action) => {
           ...state,
           outputOrder: action.status
         }
+    case UPDATE_COUNT_WORD:
+      return {
+        ...state, countWords: action.count
+      }    
     default:
       return state;
   }
@@ -52,6 +58,7 @@ export const addWordTwoList = (wordTwo) => ({type: ADD_WORD_TWO, wordTwo});
 export const createList = (data) => ({type: CREATE_LIST, data });
 export const addWordListUser = (word) => ({type: ADD_WORD_LIST_USER, word});
 export const updateOutputOrder = (status) => ({type: UPDATE_OUTPUT_ORDER, status}); 
+export const addWordCountWord = (count) => ({type: UPDATE_COUNT_WORD, count}); 
 
 
 export const initializeMain = (elem) => {
@@ -60,12 +67,17 @@ export const initializeMain = (elem) => {
 
      !addLocale.keySearch('list') ? localStorage.setItem('list', '') // ініціалізаці списку 
      : dispatch(createList(localStorage.getItem('list')));           // користувача 
-  
+     
+    !addLocale.keySearch('countWords') ? localStorage.setItem('countWords', '')
+     : dispatch(addWordCountWord(localStorage.getItem('countWords'))); 
+
+
     let content = addLocale.createList();
   
     if(elem === 'word') return dispatch(addWord(firstList)); 
     if(elem === 'word2') return dispatch (addWordTwoList(content));
     if(elem == 'listUser') return dispatch(addWordListUser(content));
+
   }
 }
 
@@ -104,6 +116,13 @@ export const editionListUserThunk = (newElement, id, name) => {
     changeList.editionList(newElement, id);
     let newList = changeList.createList();
     dispatch(addWordListUser(newList)); 
+  }
+}
+
+export const countWordsThunk = (name) => {
+  return (dispatch) => {
+    let count = new InteractionWithLocalStorage(name); 
+    count.setCountWord();
   }
 }
 

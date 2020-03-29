@@ -106,6 +106,7 @@ const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser, initia
            listWordsLength = {listWordsLength}
            listUserLength = {listUserLength}
            listWordsTwoLength = {listWordsTwoLength}
+           updateFlag = {updateFlag}
            />
         </div>
        </div>  

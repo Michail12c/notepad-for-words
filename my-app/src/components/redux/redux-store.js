@@ -5,6 +5,7 @@ import headerReducer from "./header-reducer";
 import { reducer as formReducer } from 'redux-form';
 import storageReducer from "./storage-reducer";
 
+
 let reducers = combineReducers({
   mainPage: mainReducer,
   headerPage: headerReducer,
