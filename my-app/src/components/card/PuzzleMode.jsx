@@ -5,7 +5,7 @@ import { HandlerResponse } from '../common/handlerResponse';
 import { setPuzzleWords, setPreviousWords, activateComparing } from '../redux/storage-reducer';
 import ContentFromState from './ContentFromState';
 
-const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzzleWords, puzzleWords, setPreviousWords, activateComparing, activateComparingValue, statusPuzzlePage}) => {
+const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzzleWords, puzzleWords, setPreviousWords, activateComparing, activateComparingValue, statusPuzzlePage, countWordsThunk}) => {
   
   let contentFromState = puzzleWords
   let solution = new HandlerResponse(contentElement.word, contentFromState)
@@ -23,9 +23,15 @@ const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzz
     if(content.length !== 0){
        contentFromProps = content.map((word, index) => <span className = {style.choiceWords + " " + style.choiceWordsActive} key = {index} onClick = {choiceWords}>{word}</span>)
     } 
+ 
   const nextCard = () => {
     activateComparing(false)
     showWords(); 
+  }
+  const wrongAnswer = () => {
+    activateComparing(false)
+    showWords();
+    countWordsThunk('countWords');
   }
   const repeatListHere = () => {
     repeatList(true);
@@ -38,7 +44,7 @@ const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzz
                                       <ContentFromState content = {wordForComparing} showWords = {showWords}/>  
                                       {contentFromProps}
                                       </div> 
-                                    : <button className = {statusPuzzlePage ? style.classTrue : style.classFalse} onClick = {nextCard}>{ statusPuzzlePage ? "Правильно" : "Не правильно"}</button>}</>
+                                    : <button className = {statusPuzzlePage ? style.classTrue : style.classFalse} onClick = {statusPuzzlePage ? nextCard : wrongAnswer }>{ statusPuzzlePage ? "Правильно" : "Не правильно"}</button>}</>
      :  <> {<div><button onClick = {() => repeatList(false)}>Ні</button><button onClick = {repeatListHere}>Так</button></div> }</>
     }
 

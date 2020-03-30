@@ -52,9 +52,9 @@ export class InteractionWithLocalStorage {
   }
   _instalDate(){
     let date = new Date();
-    let month = date.getMonth() < 10 ?  0 +''+ date.getMonth() : date.getMonth(); 
+    let month = date.getMonth() < 10 ?  0 +''+ ( +date.getMonth() + 1) : +date.getMonth() + 1; 
     let day = date.getDate() < 10 ? 0 +''+ date.getDate() : date.getDate(); 
-    let nowDate = date.getFullYear() + '.' + month + '.' + day; 
+    let nowDate = month + '.' + day; 
     return nowDate; 
   }
    _processingString(string){
@@ -65,7 +65,7 @@ export class InteractionWithLocalStorage {
   setCountWord(){
     let prevMas = this._getQuestionsFromLS(); 
     let date = this._instalDate(); 
-   /*  let date = '2020.03.30'; */
+   /*  let date = '03.31'; */
     let mas = []; 
     let elem = `${date}-1`; 
     if(prevMas.length == 0){
@@ -83,7 +83,16 @@ export class InteractionWithLocalStorage {
     let elem2 = `${date}-${count}`;
     prevMas.pop(); 
     prevMas.push(elem2); 
-    localStorage.setItem(this.name, JSON.stringify(prevMas));     
+    localStorage.setItem(this.name, JSON.stringify(prevMas));  
+    this.getCountWord();    
+  }
+  
+  getCountWord(){
+    let prevMas = this._getQuestionsFromLS();
+    let nextMas = prevMas.map(item => this._processingString(item));
+    let masWithWords = [];  
+    nextMas.map(elem => masWithWords.push([+elem[0], +elem[1]])); 
+    return masWithWords; 
   }
 
 

@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import StrictCheck from './StrictCheck';
 import PuzzleMode from './PuzzleMode';
 import { updateStatusCollector } from '../redux/storage-reducer';
+import { countWordsThunk } from '../redux/main-reducers';
 
-const CollectorContent = ({statusCollector, contentElement, showWords, repeatList, stateStatus, statusLesson, updateStatusCollector}) => {
+const CollectorContent = ({statusCollector, contentElement, showWords, repeatList, stateStatus, statusLesson, updateStatusCollector, countWordsThunk}) => {
 
   if(statusLesson == 2){
     updateStatusCollector(1); 
@@ -20,13 +21,15 @@ const CollectorContent = ({statusCollector, contentElement, showWords, repeatLis
       activeContent = <StrictCheck  contentElement = {contentElement} 
                                     showWords = {showWords} 
                                     repeatList = {repeatList}
-                                    stateStatus = {stateStatus}/>
+                                    stateStatus = {stateStatus}
+                                    countWordsThunk = {countWordsThunk} />
     break
     case 1:
       activeContent = <PuzzleMode   contentElement = {contentElement} 
                                     showWords = {showWords} 
                                     repeatList = {repeatList}
-                                    stateStatus = {stateStatus} />
+                                    stateStatus = {stateStatus} 
+                                     countWordsThunk = {countWordsThunk}/>
     break                                  
   }  
   return (
@@ -46,4 +49,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect( mapStateToProps, {updateStatusCollector})(CollectorContent); 
+export default connect( mapStateToProps, {updateStatusCollector, countWordsThunk})(CollectorContent); 

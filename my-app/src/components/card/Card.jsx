@@ -6,6 +6,7 @@ import StrictCheck from './StrictCheck';
 import { connect } from 'react-redux';
 import { choiceElementContent } from '../redux/storage-reducer';
 import CollectorContent from './CollectorContent';
+import { countWordsThunk } from '../redux/main-reducers';
 
 
 class Card extends React.PureComponent {
@@ -70,8 +71,9 @@ class Card extends React.PureComponent {
        this.props.setIndexCard(this.props.indexCard - 1);
     }
    if(this.props.itemList !== 1){
-      this.showWords(); 
-    this.props.addWordsThunkTwoList(wordTwo);
+     this.showWords(); 
+     this.props.addWordsThunkTwoList(wordTwo);
+     this.props.countWordsThunk('countWords'); 
    }
   }
  componentDidMount(){
@@ -204,4 +206,5 @@ const mapStateToProps = state => {
     contentElement: state.storagePage.content
   }
 }
-export default connect(mapStateToProps, {choiceElementContent})(Card);
+
+export default connect(mapStateToProps, {choiceElementContent, countWordsThunk})(Card);

@@ -67,9 +67,11 @@ export const initializeMain = (elem) => {
 
      !addLocale.keySearch('list') ? localStorage.setItem('list', '') // ініціалізаці списку 
      : dispatch(createList(localStorage.getItem('list')));           // користувача 
-     
-    !addLocale.keySearch('countWords') ? localStorage.setItem('countWords', '')
-     : dispatch(addWordCountWord(localStorage.getItem('countWords'))); 
+      
+     if(elem === 'countWords'){
+        !addLocale.keySearch('countWords') ? localStorage.setItem('countWords', '')
+        : dispatch(addWordCountWord(addLocale.getCountWord())); 
+      }
 
 
     let content = addLocale.createList();
@@ -123,6 +125,7 @@ export const countWordsThunk = (name) => {
   return (dispatch) => {
     let count = new InteractionWithLocalStorage(name); 
     count.setCountWord();
+    dispatch(addWordCountWord(count.getCountWord())); 
   }
 }
 

@@ -28,7 +28,7 @@ export const AddAnswerFromForm = reduxForm({
 
 
 
-const StrictCheck = ({contentElement, showWords, stateStatus, repeatList}) => {
+const StrictCheck = ({contentElement, showWords, stateStatus, repeatList, countWordsThunk}) => {
 
   const [statusForm, setStatusForm] = useState(false); 
   const [answerStatus, setAnswerStatus] = useState(false);
@@ -53,16 +53,23 @@ const StrictCheck = ({contentElement, showWords, stateStatus, repeatList}) => {
                                    showWords = {showWords} 
                                    setStatusForm = {setStatusForm} 
                                    stateStatus = {stateStatus} 
-                                   repeatList = {repeatList}/> }
+                                   repeatList = {repeatList}
+                                   countWordsThunk = {countWordsThunk} /> }
     </div>
   )
 }
 
-const ResultAnswer = ({answerStatus, showWords, setStatusForm, stateStatus, repeatList}) => {
+const ResultAnswer = ({answerStatus, showWords, setStatusForm, stateStatus, repeatList, countWordsThunk}) => {
   const nextCard = () => {
    setStatusForm(false); 
    showWords(); 
   }
+ const wrongAnswer = () => {
+  setStatusForm(false); 
+  showWords();
+  countWordsThunk('countWords');
+ }
+ 
  const repeatListHere = () => {
    repeatList(true);
    setStatusForm(false)
@@ -72,7 +79,7 @@ const ResultAnswer = ({answerStatus, showWords, setStatusForm, stateStatus, repe
      {!stateStatus 
        ? <> {answerStatus 
                       ? <button onClick = {nextCard} className = {style.classTrue}>Правильно</button> 
-                      : <button onClick = {nextCard} className = {style.classFalse}>Не правильно</button>} </> 
+                      : <button onClick = {wrongAnswer} className = {style.classFalse}>Не правильно</button>} </> 
        : <> {<div><button onClick = {() => repeatList(false)}>Ні</button><button onClick = {repeatListHere}>Так</button></div> }</>}
     </div>
   )

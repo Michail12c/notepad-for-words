@@ -1,17 +1,13 @@
 import React from 'react';
 import style from './../Main.module.css';
-import { useState } from 'react';
+import { connect } from 'react-redux';
 
-const Statistics = ({newList, listWordsTwoLength, listUserLength, listWordsLength, updateFlag}) => {
-
-  const[status, setStatus] = useState(false); 
+const Statistics = ({newList, listWordsTwoLength, listUserLength, listWordsLength, updateFlag, flag}) => {
    const sumWords = (el, el2 = 0, el3 = 0) => {
      return  el + el2 + el3; 
    }
    const updateStatus = () => {
-    !status ? updateFlag(7) : updateFlag(0); 
-     setStatus(!status)
-     
+    flag !== 7 ? updateFlag(7) : updateFlag(0); 
    }
    let allWords = sumWords(listWordsLength, listWordsTwoLength, listUserLength); 
   return (
@@ -25,11 +21,17 @@ const Statistics = ({newList, listWordsTwoLength, listUserLength, listWordsLengt
     </div>
     <div className = {style.statistic}>
       <h4>Статистика навчання</h4>
-       <button id = {status ? style.activeStatistic : ''} onClick = {updateStatus}>{!status ? 'Показати графік' : 'Сховати графік'}</button>
+       <button id = {flag == 7  ? style.activeStatistic : ''} onClick = {updateStatus}>{flag !== 7 ? 'Показати графік' : 'Сховати графік'}</button>
     </div>
    </div> 
 
   )
 }
 
-export default Statistics; 
+const mapStateToProps = state => {
+  return{
+    flag: state.storagePage.flag
+  }
+}
+
+export default connect(mapStateToProps, {})(Statistics); 
