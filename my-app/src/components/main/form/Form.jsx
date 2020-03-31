@@ -64,6 +64,7 @@ const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser, initia
       <TopSection calculate = {'show'}/>
        <div className = {style.cardForm}>
        <div className = {style.menuForm}>
+         <h4>Робота зі списками</h4>
           <div  >
             <button id = {flag === 1 ? style.activeForm : '' } onClick = {() => {updateFlag(1)}}>{ flag === 1 ?'Сховати список' 
             : 'Показати базовий список'  }</button>

@@ -7,6 +7,7 @@ const CREATE_LIST = 'CREATE-LIST';
 const ADD_WORD_LIST_USER = 'ADD-WORD-LIST-USER';
 const UPDATE_OUTPUT_ORDER = 'UPDATE-OUTPUT-ORDER'; 
 const UPDATE_COUNT_WORD = 'UPDATE-COUNT-WORD'; 
+const LEARNING_WORD = 'LEARNING-WORD'; 
 
 let initialState = {
   listWords: [],
@@ -14,7 +15,8 @@ let initialState = {
   newList: Boolean (localStorage.getItem('list')),
   listUser: '',
   outputOrder: false,
-  countWords: []
+  countWords: [],
+  countLearningWords: []
 }
 
 const mainReducer = (state = initialState, action) => {
@@ -47,7 +49,11 @@ const mainReducer = (state = initialState, action) => {
     case UPDATE_COUNT_WORD:
       return {
         ...state, countWords: action.count
-      }    
+      }
+    case LEARNING_WORD: 
+    return {
+      ...state, countLearningWords: action.count
+    }      
     default:
       return state;
   }
@@ -59,7 +65,7 @@ export const createList = (data) => ({type: CREATE_LIST, data });
 export const addWordListUser = (word) => ({type: ADD_WORD_LIST_USER, word});
 export const updateOutputOrder = (status) => ({type: UPDATE_OUTPUT_ORDER, status}); 
 export const addWordCountWord = (count) => ({type: UPDATE_COUNT_WORD, count}); 
-
+export const addWordCountLearningWord = count => ({type: LEARNING_WORD, count})
 
 export const initializeMain = (elem) => {
   return (dispatch) =>{
@@ -71,6 +77,10 @@ export const initializeMain = (elem) => {
      if(elem === 'countWords'){
         !addLocale.keySearch('countWords') ? localStorage.setItem('countWords', '')
         : dispatch(addWordCountWord(addLocale.getCountWord())); 
+      }
+      if(elem === 'countLearningWords'){
+        !addLocale.keySearch('countLearningWords') ? localStorage.setItem('countLearningWords', '')
+        : dispatch(addWordCountLearningWord(addLocale.getCountWord())); 
       }
 
 
@@ -125,7 +135,8 @@ export const countWordsThunk = (name) => {
   return (dispatch) => {
     let count = new InteractionWithLocalStorage(name); 
     count.setCountWord();
-    dispatch(addWordCountWord(count.getCountWord())); 
+    if(name === 'countWords') dispatch(addWordCountWord(count.getCountWord())); 
+    if(name === 'countLearningWords' ) dispatch(addWordCountLearningWord(count.getCountWord())); 
   }
 }
 

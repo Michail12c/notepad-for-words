@@ -24,6 +24,7 @@ class Card extends React.PureComponent {
  
 
    showWords = () => {
+    this.props.countWordsThunk('countLearningWords'); 
      let a; 
      switch (this.props.itemList){
        case 0:
@@ -64,6 +65,7 @@ class Card extends React.PureComponent {
 
   addNewList = (wordTwo) => {
     if (this.props.itemList === 1){
+      this.props.countWordsThunk('countLearningWords');
       this.setState({send: true})
       this.mas.push(this.props.listWordsTwo[this.props.indexCard])
        this.masNow = [...new Set(this.mas)] 
@@ -83,6 +85,20 @@ class Card extends React.PureComponent {
  componentDidMount(){
   this.masNow = [];
   this.mas = [];
+  switch (this.props.itemList){
+    case 0:
+      this.centralContentActive =  this.props.content[0] 
+      this.props.setContentWithCard(this.centralContentActive)
+      break
+    case 1:
+      this.centralContentActive =  this.props.listWordsTwo
+      this.props.setContentWithCard(this.centralContentActive)
+      break
+    case 2: 
+      this.centralContentActive = this.props.listUser  
+      this.props.setContentWithCard(this.centralContentActive)
+      break
+  }
  }
 componentDidUpdate(){
   

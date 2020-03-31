@@ -65,7 +65,7 @@ export class InteractionWithLocalStorage {
   setCountWord(){
     let prevMas = this._getQuestionsFromLS(); 
     let date = this._instalDate(); 
-   /*  let date = '03.31'; */
+  /*   let date = '04.01'; */
     let mas = []; 
     let elem = `${date}-1`; 
     if(prevMas.length == 0){
@@ -91,7 +91,7 @@ export class InteractionWithLocalStorage {
     let prevMas = this._getQuestionsFromLS();
     let nextMas = prevMas.map(item => this._processingString(item));
     let masWithWords = [];  
-    nextMas.map(elem => masWithWords.push([+elem[0], +elem[1]])); 
+    nextMas.map((elem, index) => masWithWords.push([index + 1, +elem[1]])); 
     return masWithWords; 
   }
 

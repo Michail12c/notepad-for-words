@@ -8,6 +8,7 @@
   margin-bottom: 30px;
 }
 
+
 .choiceMenu button{
    margin-right: 5px;
    margin-left: 5px;
@@ -87,6 +88,29 @@
   color:black;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+.chart{
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+  width: 700px;
+  height: 350px;
+}
+.chart{
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 1199.98px) {
+  .chart{
+    width: 500px;
+    height: 250px;
+  }
+ }
+
+ @media (max-width: 991.98px) {
+  .chart{
+    width: 350px;
+    height: 200px;
+  }
+ }
 
 
 @media screen and (max-width: 768px){
@@ -106,17 +130,10 @@
     margin-left: 10px;
     margin-right: 10px;
  }
-/*  .changeList button{
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 96%;
- }
- .formEditionList div input{
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 94%; 
-} */
-
+ .chart{
+  width: 300px;
+  height: 200px;
+}
 }
 
 @media (max-width: 575.98px) {
@@ -142,6 +159,11 @@
  }
  .listWordsChange div{
    width: auto;
+ }
+ .chart{
+   width: 100%;
+   height: 200px;
+   margin: 10px 10px;
  }
 
 }

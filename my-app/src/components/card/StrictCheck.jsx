@@ -71,8 +71,6 @@ const ResultAnswer = ({answerStatus, showWords, setStatusForm, stateStatus, repe
  const wrongAnswer = () => {
   addNewList(contentWithCard[indexCard]); 
   setStatusForm(false); 
-  showWords();
-  countWordsThunk('countWords');
  }
  
  const repeatListHere = () => {
