@@ -9,6 +9,7 @@ const SET_PREVIOUS_WORDS = 'SET-PREVIOUS-WORDS';
 const DELETE_PREVIOUS_WORDS = 'DELETE-PREVIOUS-WORDS'; 
 const UPDATE_STATUS_PUZZLE_PAGE = 'UPDATE-STATUS-PUZZLE-PAGE'; 
 const ACTIVATE_COMPARING = 'ACTIVATE-COMPARING'; 
+const SET_CONTENT_WITH_CARD = 'SET-CONTENT-WITH-CARD'; 
 
 
 let initialState = {
@@ -22,7 +23,8 @@ let initialState = {
   previousWords: '',
   puzzleWords: '',
   statusPuzzlePage: '', 
-  activateComparingValue: false
+  activateComparingValue: false,
+  contentWithCard: ''
 }
 
 let storageReducer = (state = initialState, action) => {
@@ -73,6 +75,10 @@ let storageReducer = (state = initialState, action) => {
   return {
     ...state, activateComparingValue: action.status
   }
+  case SET_CONTENT_WITH_CARD:
+    return {
+      ...state, contentWithCard: action.content
+    }
    default: 
    return state;
   }
@@ -89,5 +95,6 @@ export const setPreviousWords = words => ({type: SET_PREVIOUS_WORDS, words})
 export const updateStatusPuzzlePage = status => ({type: UPDATE_STATUS_PUZZLE_PAGE, status})
 export const activateComparing = status => ({type: ACTIVATE_COMPARING, status})
 export const deletePreviousWords = () => ({type: DELETE_PREVIOUS_WORDS})
+export const setContentWithCard = content => ({type: SET_CONTENT_WITH_CARD, content})
 
 export default storageReducer;

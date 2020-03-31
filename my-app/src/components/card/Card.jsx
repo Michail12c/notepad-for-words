@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Preloader from '../common/Preloader';
 import StrictCheck from './StrictCheck';
 import { connect } from 'react-redux';
-import { choiceElementContent } from '../redux/storage-reducer';
+import { choiceElementContent, setContentWithCard } from '../redux/storage-reducer';
 import CollectorContent from './CollectorContent';
 import { countWordsThunk } from '../redux/main-reducers';
 
@@ -29,14 +29,18 @@ class Card extends React.PureComponent {
        case 0:
          a = this.props.content[0].length - 1
          this.centralContentActive =  this.props.content[0] 
+         this.props.setContentWithCard(this.centralContentActive)
          break
        case 1:
          a =  this. props.listWordsTwo.length - 1
          this.centralContentActive =  this.props.listWordsTwo
+         this.props.setContentWithCard(this.centralContentActive)
          break
        case 2: 
          a = this.props.listUser.length - 1
          this.centralContentActive = this.props.listUser  
+         this.props.setContentWithCard(this.centralContentActive)
+         break
      }
      let b = this.props.indexCard;
      console.log(a, b)
@@ -146,7 +150,7 @@ componentDidUpdate(){
                                               repeatList = {this.repeatList}
                                               stateStatus = {this.state.status}
                                               indexCard = {this.props.indexCard}
-                                              addNewList = {this.addNewList}  />}
+                                              addNewList = {this.addNewList}  /> }
     </div>
   </div>
     )
@@ -207,4 +211,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {choiceElementContent, countWordsThunk})(Card);
+export default connect(mapStateToProps, {choiceElementContent, countWordsThunk, setContentWithCard})(Card);

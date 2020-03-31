@@ -5,8 +5,8 @@ import { HandlerResponse } from '../common/handlerResponse';
 import { setPuzzleWords, setPreviousWords, activateComparing } from '../redux/storage-reducer';
 import ContentFromState from './ContentFromState';
 
-const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzzleWords, puzzleWords, setPreviousWords, activateComparing, activateComparingValue, statusPuzzlePage, countWordsThunk}) => {
-  
+const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzzleWords, puzzleWords, setPreviousWords, activateComparing, activateComparingValue, statusPuzzlePage, countWordsThunk, addNewList, indexCard, contentWithCard}) => {
+
   let contentFromState = puzzleWords
   let solution = new HandlerResponse(contentElement.word, contentFromState)
   let content = solution.mixedWords();
@@ -25,11 +25,12 @@ const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzz
     } 
  
   const nextCard = () => {
-    activateComparing(false)
+    activateComparing(false); 
     showWords(); 
   }
   const wrongAnswer = () => {
-    activateComparing(false)
+    addNewList(contentWithCard[indexCard]);
+    activateComparing(false);
     showWords();
     countWordsThunk('countWords');
   }
@@ -55,7 +56,8 @@ const mapStateToProps = state => {
   return {
     puzzleWords: state.storagePage.puzzleWords,
     activateComparingValue: state.storagePage.activateComparingValue,
-    statusPuzzlePage: state.storagePage.statusPuzzlePage
+    statusPuzzlePage: state.storagePage.statusPuzzlePage,
+    contentWithCard: state.storagePage.contentWithCard
   }
 }
 

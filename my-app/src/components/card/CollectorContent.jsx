@@ -5,8 +5,7 @@ import PuzzleMode from './PuzzleMode';
 import { updateStatusCollector } from '../redux/storage-reducer';
 import { countWordsThunk } from '../redux/main-reducers';
 
-const CollectorContent = ({statusCollector, contentElement, showWords, repeatList, stateStatus, statusLesson, updateStatusCollector, countWordsThunk}) => {
-
+const CollectorContent = ({statusCollector, contentElement, showWords, repeatList, stateStatus, statusLesson, updateStatusCollector, countWordsThunk, addNewList, indexCard}) => {
   if(statusLesson == 2){
     updateStatusCollector(1); 
   }
@@ -22,14 +21,19 @@ const CollectorContent = ({statusCollector, contentElement, showWords, repeatLis
                                     showWords = {showWords} 
                                     repeatList = {repeatList}
                                     stateStatus = {stateStatus}
-                                    countWordsThunk = {countWordsThunk} />
+                                    countWordsThunk = {countWordsThunk} 
+                                    indexCard = {indexCard}
+                                    addNewList = {addNewList} />
     break
     case 1:
       activeContent = <PuzzleMode   contentElement = {contentElement} 
                                     showWords = {showWords} 
                                     repeatList = {repeatList}
                                     stateStatus = {stateStatus} 
-                                     countWordsThunk = {countWordsThunk}/>
+                                    countWordsThunk = {countWordsThunk}
+                                    addNewList = {addNewList} 
+                                    indexCard = {indexCard} 
+                                     />
     break                                  
   }  
   return (

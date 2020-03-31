@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { minLengthCreator, required } from '../common/validator';
 import { useEffect } from 'react';
 import { HandlerResponse } from '../common/handlerResponse';
+import { connect } from 'react-redux';
 
 let minLength = minLengthCreator(1);
 
@@ -28,7 +29,7 @@ export const AddAnswerFromForm = reduxForm({
 
 
 
-const StrictCheck = ({contentElement, showWords, stateStatus, repeatList, countWordsThunk}) => {
+const StrictCheck = ({contentElement, showWords, stateStatus, repeatList, countWordsThunk, contentWithCard, indexCard, addNewList}) => {
 
   const [statusForm, setStatusForm] = useState(false); 
   const [answerStatus, setAnswerStatus] = useState(false);
@@ -54,17 +55,21 @@ const StrictCheck = ({contentElement, showWords, stateStatus, repeatList, countW
                                    setStatusForm = {setStatusForm} 
                                    stateStatus = {stateStatus} 
                                    repeatList = {repeatList}
-                                   countWordsThunk = {countWordsThunk} /> }
+                                   countWordsThunk = {countWordsThunk} 
+                                   contentWithCard = {contentWithCard} 
+                                   indexCard = {indexCard}
+                                   addNewList = {addNewList} /> }
     </div>
   )
 }
 
-const ResultAnswer = ({answerStatus, showWords, setStatusForm, stateStatus, repeatList, countWordsThunk}) => {
+const ResultAnswer = ({answerStatus, showWords, setStatusForm, stateStatus, repeatList, countWordsThunk, contentWithCard, indexCard, addNewList}) => {
   const nextCard = () => {
    setStatusForm(false); 
    showWords(); 
   }
  const wrongAnswer = () => {
+  addNewList(contentWithCard[indexCard]); 
   setStatusForm(false); 
   showWords();
   countWordsThunk('countWords');
@@ -84,5 +89,10 @@ const ResultAnswer = ({answerStatus, showWords, setStatusForm, stateStatus, repe
     </div>
   )
 }
+const mapStateToProps = state => {
+  return{
+    contentWithCard: state.storagePage.contentWithCard
+  }
+}
 
-export default StrictCheck; 
+export default connect(mapStateToProps, {})(StrictCheck); 
