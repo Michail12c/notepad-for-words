@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import style from './../Main.module.css';
  
 const Title = (props) => {
-  let [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
+
 
   let arrImages = ['...створювати власні списки для вивчення слів', '...додавати до списків  будь які слова і фрази', '...налаштувати зручний режим для вивчення іноземних слів', '...граючись розширювати свій словниковий запас', '...розробляти індивідуальну навчальну програму'];
 
@@ -19,20 +20,19 @@ const Title = (props) => {
       setIndex(arrImages.length - 1)
     }
   }
-
   return (
     <div className={style.title}>
-      <div onClick={indexPlus} className = 'animated bounceInLeft'>
+      <div onClick={indexPlus}>
         <div className={style.arrow}></div>
       </div>
       <div className={style.content}>
-        <div className = "animated bounceInDown">
+        <div>
         <span >З нами ви точно зможете...</span>
         <div className={style.arrImages}>{arrImages[index]}</div>
       </div>
         <div className={style.road}>Дорога в тисячу лі починається з першого лі...</div>
       </div>
-      <div onClick={indexMinus} className = 'animated bounceInRight'>
+      <div onClick={indexMinus}>
         <div className={style.arrow1}></div>
       </div>
     </div>

@@ -45,10 +45,19 @@ const TitleComponent = ({listUser}) => {
     <div className = {style.titleComponent}>
       { listUser.length === 0 
       ? <div> Почніть навчання зі створення власного списку, куди зможете додавати слова, які бажаєте запа`мятати </div> 
-       : <div>Тепер ви можете почати навчання, перейшовши у розділ <NavLink to = '/Lesson'>урок</NavLink>  </div>
+       : <MainContent/>
        }
       
     </div>
+  )
+}
+
+const MainContent = () => {
+  return (
+    <div className = {style.mainContent}>
+    <h4>Уроки</h4>
+    <img src="https://4geo.ru/images/personal-pages-share/370949660/img1158427129_2516292169544768.jpg" alt="foto"/>
+    <p>Ви можете почати навчання, перейшовши у розділ <NavLink to = '/Lesson'>урок</NavLink></p></div>
   )
 }
 

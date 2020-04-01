@@ -21,7 +21,7 @@ const Statistics = ({newList, listWordsTwoLength, listUserLength, listWordsLengt
     </div>
     <div className = {style.statistic}>
       <h4>Статистика навчання</h4>
-       <button id = {flag == 7  ? style.activeStatistic : ''} onClick = {updateStatus}>{flag !== 7 ? 'Показати графік' : 'Сховати графік'}</button>
+       <button id = {flag == 7  ? style.activeStatistic : ''} onClick = {updateStatus}>{flag !== 7 ? 'Показати графік' : 'Сховати графіки'}</button>
     </div>
    </div> 
 

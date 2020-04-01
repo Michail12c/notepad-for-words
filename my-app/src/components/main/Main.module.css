@@ -95,6 +95,7 @@
 }
 
 
+
 @import url('https://fonts.googleapis.com/css?family=Caveat:400,700&display=swap&subset=cyrillic');
 .content {
   margin-top: -50px;
@@ -417,5 +418,18 @@
    *{
       overflow-x: hidden;
    }
+
+   .cardForm{
+      display: flex;
+    }
+    .menuForm{
+     order: 0;
+    }
+    .mainContent{
+     order: 1;
+    }
+    .statistic{
+     order: -1;
+    }
 
 }

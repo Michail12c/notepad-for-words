@@ -7,8 +7,10 @@
 .content{
   margin-bottom: 30px;
 }
-
-
+.mainContent img{
+  width: 270px;
+  height: 200px;
+}
 .choiceMenu button{
    margin-right: 5px;
    margin-left: 5px;
@@ -161,9 +163,8 @@
    width: auto;
  }
  .chart{
-   width: 100%;
+   width: 95%;
    height: 200px;
    margin: 10px 10px;
  }
-
 }

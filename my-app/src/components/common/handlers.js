@@ -61,6 +61,11 @@ export class InteractionWithLocalStorage {
      let masString = string.split('-');
      return masString; 
    }
+
+   _percentSuccess = (a ,b) => {
+    return b * 100 / a; 
+  } 
+
  
   setCountWord(){
     let prevMas = this._getQuestionsFromLS(); 
@@ -90,10 +95,28 @@ export class InteractionWithLocalStorage {
   getCountWord(){
     let prevMas = this._getQuestionsFromLS();
     let nextMas = prevMas.map(item => this._processingString(item));
-    let masWithWords = [];  
-    nextMas.map((elem, index) => masWithWords.push([index + 1, +elem[1]])); 
-    return masWithWords; 
+    let nextMasNumber = []; 
+    nextMas.map(elem => nextMasNumber.push([+elem[0], +elem[1]]));
+    return nextMasNumber;
   }
+
+   changeArrayInNumber(array){
+    let newArray = []; 
+    array.map((elem, index) => newArray.push([index + 1, elem[1]])); 
+    return newArray; 
+  }
+
+  definitionOfSuccess(arr1, arr2){
+    let arr3 = []; 
+    arr1.map( (elem, index) => {
+      if( elem[0] === arr2[index][0]){
+        let result = this._percentSuccess(elem[1], arr2[index][1]); 
+        arr3.push(Math.round(100 - result));  
+      }
+    })
+    return arr3; 
+  }
+
 
 
 

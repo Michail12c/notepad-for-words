@@ -26,5 +26,6 @@ export class HandlerResponse{
     let b = this._modifierWords(this.answer)
     return this._comparison(a, b) 
   }
+  
 
 }

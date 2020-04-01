@@ -81,8 +81,8 @@ const ResultAnswer = ({answerStatus, showWords, setStatusForm, stateStatus, repe
     <div>
      {!stateStatus 
        ? <> {answerStatus 
-                      ? <button onClick = {nextCard} className = {style.classTrue}>Правильно</button> 
-                      : <button onClick = {wrongAnswer} className = {style.classFalse}>Не правильно</button>} </> 
+                      ? <button  onClick = {nextCard} className = {style.classTrue}>Правильно</button> 
+                      : <button  onClick = {wrongAnswer} className = {style.classFalse}>Не правильно</button>} </> 
        : <> {<div><button onClick = {() => repeatList(false)}>Ні</button><button onClick = {repeatListHere}>Так</button></div> }</>}
     </div>
   )
