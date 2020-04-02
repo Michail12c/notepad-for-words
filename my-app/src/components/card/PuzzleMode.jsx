@@ -4,6 +4,7 @@ import style from './Card.module.css';
 import { HandlerResponse } from '../common/handlerResponse';
 import { setPuzzleWords, setPreviousWords, activateComparing } from '../redux/storage-reducer';
 import ContentFromState from './ContentFromState';
+import { useState } from 'react';
 
 const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzzleWords, puzzleWords, setPreviousWords, activateComparing, activateComparingValue, statusPuzzlePage,  addNewList, indexCard, contentWithCard}) => {
 
@@ -27,7 +28,8 @@ const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzz
   const nextCard = () => {
     activateComparing(false); 
     showWords(); 
-  }
+  } 
+  
   const wrongAnswer = () => {
     addNewList(contentWithCard[indexCard]);
     activateComparing(false);
@@ -36,6 +38,9 @@ const PuzzleMode = ({contentElement, showWords, repeatList, stateStatus, setPuzz
     repeatList(true);
     activateComparing(false)
   }
+
+
+
   return (
     <div className = {style.puzzleMode}>
     { !stateStatus

@@ -4,7 +4,8 @@ export class HandlerResponse{
     this.answer = answer
   }
   _modifierWords(elem){
-      return  elem.trim().toLowerCase().replace(/[?!\.]/g, '') 
+       return elem.trim().toLowerCase().replace(/[?!\.]/g, '');
+      
   }
 
    _comparison (word1, word2) {

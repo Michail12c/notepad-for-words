@@ -7,6 +7,7 @@ import AddWordsForm from './components/main/form/Form';
 import { connect } from 'react-redux';
 import { initializeMain} from './components/redux/main-reducers';
 import Settings from './components/settings/Settings';
+import NewLessons from './components/newLessons/NewLessons';
 
 
 const App = (props) => {
@@ -27,6 +28,7 @@ const App = (props) => {
          <Route path = "/Lesson" render = { () => <LessonContainer/> } />
          <Route path = "/AddWordsForm" render = { () => <AddWordsForm/> } />
          <Route path = "/Settings" render = { () => <Settings/> } />
+         <Route path = "/NewLessons" render = { () => <NewLessons/> } />
         </Switch>
       </div>
   );

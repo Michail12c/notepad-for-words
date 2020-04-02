@@ -63,7 +63,7 @@ export const Input3 = ({input, meta, ...props}) => {
   return (
     <div className = {style.formsControls + ' ' + (hasError ?  style.error : '')}>
       <div >
-      <input className = {style.addWords} {...input} {...props}></input>
+      <input title = "Уникайте більше двох пробілів" pattern="^((?!\s{2}).)*$" className = {style.addWords} {...input} {...props}></input>
       </div>
       <div className = {style.text}>
         {hasError ? <span>{'some error'}</span> : ''}

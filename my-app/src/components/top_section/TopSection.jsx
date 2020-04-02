@@ -18,6 +18,9 @@ const TopSection = (props) => {
       <div>
         <NavLink activeClassName = {style.activeUrl} to = '/Lesson'>Урок</NavLink>
      </div>
+     <div>
+       <NavLink activeClassName = {style.activeUrl} to = '/NewLessons'>Додаткові вправи</NavLink>
+     </div>
       <div>
       <NavLink activeClassName = {style.activeUrl} to = '/AddWordsForm'>Налаштування списків</NavLink>
      </div>
