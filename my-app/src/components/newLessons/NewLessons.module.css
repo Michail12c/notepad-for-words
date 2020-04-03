@@ -1,5 +1,5 @@
 .newLessons{
-  background-color: rgb(90, 195, 151);
+  background-color: rgb(191, 216, 175);
 }
 .basicContent{
   padding-bottom: 50px;
@@ -15,4 +15,14 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.5); 
   border-radius: 50%;
   border: 5px solid rgb(148, 155, 172);
+  transition: ease-in 0.2s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.choiceLesson img:hover{
+  width: 220px;
+  height: 220px;
+}
+.choiceLesson div{
+  width: 200px;
 }

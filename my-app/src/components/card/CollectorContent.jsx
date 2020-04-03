@@ -4,6 +4,7 @@ import StrictCheck from './StrictCheck';
 import PuzzleMode from './PuzzleMode';
 import { updateStatusCollector } from '../redux/storage-reducer';
 import { countWordsThunk } from '../redux/main-reducers';
+import CollectSentences from './CollectSentences';
 
 const CollectorContent = ({statusCollector, contentElement, showWords, repeatList, stateStatus, statusLesson, updateStatusCollector, countWordsThunk, addNewList, indexCard}) => {
   if(statusLesson == 2){
@@ -12,6 +13,10 @@ const CollectorContent = ({statusCollector, contentElement, showWords, repeatLis
   if(statusLesson == 1){
     updateStatusCollector(0)
   }
+  if(statusLesson == 3){
+    updateStatusCollector(2)
+  }
+
 
   let activeContent; 
 
@@ -34,7 +39,16 @@ const CollectorContent = ({statusCollector, contentElement, showWords, repeatLis
                                     addNewList = {addNewList} 
                                     indexCard = {indexCard} 
                                      />
-    break                                  
+    break 
+    case 2:
+      activeContent = <CollectSentences contentElement = {contentElement}
+                                         showWords = {showWords}
+                                         repeatList = {repeatList}
+                                         stateStatus = {stateStatus}
+                                         countWordsThunk = {countWordsThunk}
+                                         addNewList = {addNewList}
+                                         indexCard = {indexCard}/>  
+    break                               
   }  
   return (
       <div> 

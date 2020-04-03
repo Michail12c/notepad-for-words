@@ -78,7 +78,7 @@ let storageReducer = (state = initialState, action) => {
   case SET_CONTENT_WITH_CARD:
     return {
       ...state, contentWithCard: action.content
-    }
+    } 
    default: 
    return state;
   }

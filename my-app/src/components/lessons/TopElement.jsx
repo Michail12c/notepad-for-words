@@ -26,6 +26,9 @@ const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, 
            <div>
              <button id= {statusLesson === 2 ? style.active2 : ''} onClick = {() => setStatusLesson(2) }>Режим пазлу</button>
            </div>
+           <div>
+             <button id= {statusLesson === 3 ? style.active2 : ''} onClick = {() => setStatusLesson(3) }>Доповнити речення</button>
+           </div>
        </div>
          <div className = {style.choiceList}>Обрати список для повторення</div>
        <div>

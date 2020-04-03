@@ -35,6 +35,10 @@ textarea{
   padding: 5px;
   color:black;
 }
+.wordForArray{
+  width: 30px;
+  height: 10px;
+}
 
 input{
   width: 400px;

@@ -12,7 +12,9 @@ const UpdateContent = ({statusContent, setStatusContent}) => {
     break
     case 3:
     updateContent = 'new content 3';
-    break   
+    break  
+    case 4:
+    updateContent = 'content 4';   
     default:
       return updateContent = 'new content is default'; 
   }
