@@ -84,12 +84,19 @@
 }
 .wordsFromMasInput{
   width: 40px;
+  max-width: 60%;
   height: 10px;
   border: none;
   background-color: rgb(165, 177, 161);
   outline: none; 
   color: black;
+  font-size: 14px;
+  font-weight: 900;
+  margin: 0 5px;
 
+}
+.handler{
+  margin-top: 10px;
 }
 
 

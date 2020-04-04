@@ -7,10 +7,20 @@ export class HandlerResponse{
        return elem.trim().toLowerCase().replace(/[?!\.]/g, '');
       
   }
-
+ 
    _comparison (word1, word2) {
     let result = word1 === word2 ? true : false
     return result; 
+  }
+  comparisonArray(arr1, arr2){
+    for(let i = 0; i < arr1.length; i++){
+      let result = this._comparison(arr1[i], arr2[i]); 
+      if(!result){
+        return false
+        break
+      }
+    }
+    return true 
   }
 
 
@@ -37,6 +47,12 @@ export class HandlerResponse{
    randomInteger(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
+  }
+
+  dynamicWidth(elem, fz){
+    let arr = elem.split('');
+    arr = arr.length; 
+    return arr * fz; 
   }
   
 

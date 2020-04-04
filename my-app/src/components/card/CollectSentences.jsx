@@ -4,60 +4,78 @@ import { connect } from 'react-redux';
 import { HandlerResponse } from '../common/handlerResponse';
 import { Input } from '../main/form/FormsControls';
 import { useState } from 'react';
-import { setValue } from '../redux/storage-reducer';
+import { useContext } from 'react';
+
 
 const CollectSentences = ({contentElement, showWords, stateStatus, repeatList, countWordsThunk, contentWithCard, indexCard, addNewList}) => {
   let updatingWords = new HandlerResponse(contentElement.word, ''); 
   let newWords = updatingWords._modifierWords(contentElement.word);
   newWords = updatingWords.convertingStringToArray(newWords); 
   let randomNumber = updatingWords.randomInteger(0, newWords.length - 1);
+  let activeWidth = updatingWords.dynamicWidth(newWords[randomNumber], 14); 
   let brokenSentence = []; 
- 
-  const [stateInput, setStateInput] = useState(false);  
-  const handler = () => {
-    setStateInput(true); 
-  }
+  let nextArray = newWords.slice(); 
+  let inputValue = React.createRef(); 
+
+  const [statusContent, setStatusContent] = useState(false); 
+  const [result, setResult] = useState(''); 
 
   for (let i = 0; i < newWords.length; i++){
     if( i === randomNumber ){
-      brokenSentence.push(<WordFromInput key = {i} stateInput = {stateInput} setStateInput = {setStateInput}/>); 
+      brokenSentence.push(<span key = {i}><input  style={{width: activeWidth + 'px'}} autoFocus ref= {inputValue} className = {style.wordsFromMasInput} placeholder = {'...'}></input></span>); 
       continue
     }
      brokenSentence.push(<span key = {i} className = {style.wordsFromMas}>{newWords[i]}</span>);  
   }
+
   
+  const handler = () => {
+   let value = inputValue.current.value;
+   value = updatingWords._modifierWords(value); 
+   nextArray.splice(randomNumber, 1, value); 
+   let result = updatingWords.comparisonArray(newWords, nextArray); 
+   setResult(result); 
+   setStatusContent(true); 
+  }
   
-  console.log(brokenSentence); 
+  const nextCard = () => {
+   showWords(); 
+   setStatusContent(false); 
+  }
+
+  const wrongAnswer = () => {
+    addNewList(contentWithCard[indexCard]);
+    setStatusContent(false); 
+  }
+
+  const repeatListHere = () => {
+    repeatList(true);
+    setStatusContent(false); 
+  }
+  
   return (
     <div className = {style.collectSentences}>
-       Collect sentences
       <div> 
-          {brokenSentence}
+        { !stateStatus 
+            ? <>{ !statusContent ? brokenSentence : '' }</>
+            : ''
+        }
+          
           <div>
-            <button onClick = {handler}>click</button> 
+            {!stateStatus 
+               ? <>{!statusContent 
+                  ? <button className = {style.handler} onClick = {handler}>Прийняти</button> 
+                  : <button className = {result ? style.classTrue : style.classFalse} onClick = {result ? nextCard : wrongAnswer} >{result ? 'Правильно' : 'Не правильно' }</button> }</> 
+               :   <>{<div><button onClick = {() => repeatList(false)}>Ні</button><button onClick = {repeatListHere}>Так</button></div>}</>  
+            }
+              
           </div>
       </div>  
     </div>
   )
 }
 
-const WordFromInput = ({stateInput, setStateInput}) => { 
-  const[inputValue, setInputValue] = useState(''); 
 
-  const handleChange = event => {
-    setInputValue(event.target.value); 
-  }
-  if(stateInput){
-    console.log(inputValue); 
-    setStateInput(false);
-  }
-
-  return (
-    <>
-      <span key = {'a'} className = {style.wordsFromMas}><input key = {'a1'} className = {style.wordsFromMasInput} placeholder = '...' value = {inputValue} onChange = {handleChange}></input></span>
-    </>
-  )
-}
 
 const mapStateToProps = state => {
   return {

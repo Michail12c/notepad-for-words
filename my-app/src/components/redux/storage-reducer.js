@@ -97,4 +97,5 @@ export const activateComparing = status => ({type: ACTIVATE_COMPARING, status})
 export const deletePreviousWords = () => ({type: DELETE_PREVIOUS_WORDS})
 export const setContentWithCard = content => ({type: SET_CONTENT_WITH_CARD, content})
 
+
 export default storageReducer;
