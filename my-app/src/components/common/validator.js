@@ -7,3 +7,4 @@ export const minLengthCreator = ( minLength) => (value) => {
  if ( value.length < minLength) return `Фраза не повинна бути коротшою аніж ${minLength} символів`;
  return undefined;
 } 
+

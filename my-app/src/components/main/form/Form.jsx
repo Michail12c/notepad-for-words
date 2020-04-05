@@ -3,7 +3,7 @@ import style from './../Main.module.css';
 import {  reduxForm,  Field, reset } from 'redux-form';
 import { connect } from 'react-redux';
 import {  addWordsThunk, initializeMain, addWordsThunkTwoList, addWordThunkListUser, editionListUserThunk, removeWordsFromListThunk } from '../../redux/main-reducers';
-import { minLengthCreator, required } from '../../common/validator';
+import { minLengthCreator, required} from '../../common/validator';
 import { Textarea, Input, Input3 } from './FormsControls';
 import TopSection from '../../top_section/TopSection';
 import { setFlagAC } from '../../redux/storage-reducer';
@@ -12,6 +12,8 @@ import { useEffect } from 'react';
 import Statistics from './Statistics';
 
 let minLength = minLengthCreator(1);
+
+
 
 const formForWords = (props) => {
   

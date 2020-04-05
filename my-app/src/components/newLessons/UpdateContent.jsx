@@ -1,20 +1,25 @@
 import React from 'react'; 
 import style from './NewLessons.module.css'; 
+import ReadingMode from './ReadingMode';
+import TranslateMode from './TranslateMode';
+import BuildingSentence from './BuildingSentence';
+import VideoMode from './VideoMode';
 
 const UpdateContent = ({statusContent, setStatusContent}) => {
   let updateContent; 
   switch(statusContent){
     case 1: 
-     updateContent = 'new content is my one';
+     updateContent = <ReadingMode/>
      break
     case 2: 
-    updateContent = 'new content 2';
+    updateContent = <TranslateMode/>
     break
     case 3:
-    updateContent = 'new content 3';
+    updateContent = <BuildingSentence/>
     break  
     case 4:
-    updateContent = 'content 4';   
+    updateContent =  <VideoMode/> 
+    break 
     default:
       return updateContent = 'new content is default'; 
   }
@@ -23,7 +28,7 @@ const UpdateContent = ({statusContent, setStatusContent}) => {
     <div>
        {updateContent}
        <div>
-         <button onClick = {() => setStatusContent(0)}>come back</button>
+         <button className = {style.warningButton} onClick = {() => setStatusContent(0)}>Повернутись</button>
        </div>
     </div>
   )

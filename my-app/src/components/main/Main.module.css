@@ -88,6 +88,7 @@
 }
 .title{
    display: flex;
+   position: relative;
    justify-content: space-around;
    font-size: 45px;
    font-weight: bold;
@@ -127,6 +128,14 @@
    -ms-transform: rotate(45deg);
    -o-transform: rotate(45deg);
 }
+/* animation */
+
+
+
+
+
+
+
 .arrow:hover{
    cursor: pointer;
 }

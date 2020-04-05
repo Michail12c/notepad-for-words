@@ -1,6 +1,21 @@
 .settings{
-  background-color: rgb(235, 233, 233);
-  width:100wh;
-  height: 100vw;
+  background-color: rgb(154, 199, 127);
   margin: 0 auto;
+}
+.warning{
+  width: 40%;
+  height: 40%;
+  margin-top: 20px;
+}
+.warningSetting{
+  padding-bottom: 50px;
+}
+.warningButton{
+  padding: 5px 10px;
+  border: none; 
+  background-color: rgb(235, 84, 70);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  cursor: pointer; 
+  margin-top: 20px;
+
 }

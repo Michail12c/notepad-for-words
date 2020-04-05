@@ -14,6 +14,7 @@ const Title = (props) => {
     }
   }
 
+   
   const indexMinus = () => {
     setIndex(index - 1);
     if (index <= 0) {
@@ -22,7 +23,7 @@ const Title = (props) => {
   }
   return (
     <div className={style.title}>
-      <div onClick={indexPlus}>
+      <div className = {style.indexPlus} onClick={indexPlus}>
         <div className={style.arrow}></div>
       </div>
       <div className={style.content}>
