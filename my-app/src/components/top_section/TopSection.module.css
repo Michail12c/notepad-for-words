@@ -9,6 +9,8 @@
   font-weight: bold;
   font-size: 14px;
   margin-bottom: 5%;
+  transition-duration: 0.5s;
+  animation-timing-function: linear;
 }
 .topSection a{
   text-decoration: none;
@@ -19,7 +21,8 @@
   padding-top: 35px;
   padding-bottom: 45px;
   background: rgba(66, 73, 77, 0.3);
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
+  animation-timing-function: linear;
   font-size: 16px;
 }
 .topSection a:hover{

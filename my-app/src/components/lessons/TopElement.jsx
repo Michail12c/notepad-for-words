@@ -4,6 +4,9 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setStatusLesson } from '../redux/storage-reducer';
 
+
+
+
 const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, setIndexCard, outputOrder, updateOutputOrder, statusLesson, setStatusLesson}) => {
    const choiceList = (index) => {
      updateItemList(index);

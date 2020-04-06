@@ -8,13 +8,16 @@
   padding-bottom: 15px;
   font-size: 18px;
   position: fixed;
+  transition-duration: 0.5s;
+  animation-timing-function: linear;
 }
 .header:hover{
   cursor: pointer;
   padding-top: 35px;
   padding-bottom: 35px;
   background: rgba(66, 73, 77, 0.3);
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
+  animation-timing-function: linear;
   font-size: 22px;
 }
 .menu a{

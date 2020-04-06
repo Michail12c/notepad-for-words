@@ -1,9 +1,11 @@
 import React from 'react';
 import style from './Menu.module.css';
 import {NavLink} from 'react-router-dom';
+import Flip from 'react-reveal/Flip';
 
 const Menu = (props) => {
   return (
+    <Flip left>
     <div className = {style.menu}>
        <nav>
         <ul>
@@ -20,6 +22,7 @@ const Menu = (props) => {
         </ul>
       </nav> 
     </div>
+   </Flip> 
   )
 }
 export default Menu;

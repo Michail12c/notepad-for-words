@@ -3,20 +3,27 @@ import style from './../Main.module.css';
 import { reduxForm, Field, reset } from 'redux-form';
 import { Textarea2, Input } from '../form/FormsControls';
 import { connect } from 'react-redux';
+import Fade from 'react-reveal/Fade';
 
 
 const formSendLetter = (props) => {
   return(
     <form onSubmit = {props.handleSubmit}>
+    <Fade left>
      <div>
        <Field component = {Input} name = {'yourEmail'} placeholder = {'Ваш email'} />
      </div>
+    </Fade>
+    <Fade right>
      <div>
        <Field component = {Textarea2} name = {'letter'} />
      </div>
+   </Fade>
+   <Fade left>
      <div>
        <button className = {style.sendLetter}>Відправити</button>
      </div>
+   </Fade>
     </form>
   )
 }

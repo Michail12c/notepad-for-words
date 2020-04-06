@@ -4,12 +4,17 @@ import success from './../../images/sukses.jpg';
 import word from './../../images/word2.jpg';
 import training from './../../images/training.jpg';
 import games from './../../images/games.jpg';
+import Fade from 'react-reveal/Fade';
+
+
 
 const AboutUs = (props) => {
+
   return (
     <div className={style.aboutUs} id = {'aboutUs'}>
       <h2>Про нас</h2>
-     <div className = "animated bounceInLeft">
+     <div>
+       <Fade left>
       <div className={style.test}>
         <div className={style.innerTest}>
           <h3> Мета</h3>
@@ -21,8 +26,10 @@ const AboutUs = (props) => {
         <div className = {style.test2}>
         </div>
       </div>
+      </Fade>
       </div>
-
+ 
+     <Fade right>
       <div className={style.test}>
       <div className = {style.test2}>
        </div>
@@ -34,7 +41,9 @@ const AboutUs = (props) => {
           <p>Наша віра у цей проект грунтується на усвідомленні того, що тільки те що потрібно тобі самому може стати корисним для інших. Ми довго шукали подібний ресурс для навчання, але так нічого і не знайшовши, вирішили створити самі. Саме тому працюючи для вас ми втілюємо в життя власну мрію.</p>
         </div>
       </div>
-
+      </Fade>
+      
+      <Fade left>
       <div className={style.test}>
         <div className={style.innerTest}>
           <h3>Філософія</h3>
@@ -46,7 +55,9 @@ const AboutUs = (props) => {
         <div className = {style.test2}>
         </div>
       </div>
+      </Fade>
 
+     <Fade right>
       <div className={style.test}>
       <div className = {style.test2}>
        </div>
@@ -58,6 +69,7 @@ const AboutUs = (props) => {
           <p>Ми прагнемо постійно розвивати наш проект, додаючи все більшу кількість інструментів, з якими ви легко налаштуєте для себе освітню платформу, що зробить ваше навчання по справжньому продуктивним.</p>
         </div>
       </div>
+      </Fade>
   </div>
   )
 }
