@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/notepad-for-words/static/css/main.e554a756.chunk.css",
-    "main.js": "/notepad-for-words/static/js/main.5ed8f351.chunk.js",
-    "main.js.map": "/notepad-for-words/static/js/main.5ed8f351.chunk.js.map",
+    "main.css": "/notepad-for-words/static/css/main.9ca8393d.chunk.css",
+    "main.js": "/notepad-for-words/static/js/main.68a1a4bf.chunk.js",
+    "main.js.map": "/notepad-for-words/static/js/main.68a1a4bf.chunk.js.map",
     "runtime-main.js": "/notepad-for-words/static/js/runtime-main.640b44fc.js",
     "runtime-main.js.map": "/notepad-for-words/static/js/runtime-main.640b44fc.js.map",
-    "static/js/2.61f17d8e.chunk.js": "/notepad-for-words/static/js/2.61f17d8e.chunk.js",
-    "static/js/2.61f17d8e.chunk.js.map": "/notepad-for-words/static/js/2.61f17d8e.chunk.js.map",
+    "static/js/2.e042713b.chunk.js": "/notepad-for-words/static/js/2.e042713b.chunk.js",
+    "static/js/2.e042713b.chunk.js.map": "/notepad-for-words/static/js/2.e042713b.chunk.js.map",
     "index.html": "/notepad-for-words/index.html",
-    "precache-manifest.4df7aaf5590fb754b3cefae9ea0438ff.js": "/notepad-for-words/precache-manifest.4df7aaf5590fb754b3cefae9ea0438ff.js",
+    "precache-manifest.4dedc8d1c2eccb85faee633e6730aead.js": "/notepad-for-words/precache-manifest.4dedc8d1c2eccb85faee633e6730aead.js",
     "service-worker.js": "/notepad-for-words/service-worker.js",
-    "static/css/main.e554a756.chunk.css.map": "/notepad-for-words/static/css/main.e554a756.chunk.css.map",
-    "static/js/2.61f17d8e.chunk.js.LICENSE": "/notepad-for-words/static/js/2.61f17d8e.chunk.js.LICENSE",
+    "static/css/main.9ca8393d.chunk.css.map": "/notepad-for-words/static/css/main.9ca8393d.chunk.css.map",
+    "static/js/2.e042713b.chunk.js.LICENSE": "/notepad-for-words/static/js/2.e042713b.chunk.js.LICENSE",
     "static/media/Main.module.css": "/notepad-for-words/static/media/evening.541329bf.jpg",
     "static/media/Linkedin.png": "/notepad-for-words/static/media/Linkedin.f856d3e2.png",
     "static/media/ajax-loader.gif": "/notepad-for-words/static/media/ajax-loader.aee4facb.gif",
@@ -27,8 +27,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.640b44fc.js",
-    "static/js/2.61f17d8e.chunk.js",
-    "static/css/main.e554a756.chunk.css",
-    "static/js/main.5ed8f351.chunk.js"
+    "static/js/2.e042713b.chunk.js",
+    "static/css/main.9ca8393d.chunk.css",
+    "static/js/main.68a1a4bf.chunk.js"
   ]
 }
