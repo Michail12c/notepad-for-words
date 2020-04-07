@@ -1,7 +1,7 @@
 import React from 'react'; 
 import style from './CreateList.module.css'; 
 import { useState, useEffect } from 'react';
-import { createRef } from 'react';
+import Flip from 'react-reveal/Flip';
 
 const AddChangeToList = (props) => {
   const [status, setStatus] = useState(props.props.word);
@@ -62,20 +62,22 @@ export const ListWordsChange = (props) => {
    setConfirmation(false);
  }
   return(
-  !state ?  <div className = {style.listWordsChange}>
-      <div>
-         <div>{props.id + ') ' + props.word}</div>
-         <div>{props.transfer}</div>
-      </div>
-      <div className = {style.sendChange}>
-        <button onClick = {updateState}>Редагувати</button>
-       {!confirmation 
-       ? <button onClick = { () => setConfirmation(true)}>Видалити</button> 
-       : <span className = {style.confirmation}>Ви впевненні? 
-       <button className = {style.buttonOne} onClick = {removeElement}>так</button>
-       <button onClick = {() => setConfirmation(false)}>ні</button></span>}
-      </div>
-    </div> : <div><AddChangeToList props = {props} changeList = {changeList}/></div>
+      <Flip top>
+       {!state ?  <div className = {style.listWordsChange}>
+            <div>
+              <div>{props.id + ') ' + props.word}</div>
+              <div>{props.transfer}</div>
+            </div>
+            <div className = {style.sendChange}>
+              <button onClick = {updateState}>Редагувати</button>
+            {!confirmation 
+            ? <button onClick = { () => setConfirmation(true)}>Видалити</button> 
+            : <span className = {style.confirmation}>Ви впевненні? 
+            <button className = {style.buttonOne} onClick = {removeElement}>так</button>
+            <button onClick = {() => setConfirmation(false)}>ні</button></span>}
+            </div>
+          </div> : <div><AddChangeToList props = {props} changeList = {changeList}/></div>}
+        </Flip>
   )
 }
 

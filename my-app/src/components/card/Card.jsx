@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { choiceElementContent, setContentWithCard } from '../redux/storage-reducer';
 import CollectorContent from './CollectorContent';
 import { countWordsThunk } from '../redux/main-reducers';
-
+import Zoom from 'react-reveal/Zoom';
 
 class Card extends React.PureComponent {
 
@@ -136,6 +136,8 @@ componentDidUpdate(){
     if(this.props.content == '') return <Preloader/>
  
    return( 
+
+  <Zoom>
    <div className = {style.card}>
     <div className = {style.content}>
       { !this.state.status 
@@ -169,6 +171,7 @@ componentDidUpdate(){
                                               addNewList = {this.addNewList}  /> }
     </div>
   </div>
+ </Zoom> 
     )
   }
 }

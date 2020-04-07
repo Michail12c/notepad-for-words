@@ -6,6 +6,7 @@ import { minLengthCreator, required } from '../../../common/validator';
 import { connect } from 'react-redux';
 import { createList, createListThunk } from '../../../redux/main-reducers';
 import { setFlagAC } from '../../../redux/storage-reducer';
+import Flip from 'react-reveal/Flip';
 
 let minLength = minLengthCreator(1);
 
@@ -39,12 +40,13 @@ const CreateList = (props) => {
     props.updateFlag(0);
   }
   return (
-    <div className = {style.card + ' ' + style.choiceMenuForm}>
-       <div className = {style.content}>
+    <Flip right>
+    <div  className = { style.choiceMenuForm} >
+       <div className = {style.card + ' ' +  style.content}>
          <AddList updateFlag = {updateFlagList} onSubmit = {onSubmit}/>
        </div>
-   
     </div>
+  </Flip>
   )
 } 
 

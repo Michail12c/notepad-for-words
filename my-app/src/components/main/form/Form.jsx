@@ -10,6 +10,7 @@ import { setFlagAC } from '../../redux/storage-reducer';
 import CentralComponent from './createList/CentralComponent';
 import { useEffect } from 'react';
 import Statistics from './Statistics';
+import Flip from 'react-reveal/Flip';
 
 let minLength = minLengthCreator(1);
 
@@ -18,6 +19,7 @@ let minLength = minLengthCreator(1);
 const formForWords = (props) => {
   
   return (
+   <Flip left>
    <form onSubmit = {props.handleSubmit} className = {style.topForm}>
      <div className = {style.formTitle}>Додайте нову фразу до свого списку </div> 
      <div>
@@ -33,6 +35,7 @@ const formForWords = (props) => {
        <button className = {style.remember}>Запам`ятати</button>
      </div>
    </form>
+   </Flip> 
   )
 }
 
@@ -88,7 +91,7 @@ const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser, initia
             {
              !newList ?   <button id = {flag === 3 ?  style.activeForm : '' } onClick = {() => {updateFlag(3)}}>{
                 'Створити свій список'}</button> 
-                :   <button id = {flag === 6 ?  style.activeForm : '' }  onClick = {() => {updateFlag(6)}}>{flag === 6 ? 'Сховати форму' : 'Редагувати ' + newList}</button>
+                :   <button id = {flag === 6 ?  style.activeForm : '' }  onClick = {() => {updateFlag(6)}}>{flag === 6 ? 'Сховати список' : 'Редагувати ' + newList}</button>
             } 
           </div>
         </div>
@@ -119,10 +122,12 @@ const AddWordsForm  = ({listWords, listWordsTwo, flag, newList, listUser, initia
 
 export const ListWords = (props) => {
   return(
+    <Flip top>
     <div className = {style.listWords}>
       <div>{props.id + ') ' + props.word}</div>
       <div>{props.transfer}</div>
     </div>
+    </Flip>
   )
 }
 

@@ -6,6 +6,7 @@ import style from './CreateList.module.css';
 import { NavLink } from 'react-router-dom';
 import EditingList from './EditingList';
 import ChartElement from './Charts';
+import Flip from 'react-reveal/Flip';
 
 const CentralComponent = ({elements, flag, updateFlag,  listWordsTwo, listUser, editionListUserThunk, removeWordsFromListThunk}) => {
   let newElement;
@@ -56,7 +57,9 @@ const MainContent = () => {
   return (
     <div className = {style.mainContent}>
     <h4>Уроки</h4>
+    <Flip top>
     <img src="https://4geo.ru/images/personal-pages-share/370949660/img1158427129_2516292169544768.jpg" alt="foto"/>
+    </Flip>
     <p>Ви можете почати навчання, перейшовши у розділ <NavLink to = '/Lesson'>урок</NavLink></p></div>
   )
 }

@@ -1,9 +1,10 @@
 .card{
   text-align: center;
-  padding: 30px 60px 20px 60px;
+  padding: 20px 40px 40px 40px;
   background-color:rgba(16, 62, 80, 0.3);
   font-weight: bold;
 }
+
 .content{
   margin-bottom: 30px;
 }
@@ -12,6 +13,7 @@
   height: 200px;
 }
 .choiceMenu button{
+  margin-top: 10px;
    margin-right: 5px;
    margin-left: 5px;
    width: 150px;
@@ -95,10 +97,10 @@
   margin-bottom: 20px;
   width: 700px;
   height: 350px;
-}
-.chart{
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+
+
 
 @media (max-width: 1199.98px) {
   .chart{
@@ -142,6 +144,7 @@
   .card{
     margin: 0 auto;
     text-align: center;
+    width: 90%;
   }
   .innerContent{
     font-size: 16px;

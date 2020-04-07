@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat:400,700&display=swap&subset=cyrillic');
+
 .main{
    /* background: url('../images/market.jpg') no-repeat center center/cover; */
    background: url('../images/evening.jpg') no-repeat center top/cover;
@@ -97,7 +99,7 @@
 
 
 
-@import url('https://fonts.googleapis.com/css?family=Caveat:400,700&display=swap&subset=cyrillic');
+
 .content {
   margin-top: -50px;
   font-family: 'Caveat', cursive;
@@ -312,6 +314,7 @@
  }
 
  @media screen and (max-width: 768px){
+  
    .mainMenu{
       padding-top: 35%;
    }

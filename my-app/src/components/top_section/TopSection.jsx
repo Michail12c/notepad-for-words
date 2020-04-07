@@ -21,10 +21,10 @@ const TopSection = (props) => {
         <NavLink activeClassName = {style.activeUrl} to = '/Lesson'><Flip left cascade> Урок </Flip></NavLink>
      </div>
      <div>
-       <NavLink activeClassName = {style.activeUrl} to = '/NewLessons'><Flip left cascade> Додаткові вправи </Flip></NavLink>
+       <NavLink activeClassName = {style.activeUrl} to = '/NewLessons'><Flip left cascade>Інші вправи </Flip></NavLink>
      </div>
       <div>
-      <NavLink activeClassName = {style.activeUrl} to = '/AddWordsForm'><Flip left cascade>Налаштування списків</Flip></NavLink>
+      <NavLink activeClassName = {style.activeUrl} to = '/AddWordsForm'><Flip left cascade>Слова</Flip></NavLink>
      </div>
     </div>
   </div>
