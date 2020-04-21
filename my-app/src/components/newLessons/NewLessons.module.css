@@ -50,6 +50,14 @@
   margin-top: 20px;
   margin-bottom: 30px;
 }
+.videoMode{
+  display: flex;
+  justify-content: space-between;
+}
+.buttonMode{
+  width: 100px;
+  background-color: rgb(53, 150, 85);
+}
 
 @media (max-width: 1200px) {}
 @media (max-width: 992px) {}
