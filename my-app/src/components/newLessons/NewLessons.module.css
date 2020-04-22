@@ -52,12 +52,19 @@
 }
 .videoMode{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
-.buttonMode{
-  width: 100px;
-  background-color: rgb(53, 150, 85);
+.sectionRoot{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
+.sectionTypography{
+  max-width: 80%;
+}
+
+
+
 
 @media (max-width: 1200px) {}
 @media (max-width: 992px) {}
