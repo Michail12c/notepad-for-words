@@ -1,5 +1,6 @@
 import { InteractionWithLocalStorage } from "../common/handlers";
 import firstList from '../common/data.json';
+import videoFiles from '../common/video.json'; 
 
 const ADD_WORD = 'ADD-WORD'; 
 const ADD_WORD_TWO = 'ADD-WORD-TWO';
@@ -8,9 +9,11 @@ const ADD_WORD_LIST_USER = 'ADD-WORD-LIST-USER';
 const UPDATE_OUTPUT_ORDER = 'UPDATE-OUTPUT-ORDER'; 
 const UPDATE_COUNT_WORD = 'UPDATE-COUNT-WORD'; 
 const LEARNING_WORD = 'LEARNING-WORD'; 
+const ADD_VIDEO_LIST = 'ADD-VIDEO-LIST'; 
 
 let initialState = {
   listWords: [],
+  videoList: [],
   listWordsTwo: [],
   newList: Boolean (localStorage.getItem('list')),
   listUser: '',
@@ -31,6 +34,10 @@ const mainReducer = (state = initialState, action) => {
           ...state,
           listWordsTwo: action.wordTwo
         }
+    case ADD_VIDEO_LIST:
+      return {
+        ...state, videoList: action.list
+      }    
     case CREATE_LIST:
           return{
             ...state,
@@ -60,6 +67,7 @@ const mainReducer = (state = initialState, action) => {
 }
 
 export const addWord = (word) => ({type: ADD_WORD, word});
+export const addVideoList = list => ({type: ADD_VIDEO_LIST, list})
 export const addWordTwoList = (wordTwo) => ({type: ADD_WORD_TWO, wordTwo});
 export const createList = (data) => ({type: CREATE_LIST, data });
 export const addWordListUser = (word) => ({type: ADD_WORD_LIST_USER, word});
@@ -86,7 +94,7 @@ export const initializeMain = (elem) => {
 
     let content = addLocale.createList();
   
-    if(elem === 'word') return dispatch(addWord(firstList)); 
+    if(elem === 'word') return dispatch(addWord(firstList)), dispatch(addVideoList(videoFiles)); 
     if(elem === 'word2') return dispatch (addWordTwoList(content));
     if(elem == 'listUser') return dispatch(addWordListUser(content));
 

@@ -28,7 +28,7 @@ const UpdateContent = ({statusContent, setStatusContent}) => {
     <div>
        {updateContent}
        <div>
-         <button className = {style.warningButton} onClick = {() => setStatusContent(0)}>Повернутись</button>
+         <button className = {style.warningButton} onClick = {() => setStatusContent(0)}>Повернутись в меню</button>
        </div>
     </div>
   )

@@ -10,35 +10,42 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Fade from 'react-reveal/Fade';
 import MediaCard from '../material/card';
+import { connect } from 'react-redux';
+import TextButtons from '../material/button';
 
 
 
-const VideoMode = () => {
-  let masUrl = [{url: "https://www.youtube.com/watch?v=i96VS_z8y7g", name: "Хрещенний батько"}, {url: "https://www.youtube.com/watch?v=15Ucj4YFosk", name: "Хрещенний батько 2"}]
+const VideoMode = ({videoList}) => {
+
   const [test, setTest] = useState(false)
-  const [activeUrl, setActiveUrl] = useState(masUrl[0].url)  
+  const [activeUrl, setActiveUrl] = useState(videoList[0][0].url)  
   let url = activeUrl 
-
- 
 
   return(
     <div className = {style.videoMode}>
       { !test 
          ? <VerticalTabs setTest = {setTest} 
                          setActiveUrl = {setActiveUrl}
-                         masUrl = {masUrl} />
+                         videoList = {videoList}/>
          : <Fade>
-              
-                <ReactPlayer  url={url}
-                              youtubeConfig={{ playerVars:{ 
+            <div className = {style.sectionPlayer}>
+             <div className={style.frame_blc}>
+               <ReactPlayer    url={url}
+                                youtubeConfig={{ playerVars:{ 
                                 showinfo: 1, 
                                 controls: 2,
                                 autoplay: 1,
+                                width: '90%',
+                                height: '90%',
+                                marginRight: '1rem',
+                                marginLeft: '1rem',
                                 modestbranding: 1 }}}
                                 playing />
+             </div>
                 <div>
-                  <button onClick = {() => setTest(false)}>come back</button>
+                  <TextButtons callback = {() => setTest(false)} title = {'Сховати'}/>
                 </div>
+            </div>
               </Fade>
       }
     </div>
@@ -82,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: "rgb(191, 216, 175)",
     display: 'flex',
-    height: 'max-content',
+    height: 'max-content'
   },
 
   tabs: {
@@ -90,24 +97,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function VerticalTabs({setTest, setActiveUrl, masUrl}) {
-
-   console.log(masUrl)
+ function VerticalTabs({setTest, setActiveUrl, videoList}) {
 
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  let contentBeginner = videoList[0].map((el, index) =>  <MediaCard key={index} width={150} height={120} img = {el.img} content = {el.name} callback = {() => setTest(true)}
+  cardHeight= {250} choiceVideo = {() => setActiveUrl(el.url)} /> )
  
-  let contentMiddle = masUrl.map((el, index) =>  <MediaCard key = {index} width = {150} 
-                                          height =  {120} 
-                                          content = {el.name} 
-                                          callback = {() => setTest(true)}
-                                          cardHeight= {250}
-                                          choiceVideo = {() => setActiveUrl(el.url)} />  )
+  let contentMiddle = videoList[1].map((el, index) =>  <MediaCard key={index} width={150} height={120} img = {el.img} content = {el.name} callback = {() => setTest(true)}
+  cardHeight= {250} choiceVideo = {() => setActiveUrl(el.url)} /> )
+
+  let contentTop = videoList[2].map((el, index) =>  <MediaCard key={index} width={150} height={120} img = {el.img} content = {el.name} callback = {() => setTest(true)}
+  cardHeight= {250} choiceVideo = {() => setActiveUrl(el.url)} /> )
+
   return (
     <Fade>
       <div className={classes.root}>
@@ -119,25 +126,34 @@ const useStyles = makeStyles((theme) => ({
           aria-label="Vertical tabs example"
           className={classes.tabs}
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Легкий рівень" {...a11yProps(0)} />
+          <Tab label="Середній рівень" {...a11yProps(1)} />
+          <Tab label="Складний рівень" {...a11yProps(2)} />
         </Tabs>
-        <TabPanel value={value} index={0}>
-          <button onClick = {() => setTest(true)}>click</button>
+        <TabPanel className={style.tabSection} value={value} index={0}>
+        <div className = {style.sectionRoot}> 
+          {contentBeginner}
+        </div>  
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel className={style.tabSection}  value={value} index={1}>
           <div className = {style.sectionRoot}>
             {contentMiddle}
           </div>
         </TabPanel>
         <TabPanel value={value} index={2}>
-          Item Three
+        <div className = {style.sectionRoot}>
+           {contentTop}
+         </div>  
         </TabPanel>
       </div>
   </Fade>
   );
 }
 
+const mapStateToProps = state => {
+  return {
+    videoList: state.mainPage.videoList
+  }
+}
 
-export default VideoMode 
+export default connect(mapStateToProps, {})(VideoMode) 

@@ -11,7 +11,7 @@ import success from '../images/sukses.jpg'
 
 
 
-export default function MediaCard({width, height, content,  callback, cardHeight, choiceVideo}) {
+export default function MediaCard({width, height, content,  callback, cardHeight, choiceVideo, img}) {
 
   const useStyles = makeStyles({
     root: {
@@ -35,7 +35,7 @@ const startFunction = () => {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image= {success}
+          image= {img}
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -46,7 +46,7 @@ const startFunction = () => {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary" onClick = {startFunction}>
-          Share
+          Play
         </Button>
       </CardActions>
     </Card>

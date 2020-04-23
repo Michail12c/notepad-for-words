@@ -24,8 +24,10 @@
 .title{
   margin-bottom: 50px;
 }
+.cardActive{
+   padding: 20px 30px; 
+}
 .cardActive:hover{
-  padding: 20px 30px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5); 
   transition: ease-in 0.3s;
 
@@ -44,7 +46,7 @@
 .warningButton{
   padding: 5px 10px;
   border: none; 
-  background-color: rgb(235, 84, 70);
+  background-color: rgb(122, 235, 70);
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   cursor: pointer; 
   margin-top: 20px;
@@ -62,6 +64,29 @@
 .sectionTypography{
   max-width: 80%;
 }
+.tabSection{
+  padding: 10px 20px;
+}
+
+  .frame_blc{
+    overflow:hidden;
+    position:relative;
+    padding-bottom:56.25%;
+    padding-top:30px;
+    height:0;
+  }
+  .frame_blc iframe {
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+  }
+  .sectionPlayer{
+    display: flex;
+    flex-direction: column;
+  }
+
 
 
 

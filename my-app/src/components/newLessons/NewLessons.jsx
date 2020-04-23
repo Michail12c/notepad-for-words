@@ -1,14 +1,13 @@
 import React from 'react'; 
 import style from './NewLessons.module.css'; 
 import TopSection from '../top_section/TopSection';
-import { useState } from 'react';
 import UpdateContent from './UpdateContent';
 import Footer from '../main/footer/Footer';
+import { connect } from 'react-redux';
+import { setStatusContent } from '../redux/lessons-reducer';
 
-const NewLessons = () => {
-
-  const [statusContent, setStatusContent] = useState(0); 
-
+const NewLessons = ({statusContent, setStatusContent}) => {
+  
   return (
     <div className = {style.newLessons}>
       <TopSection logo= {'logo'} calculate = {'calculate'}/>
@@ -66,6 +65,11 @@ const BasicContent = ({setStatusContent}) => {
  )
 }
 
+const mapStateToProps = state => {
+  return{
+    statusContent: state.lessonsPage.statusContent
+  }
+}
 
 
-export default NewLessons; 
+export default connect(mapStateToProps, {setStatusContent})(NewLessons); 
