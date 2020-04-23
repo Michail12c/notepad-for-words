@@ -11,7 +11,7 @@ import success from '../images/sukses.jpg'
 
 
 
-export default function MediaCard({width, height, content,  callback, cardHeight, choiceVideo, img}) {
+export default function MediaCard({width, height, content,  callback, cardHeight, choiceVideo, img, setValueTwo}) {
 
   const useStyles = makeStyles({
     root: {
@@ -27,6 +27,7 @@ export default function MediaCard({width, height, content,  callback, cardHeight
 const startFunction = () => {
   callback()
   choiceVideo()
+  setValueTwo()
 }
   const classes = useStyles();
 

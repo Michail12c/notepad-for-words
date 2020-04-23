@@ -12,21 +12,32 @@ import Fade from 'react-reveal/Fade';
 import MediaCard from '../material/card';
 import { connect } from 'react-redux';
 import TextButtons from '../material/button';
+import { setValue } from '../redux/lessons-reducer';
 
 
 
-const VideoMode = ({videoList}) => {
+const VideoMode = ({videoList, valueLevel, setValue}) => {
 
   const [test, setTest] = useState(false)
-  const [activeUrl, setActiveUrl] = useState(videoList[0][0].url)  
+  const [activeUrl, setActiveUrl] = useState(videoList[0][0].url) 
+  const [newValue, setNewValue] = useState(0)
   let url = activeUrl 
+ 
 
+  const myTest = () => {
+    setNewValue(valueLevel)
+    setTest(false) 
+  }
+ 
+  
   return(
     <div className = {style.videoMode}>
       { !test 
          ? <VerticalTabs setTest = {setTest} 
                          setActiveUrl = {setActiveUrl}
-                         videoList = {videoList}/>
+                         videoList = {videoList}
+                         setValueTwo = {setValue}
+                         newValue = {newValue}/>
          : <Fade>
             <div className = {style.sectionPlayer}>
              <div className={style.frame_blc}>
@@ -43,7 +54,7 @@ const VideoMode = ({videoList}) => {
                                 playing />
              </div>
                 <div>
-                  <TextButtons callback = {() => setTest(false)} title = {'Сховати'}/>
+                  <TextButtons callback = {myTest} title = {'Сховати'}/>
                 </div>
             </div>
               </Fade>
@@ -55,6 +66,7 @@ const VideoMode = ({videoList}) => {
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+
 
   return (
     <Typography
@@ -97,23 +109,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
- function VerticalTabs({setTest, setActiveUrl, videoList}) {
+ function VerticalTabs({setTest, setActiveUrl, videoList, setValueTwo, newValue}) {
 
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(newValue);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   let contentBeginner = videoList[0].map((el, index) =>  <MediaCard key={index} width={150} height={120} img = {el.img} content = {el.name} callback = {() => setTest(true)}
-  cardHeight= {250} choiceVideo = {() => setActiveUrl(el.url)} /> )
+  cardHeight= {250} choiceVideo = {() => setActiveUrl(el.url)} setValueTwo = {() => setValueTwo(0)}/> )
  
   let contentMiddle = videoList[1].map((el, index) =>  <MediaCard key={index} width={150} height={120} img = {el.img} content = {el.name} callback = {() => setTest(true)}
-  cardHeight= {250} choiceVideo = {() => setActiveUrl(el.url)} /> )
+  cardHeight= {250} choiceVideo = {() => setActiveUrl(el.url)} setValueTwo = {() => setValueTwo(1)} /> )
 
   let contentTop = videoList[2].map((el, index) =>  <MediaCard key={index} width={150} height={120} img = {el.img} content = {el.name} callback = {() => setTest(true)}
-  cardHeight= {250} choiceVideo = {() => setActiveUrl(el.url)} /> )
+  cardHeight= {250} choiceVideo = {() => setActiveUrl(el.url)} setValueTwo = {() => setValueTwo(2)}/> )
 
   return (
     <Fade>
@@ -140,7 +152,7 @@ const useStyles = makeStyles((theme) => ({
             {contentMiddle}
           </div>
         </TabPanel>
-        <TabPanel value={value} index={2}>
+        <TabPanel  className={style.tabSection}  value={value} index={2}>
         <div className = {style.sectionRoot}>
            {contentTop}
          </div>  
@@ -152,8 +164,9 @@ const useStyles = makeStyles((theme) => ({
 
 const mapStateToProps = state => {
   return {
-    videoList: state.mainPage.videoList
+    videoList: state.mainPage.videoList,
+    valueLevel: state.lessonsPage.valueLevel
   }
 }
 
-export default connect(mapStateToProps, {})(VideoMode) 
+export default connect(mapStateToProps, {setValue})(VideoMode) 
