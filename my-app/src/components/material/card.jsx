@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import success from '../images/sukses.jpg'
 
 
 
@@ -18,16 +17,17 @@ export default function MediaCard({width, height, content,  callback, cardHeight
       maxWidth: width,
       maxHeight: cardHeight,
       marginRight: '20px',
-      marginBottom: '20px'
+      marginBottom: '20px',
+      width: '100%'
     },
     media: {
       height: height,
     },
   });
 const startFunction = () => {
-  callback()
-  choiceVideo()
-  setValueTwo()
+ if(callback) callback()
+ if(choiceVideo) choiceVideo()
+ if(setValueTwo) setValueTwo()
 }
   const classes = useStyles();
 
