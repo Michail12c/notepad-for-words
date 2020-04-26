@@ -54,9 +54,9 @@ const CollectorListsMode = ({choiceList, setStatusMode, translateList}) => {
   }
 
   return(
-    <div>
+    <div >
      <ChoiceWords listWords = {content}/> 
-     <button onClick = {() => setStatusMode(false)}>click</button>
+  {/*    <button onClick = {() => setStatusMode(false)}>click</button> */}
     </div>
   )
 }

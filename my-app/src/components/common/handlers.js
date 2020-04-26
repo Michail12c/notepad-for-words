@@ -19,7 +19,7 @@ export class InteractionWithLocalStorage {
       if(!statusSearch){      
       all.push(elem);
       localStorage.setItem(this.name, JSON.stringify(all)); 
-      }
+      } 
   }
 
   updateLocalStorage(setElem){
