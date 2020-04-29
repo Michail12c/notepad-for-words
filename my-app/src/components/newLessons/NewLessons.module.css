@@ -90,7 +90,13 @@
   .mainSectionTranslate{
     padding-top: 20px;
     padding-bottom: 20px;
+    position: relative;
   } 
+  .counter{  
+    position: absolute;
+    z-index: 10;
+    right: 20%;
+  }
   .listTrainee{
     display: flex;
     flex-direction: row;
@@ -119,12 +125,20 @@
     cursor: pointer; 
     font-weight: bold;
     text-transform: uppercase; 
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
- 
+ .titleMode{
+   padding-top: 40px;
+   padding-bottom: 40px;
+ }
   .controlWord span{
     font-weight: bold;
     text-transform: uppercase;
    /*  color: rgb(112, 122, 128); */
+  }
+  .startLesson{
+    font-size: 40px;
   }
 
 
@@ -136,7 +150,13 @@
 @media (max-width: 1200px) {}
 @media (max-width: 992px) {}
 @media (max-width: 768px) {
-
+ .showList{
+   flex-direction: column;
+   justify-content: center;
+ }
+ .showList span{
+  width: auto;
+ }
 }
 @media (max-width: 576px) {
   .choiceLesson img{

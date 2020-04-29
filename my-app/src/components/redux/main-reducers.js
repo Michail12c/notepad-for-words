@@ -10,10 +10,12 @@ const UPDATE_OUTPUT_ORDER = 'UPDATE-OUTPUT-ORDER';
 const UPDATE_COUNT_WORD = 'UPDATE-COUNT-WORD'; 
 const LEARNING_WORD = 'LEARNING-WORD'; 
 const ADD_VIDEO_LIST = 'ADD-VIDEO-LIST'; 
+const SET_LIST_LESSON = 'SET-LIST-LESSON'; 
 
 let initialState = {
   listWords: [],
   videoList: [],
+  listWordsNewLesson: [],
   listWordsTwo: [],
   newList: Boolean (localStorage.getItem('list')),
   listUser: '',
@@ -28,7 +30,7 @@ const mainReducer = (state = initialState, action) => {
       return{
         ...state,
         listWords: [...state.listWords, action.word ]
-      }
+      } 
     case ADD_WORD_TWO:
         return{
           ...state,
@@ -37,7 +39,11 @@ const mainReducer = (state = initialState, action) => {
     case ADD_VIDEO_LIST:
       return {
         ...state, videoList: action.list
-      }    
+      }  
+    case SET_LIST_LESSON: 
+    return {
+      ...state, listWordsNewLesson: action.list
+    }      
     case CREATE_LIST:
           return{
             ...state,
@@ -68,6 +74,7 @@ const mainReducer = (state = initialState, action) => {
 
 export const addWord = (word) => ({type: ADD_WORD, word});
 export const addVideoList = list => ({type: ADD_VIDEO_LIST, list})
+export const setListLesson = list => ({type: SET_LIST_LESSON, list})
 export const addWordTwoList = (wordTwo) => ({type: ADD_WORD_TWO, wordTwo});
 export const createList = (data) => ({type: CREATE_LIST, data });
 export const addWordListUser = (word) => ({type: ADD_WORD_LIST_USER, word});
@@ -79,8 +86,8 @@ export const initializeMain = (elem) => {
   return (dispatch) =>{
     let addLocale = new InteractionWithLocalStorage(elem);
 
-     !addLocale.keySearch('list') ? localStorage.setItem('list', '') // ініціалізаці списку 
-     : dispatch(createList(localStorage.getItem('list')));           // користувача 
+     !addLocale.keySearch('list') ? localStorage.setItem('list', '') 
+     : dispatch(createList(localStorage.getItem('list')));            
       
      if(elem === 'countWords'){
         !addLocale.keySearch('countWords') ? localStorage.setItem('countWords', '')

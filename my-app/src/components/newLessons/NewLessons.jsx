@@ -42,7 +42,7 @@ const BasicContent = ({setStatusContent}) => {
           <b>Переклад</b>
           <img onClick = { () => setStatusContent(2)}  src="https://cdn.mosoah.com/wp-content/uploads/2018/12/30133334/%D8%A7%D9%84%D8%B1%D8%AF-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D8%B3%D9%81%D9%8A%D9%87.jpg" alt="log"/>
           <div>
-            Перевірте свій лексичний запас вибравши вірну відповідь із 4 варіантів. 
+            Перевірте свій лексичний запас вибравши вірну відповідь із 5 варіантів. 
           </div>
         </div>
         <div className = {style.cardActive}>

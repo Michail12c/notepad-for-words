@@ -7,13 +7,13 @@ import { countWordsThunk } from '../redux/main-reducers';
 import CollectSentences from './CollectSentences';
 
 const CollectorContent = ({statusCollector, contentElement, showWords, repeatList, stateStatus, statusLesson, updateStatusCollector, countWordsThunk, addNewList, indexCard}) => {
-  if(statusLesson == 2){
+  if(statusLesson === 2){
     updateStatusCollector(1); 
   }
-  if(statusLesson == 1){
+  if(statusLesson === 1){
     updateStatusCollector(0)
   }
-  if(statusLesson == 3){
+  if(statusLesson === 3){
     updateStatusCollector(2)
   }
 
