@@ -7,15 +7,14 @@ import Flip from 'react-reveal/Flip';
 import Fade from 'react-reveal/Fade';
 import { HandlerResponse } from '../common/handlerResponse';
 import { InteractionWithLocalStorage } from '../common/handlers';
-import { setListLesson } from '../redux/main-reducers';
+import { setListLesson, countWordsThunk } from '../redux/main-reducers';
 
 
-const ChoiceWords = ({listWords}) => {
+const ChoiceWords = ({listWords, countWordsThunk}) => {
   const [statusContent, setStatusContent] = useState(false) 
-
   let helper = new InteractionWithLocalStorage('choiceWords')
   let handler = new HandlerResponse('', '')
-
+   console.log()
     if(!localStorage.getItem('choiceWords')){
       listWords.forEach(item => helper.addLocalStorage(item))
     }
@@ -27,7 +26,7 @@ const ChoiceWords = ({listWords}) => {
   const setList = () => {
     setListChanged(JSON.parse(localStorage.getItem('choiceWords')))
   }
-
+ console.log(listWords)
   const connectWithLocalSt = (elem) => {
     helper.updateLocalStorage(elem)
   }
@@ -42,7 +41,8 @@ const ChoiceWords = ({listWords}) => {
                        newMas = {newMas}
                        controlWord = {controlWord}
                        connectWithLocalSt = {connectWithLocalSt}  
-                       setList= {setList} />
+                       setList= {setList} 
+                       countWordsThunk = {countWordsThunk}/>
        } 
     </div>
   )
@@ -72,6 +72,10 @@ class ShowList extends React.Component {
   }
  }
 
+ componentWillUnmount(){
+    localStorage.removeItem('choiceWords')
+ }
+
   showList(){
      let list = <Fade top cascade><div className = {style.showList}><span ref = {this.listRefOne} key = {0} onClick = {this.choiceWordsFn} data-word= {this.state.newMas[0].translate}>{this.state.newMas[0].word}</span>
        <span ref = {this.listRefTwo} key = {1} onClick = {this.choiceWordsFn} data-word= {this.state.newMas[1].translate}>{this.state.newMas[1].word}</span>
@@ -98,7 +102,7 @@ class ShowList extends React.Component {
       }, 400)
    
     }
-    this.changeList(masRef)
+    this.changeList(masRef, statusAnswer)
     this.props.setList()
   }
   
@@ -111,7 +115,11 @@ class ShowList extends React.Component {
     this.props.setList()
   }
 
-  changeList = (arr) => {
+  changeList = (arr, value = false) => {
+    this.props.countWordsThunk('countLearningWords')
+    if(!value){
+      this.props.countWordsThunk('countWords')  
+    }
     setTimeout(() => {
       arr.forEach(item => item.current.style.backgroundColor = 'rgba(125, 183, 221, 0.5)')
       this.setState({
@@ -175,8 +183,9 @@ class ShowList extends React.Component {
 
 const  mapStateToProps = state => {
   return{
-
+   
   }
 }
 
-export default connect(mapStateToProps, {})(ChoiceWords)
+
+export default connect(mapStateToProps, {countWordsThunk})(ChoiceWords)
