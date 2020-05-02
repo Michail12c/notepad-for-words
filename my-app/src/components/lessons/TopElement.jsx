@@ -41,6 +41,8 @@ const TopElement = ({listWordsTwo, listUser, newList, updateItemList, itemList, 
 
        { listUser.length != 0 ? <div><button id= {itemList === 2 ? style.active : ''} onClick = {() => choiceList(2)}>{"Список " + newList}</button></div>: ''}
 
+    {/*    <div><button id= {itemList === 3 ? style.active : ''} onClick = {() => choiceList(3)}>{"Додаткові списки"}</button></div> */}
+
        { listWordsTwo.length === 0 ? <div>Поки що у вас мало списків. Більше списків можна створити натиснувши клавішу повторити, або перейшовши<NavLink to = {'/AddWordsForm'}>сюди</NavLink></div> : '' }
         
         <div className = {style.wrapperButtons}>

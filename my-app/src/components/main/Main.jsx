@@ -6,6 +6,7 @@ import Title from './title/Title';
 import AboutUs from './aboutUs/AboutUs';
 import Contacts from './contacts/Contacts';
 import Footer from './footer/Footer';
+import { useState } from 'react';
 
 
 const Main = ({ status, statusActive}) => {

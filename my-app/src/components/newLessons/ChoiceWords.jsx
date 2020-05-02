@@ -14,7 +14,6 @@ const ChoiceWords = ({listWords, countWordsThunk}) => {
   const [statusContent, setStatusContent] = useState(false) 
   let helper = new InteractionWithLocalStorage('choiceWords')
   let handler = new HandlerResponse('', '')
-   console.log()
     if(!localStorage.getItem('choiceWords')){
       listWords.forEach(item => helper.addLocalStorage(item))
     }
@@ -26,7 +25,6 @@ const ChoiceWords = ({listWords, countWordsThunk}) => {
   const setList = () => {
     setListChanged(JSON.parse(localStorage.getItem('choiceWords')))
   }
- console.log(listWords)
   const connectWithLocalSt = (elem) => {
     helper.updateLocalStorage(elem)
   }
@@ -66,7 +64,7 @@ class ShowList extends React.Component {
    this.listRefFive = React.createRef()
  }
  componentDidUpdate(){
-  if(this.state.counter === 6) {
+  if(this.state.counter === 11) {
     this.props.setStatusContent()
     localStorage.removeItem('choiceWords')
   }
@@ -135,7 +133,7 @@ class ShowList extends React.Component {
     return(
       <div className = {style.mainSectionTranslate}>
          <div className = {style.counter}>
-            {`${this.state.counter} з 5`}
+            {`${this.state.counter} з 10`}
          </div>
           <h4>Виберіть правильний переклад</h4>      
         {

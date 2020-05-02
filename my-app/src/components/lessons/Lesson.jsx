@@ -1,7 +1,6 @@
 import React from 'react';
 import style from './Lesson.module.css';
 import Card from '../card/Card';
-/* import Card2 from '../card/Card2'; */
 import TopSection from '../top_section/TopSection';
 import TopElement from './TopElement';
 import Explication from './Explication';

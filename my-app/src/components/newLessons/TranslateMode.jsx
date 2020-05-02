@@ -35,19 +35,19 @@ const CollectorListsMode = ({choiceList, setStatusMode, translateList}) => {
   
   switch(choiceList){
     case 0: 
-      content = translateList[0]
+      content = translateList[1]
       break
     case 1: 
-      content = translateList[0]
+      content = translateList[2]
       break
   case 2:
-       content = translateList[0]
+       content = translateList[3]
        break
    case 3:
-       content = translateList[0]
+       content = translateList[4]
        break
    case 4:
-      content = translateList[0]
+      content = translateList[5]
       break 
    default:
       content = translateList[0]
